@@ -8,6 +8,7 @@ public class User {
     private String email;
     private String password;
     private boolean isAdmin;
+    private String fullName;
 
 
     public User(int id, String firstName, String otherNames, String surname, String email, String password, boolean isAdmin) {
@@ -80,8 +81,13 @@ public class User {
         isAdmin = admin;
 
     }
+     public String getFullName(){
+        return this.firstName + " " + this.surname;
+     }
 
-
+    public void setFullName() {
+        this.fullName = this.firstName + " " + this.surname;
+    }
 
     @Override
     public String toString() {

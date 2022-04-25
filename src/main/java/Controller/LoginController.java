@@ -43,7 +43,7 @@ public class LoginController extends HttpServlet {
             user = userDAO.getLogger(login.getEmail());
             session.setAttribute("email", login.getEmail());
             session.setAttribute("loggedIn", user);
-            response.sendRedirect("Dashboard");
+            response.sendRedirect("dashboard");
         }
         if(status.equals("false")){
             response.sendRedirect("index.jsp?status=false");

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name ="/dashboard")
+@WebServlet(value ="/dashboard")
 public class Dashboard extends HttpServlet {
 
 
@@ -80,7 +80,7 @@ public class Dashboard extends HttpServlet {
     private void adminDashboard(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("The Admin dashboard");
 
-        dispatcher = getServletContext().getRequestDispatcher("/UserController");
+        dispatcher = getServletContext().getRequestDispatcher("/admin");
         dispatcher.forward(request, response);
     }
 

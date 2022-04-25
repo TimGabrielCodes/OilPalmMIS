@@ -1,0 +1,5 @@
+assets/* linguist-vendored
+components/* linguist-vendored
+lib/* linguist-vendored
+pages/* linguist-vendored
+scss/* linguist-vendored

@@ -34,12 +34,12 @@ public class UserController extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action == null) {
-            action = "LIST";
+            action = "DASHBOARD";
 
         }
         switch (action) {
-            case "LIST":
-                listUsers(request, response);
+            case "VIEWPROFILE":
+                viewProfile(request, response);
                 break;
             case "ADD":
                 newUser(request, response);
@@ -64,7 +64,7 @@ public class UserController extends HttpServlet {
                 break;
 
             default:
-                listUsers(request, response);
+                dashboard(request, response);
                 break;
         }
 //processRequest(request, response);
@@ -108,7 +108,7 @@ public class UserController extends HttpServlet {
             }
         }
 
-        listUsers(request, response);
+        dashboard(request, response);
 
     }
 
@@ -122,20 +122,15 @@ public class UserController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    public void listUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    public void dashboard(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         try {
             List<User> list = userDAO.get();
             DashboardUtil util = new DashboardUtil();
-            util.setAdmin(userDAO.getAdminCount());
-            util.setManagers(userDAO.getManagerCount());
-            util.setUsers(userDAO.getUserCount());
-            util.setClerk(userDAO.getClerkCount());
-            util.setWarehouse(userDAO.getWarehouseManagerCount());
-
             request.setAttribute("list", list);
             request.setAttribute("util", util);
-            request.setAttribute("title", "Users");
-            dispatcher = request.getRequestDispatcher("/Views/Admin/user_list.jsp");
+            request.setAttribute("title", "Admin Dashboard");
+            System.out.println("Going to admin dashboard");
+            dispatcher = request.getRequestDispatcher("/Views/Admin/dashboard.jsp");
             dispatcher.forward(request, response);
         } catch (IOException ex) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
@@ -176,7 +171,7 @@ public class UserController extends HttpServlet {
             request.setAttribute("message", "User Deleted!");
 
         }
-        listUsers(request, response);
+        dashboard(request, response);
 
     }
     public void newUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
@@ -255,6 +250,47 @@ public class UserController extends HttpServlet {
             dispatcher.forward(request, response);
         } catch (IOException ex) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void viewProfile(HttpServletRequest request, HttpServletResponse response){
+        try {
+            System.out.println("the page");
+            User user = userDAO.getLogger((String) request.getSession().getAttribute("email"));
+            user.setFullName();
+        request.setAttribute("user", user);
+        dispatcher = request.getRequestDispatcher("/Views/Admin/page-settings.jsp");
+
+            dispatcher.forward(request, response);
+            System.out.println("done");
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void listUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+        try {
+            User user = userDAO.getLogger((String) request.getSession().getAttribute("email"));
+            // List<Product> list = productDAO.get();
+//            ProductDAO pr = new ProductDAOImpl();
+            UserDAO us = new UserDAOImpl();
+//            int productCount= pr.countProducts();
+//            int transCount = us.getTransactionCount(user.getFullName());
+//            int products =  us.getProductCount(user.getUser_id());
+//            List<Transaction> list = productDAO.getUserTransactions(user.getFullName());
+
+//            request.setAttribute("list", list);
+//
+//            request.setAttribute("stockCount", productCount);
+//            request.setAttribute("transCount", transCount);
+//            request.setAttribute("products", products);
+//            request.setAttribute("list", list);
+            request.setAttribute("title", "Dashboard");
+            dispatcher = request.getRequestDispatcher("/Views/Clerk/dashboard.jsp");
+            dispatcher.forward(request, response);
+        } catch (IOException ex) {
+//            Logger.getLogger(StockController.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
 }
