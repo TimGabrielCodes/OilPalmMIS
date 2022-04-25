@@ -9,6 +9,7 @@ public class User {
     private String password;
     private boolean isAdmin;
 
+
     public User(int id, String firstName, String otherNames, String surname, String email, String password, boolean isAdmin) {
         this.id = id;
         this.firstName = firstName;
@@ -17,6 +18,10 @@ public class User {
         this.email = email;
         this.password = password;
         this.isAdmin = isAdmin;
+    }
+
+    public User(){
+
     }
 
     public int getId() {
@@ -73,7 +78,10 @@ public class User {
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
+
     }
+
+
 
     @Override
     public String toString() {
