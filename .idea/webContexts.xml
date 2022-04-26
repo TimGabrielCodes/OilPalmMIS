@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/web/Views/Admin/AdminHeader.jsp" value="file://$PROJECT_DIR$/web/Views/Admin" />
+        <entry key="file://$PROJECT_DIR$/web/Views/Admin/page-settings.jsp" value="file://$PROJECT_DIR$/web/Views/Admin" />
       </map>
     </option>
   </component>

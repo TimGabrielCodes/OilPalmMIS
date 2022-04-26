@@ -127,30 +127,86 @@
                   <hr>
                   <div class="form-settings">
                     <div class="form-group">
-                      <label class="form-label">Change Old Password</label>
-                      <input type="text" class="form-control" placeholder="Enter your old password">
-                      <input type="text" class="form-control mg-t-5" placeholder="New password">
-                      <input type="text" class="form-control mg-t-5" placeholder="Confirm new password">
-                    </div><!-- form-group -->
+                        <form name="changePasswordForm" method="post" action="/changePassword" onsubmit="return validateForm()">
+                            <label class="form-label">Change Old Password</label>
+                            <input type="hidden" name="oldPw" id="oldPw" value="${user.password}">
+                            <input type="password" class="form-control" id="oldPassword" placeholder="Enter your old password" name="oldPassword">
+                            <input type="password" class="form-control mg-t-5" id="newPassword1" placeholder="New password" name="newPassword1">
+                            <input type="password" class="form-control mg-t-5" id="newPassword2" placeholder="Confirm new password" name="newPassword2">
+                     form-group -->
+
+                      <hr>
+
+                      <div class="form-group">
+                          <label class="form-label" id="blankMsg"></label>
+                          <button type="submit"  class="btn btn-brand-02 tx-sm">Change Password</button>
+                          <%--                      <div class="tx-11 tx-sans tx-color-04 mg-t-7">Two-factor authentication adds an additional layer of security to your account by requiring more than just a password to log in.</div>--%>
+
+                          </form>
+                    </div><!--
+  </div>
+
 
                     <hr>
 
-                    <div class="form-group">
-                      <label class="form-label">Two Factor Authentication</label>
-                      <button class="btn btn-brand-02 tx-sm">Enable two-factor authentication</button>
-                      <div class="tx-11 tx-sans tx-color-04 mg-t-7">Two-factor authentication adds an additional layer of security to your account by requiring more than just a password to log in.</div>
-                    </div><!-- form-group -->
-
-                    <hr>
 
 
-                  </div><!-- form-settings -->
-                </div><!-- tab-pane -->
+                </div>
+                <!-- tab-pane -->
               </div><!-- tab-content -->
             </div><!-- card -->
           </div><!-- col -->
         </div><!-- row -->
       </div><!-- content-body -->
     </div><!-- content -->
+
+<script>
+    function validateForm() {
+        console.log("Funcetion called");
+        //collect form data in JavaScript variables
+        const oldPw = document.getElementById("oldPw").value;
+        const pw1 = document.getElementById("newPassword1").value;
+        const pw2 = document.getElementById("newPassword2").value;
+
+
+        if(!(oldPw == document.getElementsByName("oldPw")) || oldPw == "") {
+            document.getElementById("blankMsg").innerHTML = "**Invalid Old Password";
+            return false;
+        }
+                //check empty password field
+        if(pw1 == "") {
+            document.getElementById("message1").innerHTML = "**Fill the password please!";
+            return false;
+        }
+
+        //check empty confirm password field
+        if(pw2 == "") {
+            document.getElementById("message2").innerHTML = "**Enter the password please!";
+            return false;
+        }
+
+        //minimum password length validation
+        if(pw1.length < 8) {
+            document.getElementById("message1").innerHTML = "**Password length must be atleast 8 characters";
+            return false;
+        }
+
+        //maximum length of password validation
+        if(pw1.length > 15) {
+            document.getElementById("message1").innerHTML = "**Password length must not exceed 15 characters";
+            return false;
+        }
+
+        if(pw1 != pw2) {
+            document.getElementById("message2").innerHTML = "**Passwords are not same";
+            return false;
+        } else {
+
+            alert ("Your password created successfully");
+            document.write("JavaScript form has been submitted successfully");
+            return true;
+        }
+    }
+</script>
 
    <%@include file="AdminFooter.jsp"%>
