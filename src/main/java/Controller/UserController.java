@@ -129,7 +129,7 @@ public class UserController extends HttpServlet {
             request.setAttribute("list", list);
             request.setAttribute("util", util);
             request.setAttribute("title", "Admin Dashboard");
-            System.out.println("Going to admin dashboard");
+            //System.out.println("Going to admin dashboard");
             dispatcher = request.getRequestDispatcher("/Views/Admin/dashboard.jsp");
             dispatcher.forward(request, response);
         } catch (IOException ex) {
@@ -142,7 +142,7 @@ public class UserController extends HttpServlet {
     public void getSingleUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 
-        System.out.println("get single User");
+        //System.out.println("get single User");
         DashboardUtil util = new DashboardUtil();
         util.setAdmin(userDAO.getAdminCount());
         util.setManagers(userDAO.getManagerCount());
@@ -152,7 +152,7 @@ public class UserController extends HttpServlet {
         request.setAttribute("util", util);
         String id = request.getParameter("id");
         User user = userDAO.get(Integer.parseInt(id));
-        System.out.println("This is the user that we want to edit: " + user.toString());
+        //System.out.println("This is the user that we want to edit: " + user.toString());
         request.setAttribute("title", "Edit User");
         request.setAttribute("user", user);
         dispatcher = request.getRequestDispatcher("/Views/Admin/add_user.jsp");
@@ -176,18 +176,21 @@ public class UserController extends HttpServlet {
     }
     public void newUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 
-        System.out.println("Add new user to database "
-                + "MySQL and Postgresql");
-        DashboardUtil util = new DashboardUtil();
-        util.setAdmin(userDAO.getAdminCount());
-        util.setManagers(userDAO.getManagerCount());
-        util.setUsers(userDAO.getUserCount());
-        util.setClerk(userDAO.getClerkCount());
-        util.setWarehouse(userDAO.getWarehouseManagerCount());
-        request.setAttribute("util", util);
-        request.setAttribute("title", "Create New User");
-        dispatcher = request.getRequestDispatcher("/Views/Admin/add_user.jsp");
-        dispatcher.forward(request, response);
+        try {
+            //System.out.println("the page");
+            User user = userDAO.getLogger((String) request.getSession().getAttribute("email"));
+            user.setFullName();
+            request.setAttribute("user", user);
+            request.setAttribute("title", "Create new User");
+            dispatcher = request.getRequestDispatcher("/Views/Admin/AddUser.jsp");
+
+            dispatcher.forward(request, response);
+            //System.out.println("done");
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -254,14 +257,14 @@ public class UserController extends HttpServlet {
     }
     public void viewProfile(HttpServletRequest request, HttpServletResponse response){
         try {
-            System.out.println("the page");
+            //System.out.println("the page");
             User user = userDAO.getLogger((String) request.getSession().getAttribute("email"));
             user.setFullName();
         request.setAttribute("user", user);
         dispatcher = request.getRequestDispatcher("/Views/Admin/page-settings.jsp");
 
             dispatcher.forward(request, response);
-            System.out.println("done");
+            //System.out.println("done");
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

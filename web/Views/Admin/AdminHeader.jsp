@@ -124,7 +124,7 @@
                 <a href="" class="nav-link with-sub"><i data-feather="user"></i> Users</a>
                 <nav class="nav nav-sub">
                     <a href="#" class="nav-sub-link">All Users</a>
-                    <a href="#" class="nav-sub-link">Add Users</a>
+                    <a href="${pageContext.request.contextPath}/admin?action=ADD"  class="nav-sub-link">Add Users</a>
 <%--                    <a href="page-people.html" class="nav-sub-link">People</a>--%>
 <%--                    <a href="page-settings.html" class="nav-sub-link">Profile Settings</a>--%>
                 </nav>
