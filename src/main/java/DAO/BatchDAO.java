@@ -18,4 +18,6 @@ public interface BatchDAO {
     boolean delete(int id);
 
 
+
+
 }

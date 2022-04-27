@@ -4,22 +4,23 @@ import java.sql.Date;
 
 public class Batch {
     private int id;
+    private String batchName;
     private int batchMonth;
-    private int harvestStock;
-    private double harvestStockCost;
-    private int numberOfPresses;
-    private Date millingDate;
+    private Date batchDate;
+    private User logger;
 
     public Batch() {
     }
 
-    public Batch(int id, int batchMonth, int harvestStock, double harvestStockCost, int numberOfPresses, Date millingDate) {
-        this.id = id;
-        this.batchMonth = batchMonth;
-        this.harvestStock = harvestStock;
-        this.harvestStockCost = harvestStockCost;
-        this.numberOfPresses = numberOfPresses;
-        this.millingDate = millingDate;
+    @Override
+    public String toString() {
+        return "Batch{" +
+                "id=" + id +
+                ", batchName='" + batchName + '\'' +
+                ", batchMonth=" + batchMonth +
+                ", batchDate=" + batchDate +
+                ", logger=" + logger +
+                '}';
     }
 
     public int getId() {
@@ -30,6 +31,14 @@ public class Batch {
         this.id = id;
     }
 
+    public String getBatchName() {
+        return batchName;
+    }
+
+    public void setBatchName(String batchName) {
+        this.batchName = batchName;
+    }
+
     public int getBatchMonth() {
         return batchMonth;
     }
@@ -38,47 +47,19 @@ public class Batch {
         this.batchMonth = batchMonth;
     }
 
-    public int getHarvestStock() {
-        return harvestStock;
+    public Date getBatchDate() {
+        return batchDate;
     }
 
-    public void setHarvestStock(int harvestStock) {
-        this.harvestStock = harvestStock;
+    public void setBatchDate(Date batchDate) {
+        this.batchDate = batchDate;
     }
 
-    public double getHarvestStockCost() {
-        return harvestStockCost;
+    public User getLogger() {
+        return logger;
     }
 
-    public void setHarvestStockCost(double harvestStockCost) {
-        this.harvestStockCost = harvestStockCost;
-    }
-
-    public int getNumberOfPresses() {
-        return numberOfPresses;
-    }
-
-    public void setNumberOfPresses(int numberOfPresses) {
-        this.numberOfPresses = numberOfPresses;
-    }
-
-    public Date getMillingDate() {
-        return millingDate;
-    }
-
-    public void setMillingDate(Date millingDate) {
-        this.millingDate = millingDate;
-    }
-
-    @Override
-    public String toString() {
-        return "Batch{" +
-                "id=" + id +
-                ", batchMonth=" + batchMonth +
-                ", harvestStock=" + harvestStock +
-                ", harvestStockCost=" + harvestStockCost +
-                ", numberOfPresses=" + numberOfPresses +
-                ", millingDate=" + millingDate +
-                '}';
+    public void setLogger(User logger) {
+        this.logger = logger;
     }
 }

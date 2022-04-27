@@ -172,7 +172,6 @@ public class UserController extends HttpServlet {
             dispatcher = request.getRequestDispatcher("/Views/Admin/AddBatch.jsp");
 
             dispatcher.forward(request, response);
-            //System.out.println("done");
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

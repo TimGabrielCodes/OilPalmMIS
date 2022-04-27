@@ -33,11 +33,10 @@ public class BatchDAOImpl implements BatchDAO{
                 batch = new Batch();
                 //  batch.setRole(resultSet.getString("role"));
 batch.setId(resultSet.getInt("id"));
+batch.setBatchName(resultSet.getString("batchName"));
 batch.setBatchMonth(resultSet.getInt("batchMonth"));
-batch.setHarvestStock(resultSet.getInt("harvestStock"));
-batch.setHarvestStockCost(resultSet.getDouble("harvestStockCost"));
-batch.setNumberOfPresses(resultSet.getInt("numberOfPresses"));
-batch.setMillingDate(resultSet.getDate("millingDate"));
+batch.setBatchDate(resultSet.getDate("batchDate"));
+batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
 
 
 
@@ -64,8 +63,10 @@ batch.setMillingDate(resultSet.getDate("millingDate"));
         try {
 
 
-            String sql = "insert into batch(batchMonth, harvestStock, harvestStockCost, numberOfPresses, millingDate) "
-                    + "values(" +batch.getBatchMonth() + "," + batch.getHarvestStock() + "," + batch.getHarvestStockCost() + "," + batch.getNumberOfPresses() + "," + batch.getMillingDate() + ")";
+
+
+            String sql = "insert into batch(batchName, batchMonth, batchDate, logger) "
+                    + "values('" + batch.getBatchName()+ "', " +batch.getBatchMonth() + ",'" + batch.getBatchDate() + "'," + batch.getLogger().getId()+ ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -93,11 +94,11 @@ batch.setMillingDate(resultSet.getDate("millingDate"));
 
             while (resultSet.next()) {
                 batch.setId(resultSet.getInt("id"));
+                batch.setBatchName(resultSet.getString("batchName"));
                 batch.setBatchMonth(resultSet.getInt("batchMonth"));
-                batch.setHarvestStock(resultSet.getInt("harvestStock"));
-                batch.setHarvestStockCost(resultSet.getDouble("harvestStockCost"));
-                batch.setNumberOfPresses(resultSet.getInt("numberOfPresses"));
-                batch.setMillingDate(resultSet.getDate("millingDate"));
+                batch.setBatchDate(resultSet.getDate("batchDate"));
+                batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
+
 
             }
 
@@ -116,7 +117,7 @@ batch.setMillingDate(resultSet.getDate("millingDate"));
         boolean flag = false;
 
         try {
-            String sql = "update batch set batchMonth=" + batch.getBatchMonth() + ", harvestStock=" + batch.getHarvestStock() + ", harvestStockCost =" + batch.getHarvestStockCost() + ", numberOfPresses= " + batch.getNumberOfPresses()+ ", millingDate="  + batch.getMillingDate() +" where id=" + batch.getId() ;
+            String sql = "update batch set batchName="+ batch.getBatchName()+"batchMonth=" + batch.getBatchMonth() + ",batchDate=" + batch.getBatchDate() + ",logger =" + batch.getLogger().getId()  +" where id=" + batch.getId() ;
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();
