@@ -41,27 +41,15 @@ public class UserController extends HttpServlet {
             case "VIEWPROFILE":
                 viewProfile(request, response);
                 break;
-            case "ADD":
-                newUser(request, response);
+            case "ADDBATCH":
+                newBatch(request, response);
                 break;
 
             case "EDIT":
                 getSingleUser(request, response);
                 break;
 
-            case "DELETE":
-                deleteUser(request, response);
-                break;
-            case "MANAGERS":
-                listManagers(request, response);
-                break;
-            case "WAREHOUSE":
-                listWarehouseManagers(request, response);
-                break;
 
-            case "CLERKS":
-                listClerks(request, response);
-                break;
 
             default:
                 dashboard(request, response);
@@ -174,15 +162,14 @@ public class UserController extends HttpServlet {
         dashboard(request, response);
 
     }
-    public void newUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+    public void newBatch(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 
         try {
-            //System.out.println("the page");
             User user = userDAO.getLogger((String) request.getSession().getAttribute("email"));
             user.setFullName();
             request.setAttribute("user", user);
-            request.setAttribute("title", "Create new User");
-            dispatcher = request.getRequestDispatcher("/Views/Admin/AddUser.jsp");
+            request.setAttribute("title", "Create new Batch");
+            dispatcher = request.getRequestDispatcher("/Views/Admin/AddBatch.jsp");
 
             dispatcher.forward(request, response);
             //System.out.println("done");
@@ -260,6 +247,7 @@ public class UserController extends HttpServlet {
             //System.out.println("the page");
             User user = userDAO.getLogger((String) request.getSession().getAttribute("email"));
             user.setFullName();
+            request.setAttribute("title", "Profile Settings");
         request.setAttribute("user", user);
         dispatcher = request.getRequestDispatcher("/Views/Admin/page-settings.jsp");
 

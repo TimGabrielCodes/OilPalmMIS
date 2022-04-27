@@ -133,7 +133,7 @@
                             <input type="password" class="form-control" id="oldPassword" placeholder="Enter your old password" name="oldPassword">
                             <input type="password" class="form-control mg-t-5" id="newPassword1" placeholder="New password" name="newPassword1">
                             <input type="password" class="form-control mg-t-5" id="newPassword2" placeholder="Confirm new password" name="newPassword2">
-                     form-group -->
+<%--                     form-group -->--%>
 
                       <hr>
 

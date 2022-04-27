@@ -107,7 +107,6 @@ batch.setMillingDate(resultSet.getDate("millingDate"));
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(BatchDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //System.out.println(batch.toString());
         return batch;
     }
 

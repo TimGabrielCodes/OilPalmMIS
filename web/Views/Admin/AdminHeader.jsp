@@ -88,6 +88,14 @@
                 </nav>
             </li>
             <li class="nav-item">
+                <a href="" class="nav-link with-sub"><i data-feather="layout"></i> Batches</a>
+                <nav class="nav nav-sub">
+                    <a href="/admin?action=ADDBATCH" class="nav-sub-link">Create Batch</a>
+                    <a href="/admin?action=BATCHES" class="nav-sub-link">View Batches</a>
+<%--                    <a href="#" class="nav-sub-link">Analytics</a>--%>
+                </nav>
+            </li>
+            <li class="nav-item">
                 <a href="" class="nav-link with-sub"><i data-feather="layout"></i> Mills</a>
                 <nav class="nav nav-sub">
                     <a href="#" class="nav-sub-link">Document Milling Activity</a>
