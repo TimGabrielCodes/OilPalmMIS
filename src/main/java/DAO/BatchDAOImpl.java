@@ -34,7 +34,7 @@ public class BatchDAOImpl implements BatchDAO{
                 //  batch.setRole(resultSet.getString("role"));
 batch.setId(resultSet.getInt("id"));
 batch.setBatchName(resultSet.getString("batchName"));
-batch.setBatchMonth(resultSet.getInt("batchMonth"));
+batch.setBatchMonth(resultSet.getString("batchMonth"));
 batch.setBatchDate(resultSet.getDate("batchDate"));
 batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
 
@@ -66,7 +66,7 @@ batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
 
 
             String sql = "insert into batch(batchName, batchMonth, batchDate, logger) "
-                    + "values('" + batch.getBatchName()+ "', " +batch.getBatchMonth() + ",'" + batch.getBatchDate() + "'," + batch.getLogger().getId()+ ")";
+                    + "values('" + batch.getBatchName()+ "', '" +batch.getBatchMonth() + "','" + batch.getBatchDate() + "'," + batch.getLogger().getId()+ ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -87,7 +87,7 @@ batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
         Batch batch = null;
         try {
             batch = new Batch();
-            String sql = "SELECT * FROM batch  WHERE batch_id=" + id;
+            String sql = "SELECT * FROM batch  WHERE id=" + id;
             connection = DBConnectionUtil.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
@@ -95,7 +95,7 @@ batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
             while (resultSet.next()) {
                 batch.setId(resultSet.getInt("id"));
                 batch.setBatchName(resultSet.getString("batchName"));
-                batch.setBatchMonth(resultSet.getInt("batchMonth"));
+                batch.setBatchMonth(resultSet.getString("batchMonth"));
                 batch.setBatchDate(resultSet.getDate("batchDate"));
                 batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
 
@@ -135,7 +135,7 @@ batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
     public boolean delete(int id) {
         boolean flag = false;
         try {
-            String sql = "DELETE FROM batch WHERE batch_id=" + id;
+            String sql = "DELETE FROM batch WHERE id=" + id;
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();

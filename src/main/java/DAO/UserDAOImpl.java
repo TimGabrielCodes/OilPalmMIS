@@ -114,7 +114,7 @@ public class UserDAOImpl implements UserDAO{
         User user = null;
         try {
             user = new User();
-            String sql = "SELECT * FROM user  WHERE user_id=" + id;
+            String sql = "SELECT * FROM user  WHERE id=" + id;
             connection = DBConnectionUtil.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);

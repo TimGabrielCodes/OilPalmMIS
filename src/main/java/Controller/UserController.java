@@ -41,9 +41,7 @@ public class UserController extends HttpServlet {
             case "VIEWPROFILE":
                 viewProfile(request, response);
                 break;
-            case "ADDBATCH":
-                newBatch(request, response);
-                break;
+
 
             case "EDIT":
                 getSingleUser(request, response);
@@ -162,23 +160,7 @@ public class UserController extends HttpServlet {
         dashboard(request, response);
 
     }
-    public void newBatch(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 
-        try {
-            User user = userDAO.getLogger((String) request.getSession().getAttribute("email"));
-            user.setFullName();
-            request.setAttribute("user", user);
-            request.setAttribute("title", "Create new Batch");
-            dispatcher = request.getRequestDispatcher("/Views/Admin/AddBatch.jsp");
-
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     private void listWarehouseManagers(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         try {

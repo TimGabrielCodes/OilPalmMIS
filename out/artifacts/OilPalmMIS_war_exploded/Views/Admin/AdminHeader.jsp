@@ -9,6 +9,9 @@
 
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 
 <%!
     String email;
@@ -90,8 +93,8 @@
             <li class="nav-item">
                 <a href="" class="nav-link with-sub"><i data-feather="layout"></i> Batches</a>
                 <nav class="nav nav-sub">
-                    <a href="${pageContext.request.contextPath}/admin?action=ADDBATCH" class="nav-sub-link">Create Batch</a>
-                    <a href="${pageContext.request.contextPath}/admin?action=BATCHES" class="nav-sub-link">View Batches</a>
+                    <a href="${pageContext.request.contextPath}/batches?action=ADDBATCH" class="nav-sub-link">Create Batch</a>
+                    <a href="${pageContext.request.contextPath}/batches" class="nav-sub-link">View Batches</a>
 <%--                    <a href="#" class="nav-sub-link">Analytics</a>--%>
                 </nav>
             </li>
