@@ -24,7 +24,7 @@
 
 
 
-    <table  class="table table-striped  table-bordered table-responsive table-hover" id="datatable">
+    <table  class="" id="datatable">
         <thead>
         <tr class="thead-light">
             <th>SN</th>

@@ -117,7 +117,7 @@ batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
         boolean flag = false;
 
         try {
-            String sql = "update batch set batchName="+ batch.getBatchName()+"batchMonth=" + batch.getBatchMonth() + ",batchDate=" + batch.getBatchDate() + ",logger =" + batch.getLogger().getId()  +" where id=" + batch.getId() ;
+            String sql = "update batch set batchName='"+ batch.getBatchName()+"',batchMonth='" + batch.getBatchMonth() + "',batchDate='" + batch.getBatchDate() + "',logger =" + batch.getLogger().getId()  +" where id=" + batch.getId() ;
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();

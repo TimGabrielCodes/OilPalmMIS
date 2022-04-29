@@ -66,7 +66,7 @@
     <link href="lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
     <link href="lib/jqvmap/jqvmap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <!-- template css -->
     <link rel="stylesheet" href="assets/css/cassie.css">
 </head>

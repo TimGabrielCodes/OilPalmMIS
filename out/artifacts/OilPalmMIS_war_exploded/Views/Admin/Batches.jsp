@@ -24,7 +24,7 @@
 
 
 
-    <table  class="table table-striped  table-bordered table-responsive table-hover" id="datatable">
+    <table  class="" id="datatable">
         <thead>
         <tr class="thead-light">
             <th>SN</th>
@@ -63,7 +63,7 @@
 
 
     </table>
-    <button class="btn btn-primary pull-right" onclick="window.location.href = 'batches?action=ADDBATCH'">-----</button>
+    <button class="btn btn-primary pull-right" onclick="window.location.href = 'batches?action=ADDBATCH'">View Batches</button>
     <button class="btn btn-primary pull-left " onclick="window.location.href = 'batches?action=ADDBATCH'">Add new Batch</button>
     <div>
         <p> ${message} </p>

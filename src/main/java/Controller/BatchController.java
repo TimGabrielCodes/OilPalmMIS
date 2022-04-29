@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 @WebServlet(value = "/batches")
 public class BatchController extends HttpServlet {
     BatchDAO batchDAO;
-    private UserDAO userDAO;
+    private final UserDAO userDAO;
     private RequestDispatcher dispatcher;
 
     public BatchController(){
@@ -52,6 +52,8 @@ public class BatchController extends HttpServlet {
             case "DELETE":
                 deleteBatch(request, response);
                 break;
+            case "EDIT":
+                editBatch(request, response);
 
                 default:
                     listBatches(request, response);
@@ -74,7 +76,7 @@ public class BatchController extends HttpServlet {
         batch.setLogger(logger);
         batch.setBatchDate(Date.valueOf(localDate));
         System.out.println("Date Value" + batchDate);
-        System.out.println("Batch to save" + batch.toString());
+        System.out.println("Batch to save" + batch);
         if (batchId.isEmpty()) {
             //save if
             if (batchDAO.saveBatch(batch)) {
@@ -97,7 +99,7 @@ public class BatchController extends HttpServlet {
             List<Batch> list = batchDAO.get();
 
             request.setAttribute("list", list);
-            request.setAttribute("title", "Inventory Products List");
+            request.setAttribute("title", "Batch List");
             dispatcher = request.getRequestDispatcher("/Views/Admin/Batches.jsp");
             dispatcher.forward(request, response);
         } catch (IOException ex) {
@@ -106,7 +108,7 @@ public class BatchController extends HttpServlet {
             e.printStackTrace();
         }
     }
-    public void newBatch(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+    public void newBatch(HttpServletRequest request, HttpServletResponse response) {
 
         try {
             User user = userDAO.getLogger((String) request.getSession().getAttribute("email"));
@@ -116,14 +118,12 @@ public class BatchController extends HttpServlet {
             dispatcher = request.getRequestDispatcher("/Views/Admin/AddBatch.jsp");
 
             dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
 
     }
-    public void deleteBatch(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+    public void deleteBatch(HttpServletRequest request, HttpServletResponse response) throws ServletException{
 
 
         String id = request.getParameter("id");
@@ -137,4 +137,19 @@ public class BatchController extends HttpServlet {
         listBatches(request, response);
 
     }
+    public void editBatch(HttpServletRequest request, HttpServletResponse response){
+        String id = request.getParameter("id");
+        Batch batch = batchDAO.get(Integer.parseInt(id));
+        request.setAttribute("title", "Edit Batch");
+        request.setAttribute("batch", batch);
+        dispatcher = request.getRequestDispatcher("/Views/Admin/AddBatch.jsp");
+
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

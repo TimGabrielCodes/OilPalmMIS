@@ -16,5 +16,13 @@
 <script src="assets/js/flot.sampledata.js"></script>
 <script src="assets/js/vmap.sampledata.js"></script>
 <script src="assets/js/dashboard-one.js"></script>
+<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js" charset="utf8"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#datatable").DataTable();
+    });
+</script>
 </body>
 </html>

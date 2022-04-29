@@ -23,7 +23,7 @@
     <form method="POST"  action="${pageContext.request.contextPath}/batches">
         <div class="row">
             <div class="col">
-                <input type ="text" name="batchName" value="" placeholder="Batch Name" class="form-control" required="true"><br>
+                <input type ="text" name="batchName" value="${batch.batchName}" placeholder="Batch Name" class="form-control" required="true"><br>
             </div>
 
         </div>
@@ -31,7 +31,7 @@
 
             <div class="col">
                 <label for="batchDate">Batch Date</label>
-                <input id="batchDate" type ="Date" name="batchDate" value="" placeholder="First Name" class="form-control" required="true"><br>
+                <input id="batchDate" type ="Date" name="batchDate" value="${batch.batchDate}" placeholder="First Name" class="form-control" required="true"><br>
             </div>
             <div class="col"><label for="logger">Batch Logged By:</label>
             <input type ="text"  id="logger" name="logger" value="<%out.print(getUserName());%>" placeholder="logger name" class="form-control" disabled/>
@@ -50,7 +50,7 @@
 
         <div class="row">
             <div class="col">
-                <input type="hidden" value="" name="batchId"/>
+                <input type="hidden" value="${batch.id}" name="batchId"/>
             </div>
         </div>
         </br>
