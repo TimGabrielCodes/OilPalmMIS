@@ -4,10 +4,9 @@ import java.sql.Date;
 
 public class Mill {
     private int id;
-    private Date batchDate;
-    private String batchMonth;
+    private Batch batch;
     private Integer harvestStock;
-    private Double stock_cost;
+    private Double stockCost;
     private Integer numberOfPresses;
     private Date millingDate;
 
@@ -23,20 +22,12 @@ public class Mill {
         this.id = id;
     }
 
-    public Date getBatchDate() {
-        return batchDate;
+    public Batch getBatch() {
+        return batch;
     }
 
-    public void setBatchDate(Date batchDate) {
-        this.batchDate = batchDate;
-    }
-
-    public String getBatchMonth() {
-        return batchMonth;
-    }
-
-    public void setBatchMonth(String batchMonth) {
-        this.batchMonth = batchMonth;
+    public void setBatch(Batch batch) {
+        this.batch = batch;
     }
 
     public Integer getHarvestStock() {
@@ -47,12 +38,12 @@ public class Mill {
         this.harvestStock = harvestStock;
     }
 
-    public Double getStock_cost() {
-        return stock_cost;
+    public Double getStockCost() {
+        return stockCost;
     }
 
-    public void setStock_cost(Double stock_cost) {
-        this.stock_cost = stock_cost;
+    public void setStockCost(Double stockCost) {
+        this.stockCost = stockCost;
     }
 
     public Integer getNumberOfPresses() {
@@ -75,10 +66,9 @@ public class Mill {
     public String toString() {
         return "Mill{" +
                 "id=" + id +
-                ", batchDate=" + batchDate +
-                ", batchMonth='" + batchMonth + '\'' +
+                ", batch=" + batch +
                 ", harvestStock=" + harvestStock +
-                ", stock_cost=" + stock_cost +
+                ", stock_cost=" + stockCost +
                 ", numberOfPresses=" + numberOfPresses +
                 ", millingDate=" + millingDate +
                 '}';
