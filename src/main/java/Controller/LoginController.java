@@ -35,9 +35,9 @@ public class LoginController extends HttpServlet {
 
 
         login.setPassword(request.getParameter("password"));
-        System.out.println("Logging in" +login.toString());
+//        System.out.println("Logging in" +login.toString());
         String status =  loginDAO.authenticate(login);
-        System.out.println(status);
+//        System.out.println(status);
 
         if(status.equals("true")){
             user = userDAO.getLogger(login.getEmail());

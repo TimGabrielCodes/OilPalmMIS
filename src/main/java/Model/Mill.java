@@ -9,6 +9,7 @@ public class Mill {
     private Double stockCost;
     private Integer numberOfPresses;
     private Date millingDate;
+    private User logger;
 
 
     public Mill() {
@@ -68,9 +69,20 @@ public class Mill {
                 "id=" + id +
                 ", batch=" + batch +
                 ", harvestStock=" + harvestStock +
-                ", stock_cost=" + stockCost +
+                ", stockCost=" + stockCost +
                 ", numberOfPresses=" + numberOfPresses +
                 ", millingDate=" + millingDate +
+                ", logger=" + logger +
                 '}';
     }
+
+
+    public User getLogger() {
+        return logger;
+    }
+
+    public void setLogger(User logger) {
+        this.logger = logger;
+    }
+
 }

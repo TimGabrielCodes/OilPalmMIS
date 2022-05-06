@@ -22,46 +22,18 @@ public class Dashboard extends HttpServlet {
     public Dashboard(){
         userDAO = new UserDAOImpl();
 
-
-
-
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         loggedIn = userDAO.getLogger(request.getSession().getAttribute("email").toString());
-
-//        String role = loggedIn.getRole();
-//        System.out.println("Redirecting to :" + role);
         if(loggedIn.isAdmin()){
             adminDashboard(request, response);
         } else{
             clerkDashboard(request, response);
         }
 
-
-//        switch (role) {
-//            case "Administrator":
-//                adminDashboard(request, response);
-//                break;
-//            case "Manager":
-//                managerDashboard(request, response);
-//                break;
-//
-//            case "Warehouse Manager":
-//                warehouseDashboard(request, response);
-//                break;
-//
-//            case "Clerk":
-//                clerkDashboard(request, response);
-//                break;
-//
-//            default:
-//                //listProducts(request, response);
-//                break;
-//        }
     }
     /**
      * Handles the HTTP <code>POST</code> method.

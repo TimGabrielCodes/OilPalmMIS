@@ -62,4 +62,8 @@ public class Batch {
     public void setLogger(User logger) {
         this.logger = logger;
     }
+
+
+
+
 }

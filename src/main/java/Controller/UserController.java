@@ -21,12 +21,9 @@ import java.util.logging.Logger;
 public class UserController extends HttpServlet {
     UserDAO userDAO = null;
     RequestDispatcher dispatcher = null;
-
     public UserController() {
         userDAO = new UserDAOImpl();
     }
-
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -53,7 +50,6 @@ public class UserController extends HttpServlet {
                 dashboard(request, response);
                 break;
         }
-//processRequest(request, response);
     }
 
     @Override
@@ -115,7 +111,6 @@ public class UserController extends HttpServlet {
             request.setAttribute("list", list);
             request.setAttribute("util", util);
             request.setAttribute("title", "Admin Dashboard");
-            //System.out.println("Going to admin dashboard");
             dispatcher = request.getRequestDispatcher("/Views/Admin/dashboard.jsp");
             dispatcher.forward(request, response);
         } catch (IOException ex) {
@@ -128,7 +123,6 @@ public class UserController extends HttpServlet {
     public void getSingleUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 
-        //System.out.println("get single User");
         DashboardUtil util = new DashboardUtil();
         util.setAdmin(userDAO.getAdminCount());
         util.setManagers(userDAO.getManagerCount());
@@ -138,7 +132,6 @@ public class UserController extends HttpServlet {
         request.setAttribute("util", util);
         String id = request.getParameter("id");
         User user = userDAO.get(Integer.parseInt(id));
-        //System.out.println("This is the user that we want to edit: " + user.toString());
         request.setAttribute("title", "Edit User");
         request.setAttribute("user", user);
         dispatcher = request.getRequestDispatcher("/Views/Admin/add_user.jsp");
@@ -243,25 +236,11 @@ public class UserController extends HttpServlet {
     public void listUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         try {
             User user = userDAO.getLogger((String) request.getSession().getAttribute("email"));
-            // List<Product> list = productDAO.get();
-//            ProductDAO pr = new ProductDAOImpl();
             UserDAO us = new UserDAOImpl();
-//            int productCount= pr.countProducts();
-//            int transCount = us.getTransactionCount(user.getFullName());
-//            int products =  us.getProductCount(user.getUser_id());
-//            List<Transaction> list = productDAO.getUserTransactions(user.getFullName());
-
-//            request.setAttribute("list", list);
-//
-//            request.setAttribute("stockCount", productCount);
-//            request.setAttribute("transCount", transCount);
-//            request.setAttribute("products", products);
-//            request.setAttribute("list", list);
             request.setAttribute("title", "Dashboard");
             dispatcher = request.getRequestDispatcher("/Views/Clerk/dashboard.jsp");
             dispatcher.forward(request, response);
         } catch (IOException ex) {
-//            Logger.getLogger(StockController.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         }
     }

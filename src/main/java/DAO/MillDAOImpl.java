@@ -50,6 +50,7 @@ public class MillDAOImpl implements MillDAO {
         mill.setStockCost(resultSet.getDouble("stockCost"));
         mill.setNumberOfPresses(resultSet.getInt("numberOfPresses"));
         mill.setMillingDate(resultSet.getDate("millingDate"));
+        mill.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
     }
 
 
@@ -59,8 +60,8 @@ public class MillDAOImpl implements MillDAO {
         try {
 
 
-            String sql = "insert into mill(batch, harvestStock, stockCost, numberOfPresses, millingDate) "
-                    + "values(" + mill.getBatch().getId() + ", " + mill.getHarvestStock() + "," + mill.getStockCost() + "," + mill.getNumberOfPresses() + ","+ mill.getMillingDate() + ")";
+            String sql = "insert into mill(batch, harvestStock, stockCost, numberOfPresses, millingDate, logger) "
+                    + "values(" + mill.getBatch().getId() + ", " + mill.getHarvestStock() + "," + mill.getStockCost() + "," + mill.getNumberOfPresses() + ",'"+ mill.getMillingDate() + "', "+mill.getLogger().getId() + ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -106,10 +107,10 @@ public class MillDAOImpl implements MillDAO {
         boolean flag = false;
 
         try {
-            String sql = "update mill set batch=" + mill.getBatch().getId() + " ,harvestStock=" + mill.getHarvestStock() + ",stockCost=" + mill.getStockCost() + ",numberOfPresses =" +mill.getNumberOfPresses() + ", millingDate ="+mill.getMillingDate() +" where id=" + mill.getId();
+            String sql = "update mill set batch=" + mill.getBatch().getId() + " ,harvestStock=" + mill.getHarvestStock() + ",stockCost=" + mill.getStockCost() + ",numberOfPresses =" +mill.getNumberOfPresses() + ", millingDate ='"+mill.getMillingDate()+"', logger="+ mill.getLogger().getId() +" where id=" + mill.getId();
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
-            preparedStmt.executeUpdate();
+             preparedStmt.executeUpdate();
             flag = true;
         } catch (SQLException ex) {
             ex.printStackTrace();

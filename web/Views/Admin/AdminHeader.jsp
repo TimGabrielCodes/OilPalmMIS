@@ -101,17 +101,17 @@
             <li class="nav-item">
                 <a href="" class="nav-link with-sub"><i data-feather="layout"></i> Mills</a>
                 <nav class="nav nav-sub">
-                    <a href="#" class="nav-sub-link">Document Milling Activity</a>
-                    <a href="#" class="nav-sub-link">View Milling Activities</a>
+                    <a href="${pageContext.request.contextPath}/mills?action=ADD" class="nav-sub-link">Document Milling Activity</a>
+                    <a href="${pageContext.request.contextPath}/mills" class="nav-sub-link">View Milling Activities</a>
                     <a href="#" class="nav-sub-link">Analytics</a>
                 </nav>
             </li>
             <li class="nav-item">
                 <a href="" class="nav-link with-sub"><i data-feather="lock"></i> Harvests</a>
                 <nav class="nav nav-sub">
-                    <a href="#" class="nav-sub-link"></a>
-                    <a href="#" class="nav-sub-link">Sign Up</a>
-                    <a href="#" class="nav-sub-link">Forgot Password</a>
+                    <a href="#" class="nav-sub-link">Document Harvests</a>
+                    <a href="#" class="nav-sub-link">View Harvests</a>
+
                 </nav>
             </li>
             <li class="nav-item">

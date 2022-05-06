@@ -1,7 +1,6 @@
 package DAO;
 
 import Model.Batch;
-import Model.Vendor;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -16,6 +15,8 @@ public interface BatchDAO {
     boolean updateBatch(Batch batch);
 
     boolean delete(int id);
+
+    Batch get(String name);
 
 
 
