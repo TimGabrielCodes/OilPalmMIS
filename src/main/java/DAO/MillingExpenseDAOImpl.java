@@ -72,7 +72,7 @@ public class MillingExpenseDAOImpl implements MillingExpenseDAO{
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(MillDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MillingExpenseDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();
@@ -103,7 +103,7 @@ public class MillingExpenseDAOImpl implements MillingExpenseDAO{
             e.printStackTrace();
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MillDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MillingExpenseDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return millingExpense;
     }
@@ -125,13 +125,26 @@ public class MillingExpenseDAOImpl implements MillingExpenseDAO{
         } catch (SQLException ex) {
             ex.printStackTrace();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MillDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MillingExpenseDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
     }
 
     @Override
     public boolean delete(int id) {
-        return false;
+        boolean flag = false;
+        try {
+            String sql = "DELETE FROM millingExpense WHERE id=" + id;
+            connection = DBConnectionUtil.openConnection();
+            preparedStmt = connection.prepareStatement(sql);
+            preparedStmt.executeUpdate();
+            flag = true;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MillingExpenseDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
     }
 }
