@@ -47,7 +47,7 @@ public class MillDAOImpl implements MillDAO {
         mill.setId(resultSet.getInt("id"));
         mill.setBatch(new BatchDAOImpl().get(resultSet.getInt("batch")));
         mill.setHarvestStock(resultSet.getInt("harvestStock"));
-        mill.setStockCost(resultSet.getDouble("stockCost"));
+        mill.setMillingExpense(new MillingExpenseDAOImpl().get(resultSet.getInt("millingExpense")));
         mill.setNumberOfPresses(resultSet.getInt("numberOfPresses"));
         mill.setMillingDate(resultSet.getDate("millingDate"));
         mill.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
@@ -60,8 +60,8 @@ public class MillDAOImpl implements MillDAO {
         try {
 
 
-            String sql = "insert into mill(batch, harvestStock, stockCost, numberOfPresses, millingDate, logger) "
-                    + "values(" + mill.getBatch().getId() + ", " + mill.getHarvestStock() + "," + mill.getStockCost() + "," + mill.getNumberOfPresses() + ",'"+ mill.getMillingDate() + "', "+mill.getLogger().getId() + ")";
+            String sql = "insert into mill(batch, harvestStock, millingExpense, numberOfPresses, millingDate, logger) "
+                    + "values(" + mill.getBatch().getId() + ", " + mill.getHarvestStock() + "," + mill.getMillingExpense().getId() + "," + mill.getNumberOfPresses() + ",'"+ mill.getMillingDate() + "', "+mill.getLogger().getId() + ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -107,7 +107,7 @@ public class MillDAOImpl implements MillDAO {
         boolean flag = false;
 
         try {
-            String sql = "update mill set batch=" + mill.getBatch().getId() + " ,harvestStock=" + mill.getHarvestStock() + ",stockCost=" + mill.getStockCost() + ",numberOfPresses =" +mill.getNumberOfPresses() + ", millingDate ='"+mill.getMillingDate()+"', logger="+ mill.getLogger().getId() +" where id=" + mill.getId();
+            String sql = "update mill set batch=" + mill.getBatch().getId() + " ,harvestStock=" + mill.getHarvestStock() + ",millingExpense=" + mill.getMillingExpense().getId() + ",numberOfPresses =" +mill.getNumberOfPresses() + ", millingDate ='"+mill.getMillingDate()+"', logger="+ mill.getLogger().getId() +" where id=" + mill.getId();
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
              preparedStmt.executeUpdate();

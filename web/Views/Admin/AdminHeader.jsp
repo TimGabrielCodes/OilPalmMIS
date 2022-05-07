@@ -109,17 +109,16 @@
             <li class="nav-item">
                 <a href="" class="nav-link with-sub"><i data-feather="lock"></i> Harvests</a>
                 <nav class="nav nav-sub">
-                    <a href="#" class="nav-sub-link">Document Harvests</a>
-                    <a href="#" class="nav-sub-link">View Harvests</a>
-
+                    <a href="${pageContext.request.contextPath}/harvests?action=ADD" class="nav-sub-link">Document Harvests</a>
+                    <a href="${pageContext.request.contextPath}/harvests" class="nav-sub-link">View Harvests</a>
                 </nav>
             </li>
             <li class="nav-item">
                 <a href="" class="nav-link with-sub"><i data-feather="printer"></i> Transactions</a>
                 <nav class="nav nav-sub">
-                    <a href="#" class="nav-sub-link">Log Transactions</a>
-                    <a href="#" class="nav-sub-link">View Transactions</a>
-                    <a href="#" class="nav-sub-link">Income</a>
+                    <a href="${pageContext.request.contextPath}/transactions?action=ADD" class="nav-sub-link">Log Transactions</a>
+                    <a href="${pageContext.request.contextPath}/transactions" class="nav-sub-link">View Transactions</a>
+                    <a href="${pageContext.request.contextPath}/income" class="nav-sub-link">Income</a>
                     <a href="#" class="nav-sub-link">Reports</a>
                 </nav>
             </li>    <li class="nav-item">

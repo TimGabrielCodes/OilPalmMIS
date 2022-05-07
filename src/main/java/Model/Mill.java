@@ -6,10 +6,12 @@ public class Mill {
     private int id;
     private Batch batch;
     private Integer harvestStock;
-    private Double stockCost;
+
     private Integer numberOfPresses;
     private Date millingDate;
     private User logger;
+
+    private MillingExpense millingExpense;
 
 
     public Mill() {
@@ -39,13 +41,7 @@ public class Mill {
         this.harvestStock = harvestStock;
     }
 
-    public Double getStockCost() {
-        return stockCost;
-    }
 
-    public void setStockCost(Double stockCost) {
-        this.stockCost = stockCost;
-    }
 
     public Integer getNumberOfPresses() {
         return numberOfPresses;
@@ -69,11 +65,19 @@ public class Mill {
                 "id=" + id +
                 ", batch=" + batch +
                 ", harvestStock=" + harvestStock +
-                ", stockCost=" + stockCost +
                 ", numberOfPresses=" + numberOfPresses +
                 ", millingDate=" + millingDate +
                 ", logger=" + logger +
+                ", millingExpense=" + millingExpense +
                 '}';
+    }
+
+    public MillingExpense getMillingExpense() {
+        return millingExpense;
+    }
+
+    public void setMillingExpense(MillingExpense millingExpense) {
+        this.millingExpense = millingExpense;
     }
 
 
