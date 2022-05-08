@@ -11,7 +11,7 @@ public class Mill {
     private Date millingDate;
     private User logger;
 
-    private MillingExpense millingExpense;
+
 
 
     public Mill() {
@@ -68,16 +68,7 @@ public class Mill {
                 ", numberOfPresses=" + numberOfPresses +
                 ", millingDate=" + millingDate +
                 ", logger=" + logger +
-                ", millingExpense=" + millingExpense +
                 '}';
-    }
-
-    public MillingExpense getMillingExpense() {
-        return millingExpense;
-    }
-
-    public void setMillingExpense(MillingExpense millingExpense) {
-        this.millingExpense = millingExpense;
     }
 
 

@@ -30,7 +30,6 @@
             <th>SN</th>
             <th>Batch Name</th>
             <th>Harvest Stock (Bunches)</th>
-            <th>Stock Cost</th>
             <th>Number of Presses</th>
             <th>Milling Date</th>
             <th>Logger</th>
@@ -50,7 +49,6 @@
             <tr>  <td>${loop.index+1}</td>
                 <td>${mill.batch.batchName}</td>
                 <td>${mill.harvestStock}</td>
-                <td>${mill.stockCost}</td>
                 <td>${mill.numberOfPresses}</td>
                 <td>${mill.millingDate}</td>
                 <td>${mill.logger.fullName}</td>

@@ -75,7 +75,7 @@
 <div class="sidebar">
     <div class="sidebar-header">
         <div>
-            <a href="../index.html" class="sidebar-logo"><span>OPM</span></a>
+            <a href="${pageContext.request.contextPath}/dashboard" class="sidebar-logo"><span>OPM</span></a>
             <small class="sidebar-logo-headline">Oil Plantation MIS</small>
         </div>
     </div><!-- sidebar-header -->

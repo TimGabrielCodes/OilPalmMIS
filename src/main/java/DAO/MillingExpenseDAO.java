@@ -1,5 +1,6 @@
 package DAO;
 
+import Model.Mill;
 import Model.MillingExpense;
 
 import java.sql.SQLException;
@@ -11,6 +12,8 @@ public interface MillingExpenseDAO {
     boolean  saveMillingExpense(MillingExpense millingExpense);
 
     MillingExpense get(int id);
+
+    MillingExpense get(Mill mill);
 
     boolean updateMillingExpense(MillingExpense millingExpense);
 

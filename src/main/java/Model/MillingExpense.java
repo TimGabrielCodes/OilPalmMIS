@@ -1,23 +1,32 @@
 package Model;
 
-
-
 public class MillingExpense {
+
     private int id;
     private Double fuel;
     private Double storage;
-
     private Double harvestStockCost;
     private Double adhocLabour;
     private Double firewood;
     private Double fruitPurchase;
     private Double plantParts;
-    private Double others;
     private User logger;
+    private Mill mill;
 
-    private OtherExpenses otherExpenses;
-
-    public MillingExpense() {
+    @Override
+    public String toString() {
+        return "MillingExpense{" +
+                "id=" + id +
+                ", fuel=" + fuel +
+                ", storage=" + storage +
+                ", harvestStockCost=" + harvestStockCost +
+                ", adhocLabour=" + adhocLabour +
+                ", firewood=" + firewood +
+                ", fruitPurchase=" + fruitPurchase +
+                ", plantParts=" + plantParts +
+                ", logger=" + logger +
+                ", mill=" + mill +
+                '}';
     }
 
     public int getId() {
@@ -44,6 +53,14 @@ public class MillingExpense {
         this.storage = storage;
     }
 
+    public Double getHarvestStockCost() {
+        return harvestStockCost;
+    }
+
+    public void setHarvestStockCost(Double harvestStockCost) {
+        this.harvestStockCost = harvestStockCost;
+    }
+
     public Double getAdhocLabour() {
         return adhocLabour;
     }
@@ -54,39 +71,6 @@ public class MillingExpense {
 
     public Double getFirewood() {
         return firewood;
-    }
-
-    public Double getHarvestStockCost() {
-        return harvestStockCost;
-    }
-
-    public void setHarvestStockCost(Double harvestStockCost) {
-        this.harvestStockCost = harvestStockCost;
-    }
-
-    @Override
-    public String toString() {
-        return "MillingExpense{" +
-                "id=" + id +
-                ", fuel=" + fuel +
-                ", storage=" + storage +
-                ", HarvestStockCost=" + harvestStockCost +
-                ", adhocLabour=" + adhocLabour +
-                ", firewood=" + firewood +
-                ", fruitPurchase=" + fruitPurchase +
-                ", plantParts=" + plantParts +
-                ", others=" + others +
-                ", logger=" + logger +
-                ", otherExpenses=" + otherExpenses +
-                '}';
-    }
-
-    public OtherExpenses getOtherExpenses() {
-        return otherExpenses;
-    }
-
-    public void setOtherExpenses(OtherExpenses otherExpenses) {
-        this.otherExpenses = otherExpenses;
     }
 
     public void setFirewood(Double firewood) {
@@ -109,14 +93,6 @@ public class MillingExpense {
         this.plantParts = plantParts;
     }
 
-    public Double getOthers() {
-        return others;
-    }
-
-    public void setOthers(Double others) {
-        this.others = others;
-    }
-
     public User getLogger() {
         return logger;
     }
@@ -125,4 +101,14 @@ public class MillingExpense {
         this.logger = logger;
     }
 
+    public Mill getMill() {
+        return mill;
+    }
+
+    public void setMill(Mill mill) {
+        this.mill = mill;
+    }
+
+    public MillingExpense() {
+    }
 }

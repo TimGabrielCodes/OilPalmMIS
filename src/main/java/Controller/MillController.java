@@ -1,7 +1,9 @@
 package Controller;
 
 import DAO.*;
+import Model.Batch;
 import Model.Mill;
+import Model.MillingExpense;
 import Model.User;
 
 import javax.servlet.RequestDispatcher;
@@ -20,12 +22,14 @@ import java.util.logging.Logger;
 @WebServlet(value = "/mills")
 public class MillController extends HttpServlet {
     MillDAO millDAO;
-    private final UserDAO userDAO;
+    MillingExpenseDAO millingExpenseDAO;
+    private final UserDAO userDAO;;
     private RequestDispatcher dispatcher;
 
     public MillController(){
         millDAO = new MillDAOImpl();
         userDAO = new UserDAOImpl();
+        millingExpenseDAO = new MillingExpenseDAOImpl();
     }
 
     @Override
@@ -61,28 +65,63 @@ public class MillController extends HttpServlet {
         System.out.println("Post HIT");
         User logger = userDAO.getLogger((String) request.getSession().getAttribute("email"));
         String millId = request.getParameter("millId");
+        String millExpenseId = request.getParameter("millExpenseId");
         String batch = request.getParameter("batch");
         String harvestStock = request.getParameter("harvestStock");
-        String stockCost = request.getParameter("stockCost");
+
         String numberOfPresses = request.getParameter("numberOfPresses");
         String millingDate = request.getParameter("millingDate");
+//        Milling Expense Fields
+
+        String fuel = request.getParameter("fuel");
+        String storage = request.getParameter("storage");
+        String harvestStockCost = request.getParameter("harvestStockCost");
+        String adhocLabour = request.getParameter("adhocLabour");
+        String firewood = request.getParameter("firewood");
+        String fruitPurchase = request.getParameter("fruitPurchase");
+        String plantParts = request.getParameter("plantParts");
+        Batch batchObject = new BatchDAOImpl().get(batch);
+
+
+//        Create Mill Object
+
         Mill mill = new Mill();
+
+
         mill.setLogger(logger);
-        mill.setBatch( new BatchDAOImpl().get(batch));
+        mill.setBatch( batchObject);
         mill.setHarvestStock(Integer.valueOf(harvestStock));
-        mill.setStockCost(Double.valueOf(stockCost));
         mill.setNumberOfPresses(Integer.valueOf(numberOfPresses));
         mill.setMillingDate(Date.valueOf(millingDate));
+
+//        Create Milling Expense Object
+        MillingExpense millingExpense = new MillingExpense();
+        millingExpense.setFuel(Double.valueOf(fuel));
+        millingExpense.setStorage(Double.valueOf(storage));
+        millingExpense.setHarvestStockCost(Double.valueOf(harvestStockCost));
+        millingExpense.setAdhocLabour(Double.valueOf(adhocLabour));
+        millingExpense.setFirewood(Double.valueOf(firewood));
+        millingExpense.setFruitPurchase(Double.valueOf(fruitPurchase));
+        millingExpense.setPlantParts(Double.valueOf(plantParts));
+        millingExpense.setLogger(logger);
+
+
         if (millId.isEmpty()) {
             //save if
             if (millDAO.saveMill(mill)) {
-                request.setAttribute("message", "mill saved Successfully");
+                millingExpense.setMill(millDAO.get(batchObject));
+                if(millingExpenseDAO.saveMillingExpense(millingExpense)){
+                    request.setAttribute("message", "mill saved Successfully");
+                }
+
             }
         } else {
             //update
             mill.setId(Integer.parseInt(millId));
+            millingExpense.setId(Integer.parseInt(millExpenseId));
 
-            if (millDAO.updateMill(mill)) {
+
+            if (millDAO.updateMill(mill) && millingExpenseDAO.updateMillingExpense(millingExpense)) {
                 request.setAttribute("message", "Mill updated Successfully");
             }
         }
@@ -133,18 +172,20 @@ public class MillController extends HttpServlet {
         listMills(request, response);
 
     }
-    public void editMill(HttpServletRequest request, HttpServletResponse response){
+    public void editMill(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("Edit Mill");
         String id = request.getParameter("id");
         Mill mill = millDAO.get(Integer.parseInt(id));
-        request.setAttribute("title", "Edit Mill");
-        request.setAttribute("mill", mill);
-        dispatcher = request.getRequestDispatcher("/Views/Admin/AddMill.jsp");
+        MillingExpense millingExpense = millingExpenseDAO.get(mill);
 
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException | IOException e) {
-            e.printStackTrace();
-        }
+        System.out.println("Mill to edit" + mill.toString());
+        System.out.println("Milling Expense to edit" + millingExpense.toString());
+        request.setAttribute("title", "Edit Mill");
+//        request.setAttribute("millingExpense", millingExpense);
+//        request.setAttribute("mill", mill);
+        dispatcher = request.getRequestDispatcher("/Views/Admin/EditMill.jsp");
+        dispatcher.forward(request, response);
+
 
     }
 

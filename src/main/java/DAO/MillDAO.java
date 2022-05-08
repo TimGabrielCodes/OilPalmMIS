@@ -1,5 +1,6 @@
 package DAO;
 
+import Model.Batch;
 import Model.Mill;
 
 import java.sql.SQLException;
@@ -11,6 +12,8 @@ public interface MillDAO {
     boolean  saveMill(Mill mill);
 
     Mill get(int id);
+
+    Mill get(Batch batch);
 
     boolean updateMill(Mill mill);
 

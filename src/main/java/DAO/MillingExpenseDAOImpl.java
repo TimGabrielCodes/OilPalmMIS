@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import DAO.OtherExpenseDAO;
 
 public class MillingExpenseDAOImpl implements MillingExpenseDAO{
 
@@ -55,20 +54,21 @@ public class MillingExpenseDAOImpl implements MillingExpenseDAO{
         millingExpense.setFruitPurchase(resultSet.getDouble("fruitPurchase"));
         millingExpense.setPlantParts(resultSet.getDouble("plantParts"));
         millingExpense.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
-        millingExpense.setOtherExpenses(new OtherExpensesDAOImpl().get(resultSet.getInt("otherExpenses")));
+        millingExpense.setMill(new MillDAOImpl().get(resultSet.getInt("mill")));
 
 
     }
 
     @Override
     public boolean saveMillingExpense(MillingExpense millingExpense) {
+
         boolean flag = false;
         try {
 
 
-            String sql = "insert into millingExpense(fuel, storage, harvestStockCost, adhocLabour, firewood, fruitPurchase, plantParts, logger, otherExpenses) "
+            String sql = "insert into millingExpense(fuel, storage, harvestStockCost, adhocLabour, firewood, fruitPurchase, plantParts, logger, mill) "
                     + "values(" +millingExpense.getFuel() + ", " + millingExpense.getStorage() + "," + millingExpense.getHarvestStockCost() + "," + millingExpense.getAdhocLabour() + ","+ millingExpense.getFirewood()
-                    + "," +millingExpense.getFruitPurchase()+ ", "+ millingExpense.getPlantParts() + "," + millingExpense.getLogger().getId()+ "," + millingExpense.getOtherExpenses().getId() + ")";
+                    + "," +millingExpense.getFruitPurchase()+ ", "+ millingExpense.getPlantParts() + "," + millingExpense.getLogger().getId() +","+ millingExpense.getMill().getId()  + ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -90,6 +90,27 @@ public class MillingExpenseDAOImpl implements MillingExpenseDAO{
         try {
             millingExpense = new MillingExpense();
             String sql = "SELECT * FROM millingExpense  WHERE id=" + id;
+            connection = DBConnectionUtil.openConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                setMillingExpenseObject(millingExpense);
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MillingExpenseDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return millingExpense;
+    }    public MillingExpense get(Mill mill) {
+        MillingExpense millingExpense = null;
+        try {
+            millingExpense = new MillingExpense();
+            String sql = "SELECT * FROM millingExpense  WHERE mill=" + mill.getId();
             connection = DBConnectionUtil.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
