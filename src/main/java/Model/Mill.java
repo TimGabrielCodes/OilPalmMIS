@@ -11,6 +11,8 @@ public class Mill {
     private Date millingDate;
     private User logger;
 
+    private MillingExpense millingExpense;
+
 
 
 
@@ -59,18 +61,13 @@ public class Mill {
         this.millingDate = millingDate;
     }
 
-    @Override
-    public String toString() {
-        return "Mill{" +
-                "id=" + id +
-                ", batch=" + batch +
-                ", harvestStock=" + harvestStock +
-                ", numberOfPresses=" + numberOfPresses +
-                ", millingDate=" + millingDate +
-                ", logger=" + logger +
-                '}';
+    public MillingExpense getMillingExpense() {
+        return millingExpense;
     }
 
+    public void setMillingExpense(MillingExpense millingExpense) {
+        this.millingExpense = millingExpense;
+    }
 
     public User getLogger() {
         return logger;
@@ -80,4 +77,16 @@ public class Mill {
         this.logger = logger;
     }
 
+    @Override
+    public String toString() {
+        return "Mill{" +
+                "id=" + id +
+                ", batch=" + batch +
+                ", harvestStock=" + harvestStock +
+                ", numberOfPresses=" + numberOfPresses +
+                ", millingDate=" + millingDate +
+                ", logger=" + logger +
+                ", millingExpense=" + millingExpense +
+                '}';
+    }
 }

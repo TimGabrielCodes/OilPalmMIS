@@ -33,7 +33,8 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label col-form-label-lg" for="batch">Batch</label>
-                <select  id="batch" class=" form-control" name="batch" placeholder="Select Batch" data-value="${mill.batch}" required>
+                <select id="batch" class=" form-control" name="batch" placeholder="Select Batch"
+                        data-value="${mill.batch}" required>
                     <option value="${mill.batch}" selected="selected">-- Select Batch --</option>
                     <% try {
                         String query = "select * from batch order by batchName";
@@ -65,10 +66,10 @@
                        class="form-control" required="true" min="0"><br>
             </div>
             <div class="col">
-            <label class="col-form-label col-form-label-lg" for="numberOfPresses">Number of Presses</label>
-            <input type="text" id="numberOfPresses" name="numberOfPresses" value="${mill.numberOfPresses}"
-                   class="form-control"/>
-        </div>
+                <label class="col-form-label col-form-label-lg" for="numberOfPresses">Number of Presses</label>
+                <input type="text" id="numberOfPresses" name="numberOfPresses" value="${mill.numberOfPresses}"
+                       class="form-control"/>
+            </div>
 
         </div>
 
@@ -77,73 +78,83 @@
 
             <div class="col">
                 <label class="col-form-label col-form-label-lg" for="millingDate">Milling Date</label>
-                <input type="date" id="millingDate" name="millingDate" value="${mill.millingDate}" class="form-control" >
+                <input type="date" id="millingDate" name="millingDate" value="${mill.millingDate}" class="form-control">
             </div>
             <div class="col">
                 <label class="col-form-label col-form-label-lg" for="logger">Mill Logged By:</label>
-                <input type ="text"  id="logger" name="logger" value="<%out.print(getUserName());%>" placeholder="logger name" class="form-control" disabled/>
+                <input type="text" id="logger" name="logger" value="<%out.print(getUserName());%>"
+                       placeholder="logger name" class="form-control" disabled/>
             </div>
         </div>
-
         <hr>
         <h3>Milling Expenses</h3>
 
         <div class="row">
             <div class="col">
                 <label class="col-form-label col-form-label-lg" for="fuel">Fuel <span>(&#8358;)</span></label>
-                <input id="fuel" type="number" name="fuel" value="${millingExpense.fuel}"
+                <input id="fuel" type="number" name="fuel" value="${mill.millingExpense.fuel}"
                        class="form-control" required="true" min="0" step=".01"><br>
             </div>
             <div class="col">
-                <label class="col-form-label col-form-label-lg" for="storage">Storage Cost <span>(&#8358;)</span></label>
-                <input id="storage" type="number" name="storage" value="${millingExpense.storage}"
-                       class="form-control" required="true" min="0" step=".01"><br>
-            </div>    <div class="col">
-                <label class="col-form-label col-form-label-lg" for="harvestStockCost">Harvest Stock Cost <span>(&#8358;)</span></label>
-                <input id="harvestStockCost" type="number" name="harvestStockCost" value="${millingExpense.harvestStockCost}"
+                <label class="col-form-label col-form-label-lg" for="storage">Storage Cost
+                    <span>(&#8358;)</span></label>
+                <input id="storage" type="number" name="storage" value="${mill.millingExpense.storage}"
                        class="form-control" required="true" min="0" step=".01"><br>
             </div>
+            <div class="col">
+            <label class="col-form-label col-form-label-lg" for="harvestStockCost">Harvest Stock Cost
+                <span>(&#8358;)</span></label>
+            <input id="harvestStockCost" type="number" name="harvestStockCost"
+                   value="${mill.millingExpense.harvestStockCost}"
+                   class="form-control" required="true" min="0" step=".01"><br>
         </div>
-        <div class="row">
-            <div class="col">
-                <label class="col-form-label col-form-label-lg" for="adhocLabour">Adhoc Labour <span>(&#8358;)</span></label>
-                <input id="adhocLabour" type="number" name="adhocLabour" value="${millingExpense.adhocLabour}"
-                       class="form-control" required="true" min="0" step=".01"><br>
-            </div>
-            <div class="col">
-                <label class="col-form-label col-form-label-lg" for="firewood">Firewood Cost <span>(&#8358;)</span></label>
-                <input id="firewood" type="number" name="firewood" value="${millingExpense.firewood}"
-                       class="form-control" required="true" min="0" step=".01"><br>
-            </div>
-            <div class="col">
-                <label class="col-form-label col-form-label-lg" for="fruitPurchase">Fruit Purchase Cost <span>(&#8358;)</span></label>
-                <input id="fruitPurchase" type="number" name="fruitPurchase" value="${millingExpense.fruitPurchase}"
-                       class="form-control" required="true" min="0" step=".01"><br>
-            </div>
-        <div class="col">
-                <label class="col-form-label col-form-label-lg" for="plantParts">Plant Parts  Cost <span>(&#8358;)</span></label>
-                <input id="plantParts" type="number" name="plantParts" value="${millingExpense.plantParts}"
-                       class="form-control" required="true" min="0" step=".01"><br>
-            </div>
-
-
-        </br>
-
-        <div class="row">
-            <div class="col">
-                <input type="hidden" value="${mill.id}" name="millId"/>
-
-            </div>
-        </div>
-        </br>
-        </div>
-
-        <div class="form-group">
-            <button class="btn btn-primary" type="submit"> Log Mill</button>
         </div>
 
 
-    </form>
+<div class="col">
+<h5>Adhoc Labour Costs</h5>
+
+    <input type="number" class="form-control" required="true" min="0" step=".01" id="ad" name="adhocLabour" value="${mill.millingExpense.adhocLabour}">
+</div>
+
+
+
+<div class="col">
+
+    <label class="col-form-label col-form-label-lg" for="firewood">Firewood Cost <span>(&#8358;)</span></label>
+    <input id="firewood" type="number" name="firewood" value="${mill.millingExpense.firewood}"
+           class="form-control" required="true" min="0" step=".01"><br>
+</div>
+<div class="col">
+    <label class="col-form-label col-form-label-lg" for="fruitPurchase">Fruit Purchase Cost
+        <span>(&#8358;)</span></label>
+    <input id="fruitPurchase" type="number" name="fruitPurchase" value="${mill.millingExpense.fruitPurchase}"
+           class="form-control" required="true" min="0" step=".01"><br>
+</div>
+<div class="col">
+    <label class="col-form-label col-form-label-lg" for="plantParts">Plant Parts Cost <span>(&#8358;)</span></label>
+    <input id="plantParts" type="number" name="plantParts" value="${mill.millingExpense.plantParts}"
+           class="form-control" required="true" min="0" step=".01"><br>
+</div>
+
+
+</br>
+
+<div class="row">
+    <div class="col">
+        <input type="hidden" value="${mill.id}" name="millId"/>
+
+    </div>
+</div>
+</br>
+
+
+<div class="form-group">
+    <button class="btn btn-primary" type="submit"> Log Mill</button>
+</div>
+
+
+</form>
 </div>
 <!-- content-body -->
 </div><!-- content -->

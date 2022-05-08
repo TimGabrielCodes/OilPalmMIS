@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 public class MillController extends HttpServlet {
     MillDAO millDAO;
     MillingExpenseDAO millingExpenseDAO;
-    private final UserDAO userDAO;;
+    private final UserDAO userDAO;
     private RequestDispatcher dispatcher;
 
     public MillController(){
@@ -60,7 +60,7 @@ public class MillController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException{
 
         System.out.println("Post HIT");
         User logger = userDAO.getLogger((String) request.getSession().getAttribute("email"));
@@ -137,6 +137,7 @@ public class MillController extends HttpServlet {
             request.setAttribute("title", "Mill List");
             dispatcher = request.getRequestDispatcher("/Views/Admin/Mills.jsp");
             dispatcher.forward(request, response);
+            return;
         } catch (IOException ex) {
             Logger.getLogger(MillController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException e) {
@@ -153,6 +154,7 @@ public class MillController extends HttpServlet {
             dispatcher = request.getRequestDispatcher("/Views/Admin/AddMill.jsp");
 
             dispatcher.forward(request, response);
+            return;
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
@@ -177,14 +179,14 @@ public class MillController extends HttpServlet {
         String id = request.getParameter("id");
         Mill mill = millDAO.get(Integer.parseInt(id));
         MillingExpense millingExpense = millingExpenseDAO.get(mill);
-
+        mill.setMillingExpense(millingExpense);
         System.out.println("Mill to edit" + mill.toString());
         System.out.println("Milling Expense to edit" + millingExpense.toString());
         request.setAttribute("title", "Edit Mill");
-//        request.setAttribute("millingExpense", millingExpense);
-//        request.setAttribute("mill", mill);
+        request.setAttribute("mill", mill);
         dispatcher = request.getRequestDispatcher("/Views/Admin/EditMill.jsp");
         dispatcher.forward(request, response);
+        return;
 
 
     }
