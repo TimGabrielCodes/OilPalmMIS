@@ -116,9 +116,8 @@
             <li class="nav-item">
                 <a href="" class="nav-link with-sub"><i data-feather="printer"></i> Transactions</a>
                 <nav class="nav nav-sub">
-                    <a href="${pageContext.request.contextPath}/transactions?action=ADD" class="nav-sub-link">Log Transactions</a>
-                    <a href="${pageContext.request.contextPath}/transactions" class="nav-sub-link">View Transactions</a>
-                    <a href="${pageContext.request.contextPath}/income" class="nav-sub-link">Income</a>
+                    <a href="${pageContext.request.contextPath}/sales" class="nav-sub-link">Income</a>
+                    <a href="${pageContext.request.contextPath}/sales?action=NEW" class="nav-sub-link">Make Sales</a>
                     <a href="#" class="nav-sub-link">Reports</a>
                 </nav>
             </li>    <li class="nav-item">

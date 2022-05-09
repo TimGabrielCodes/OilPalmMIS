@@ -132,7 +132,7 @@ public class MillController extends HttpServlet {
     public void listMills(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         try {
             List<Mill> list = millDAO.get();
-            System.out.println("Listing Mills");
+//            System.out.println("Listing Mills");
             request.setAttribute("list", list);
             request.setAttribute("title", "Mill List");
             dispatcher = request.getRequestDispatcher("/Views/Admin/Mills.jsp");
@@ -180,13 +180,13 @@ public class MillController extends HttpServlet {
         Mill mill = millDAO.get(Integer.parseInt(id));
         MillingExpense millingExpense = millingExpenseDAO.get(mill);
         mill.setMillingExpense(millingExpense);
-        System.out.println("Mill to edit" + mill.toString());
-        System.out.println("Milling Expense to edit" + millingExpense.toString());
+//        System.out.println("Mill to edit" + mill.toString());
+//        System.out.println("Milling Expense to edit" + millingExpense.toString());
         request.setAttribute("title", "Edit Mill");
         request.setAttribute("mill", mill);
         dispatcher = request.getRequestDispatcher("/Views/Admin/EditMill.jsp");
         dispatcher.forward(request, response);
-        return;
+
 
 
     }

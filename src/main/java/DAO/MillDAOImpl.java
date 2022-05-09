@@ -51,12 +51,13 @@ public class MillDAOImpl implements MillDAO {
         mill.setNumberOfPresses(resultSet.getInt("numberOfPresses"));
         mill.setMillingDate(resultSet.getDate("millingDate"));
         mill.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
+
     }
 
 
     @Override
     public boolean saveMill(Mill mill) {
-        System.out.println("Mill to save" + mill.toString());
+//        System.out.println("Mill to save" + mill.toString());
         boolean flag = false;
         try {
 
@@ -83,13 +84,14 @@ public class MillDAOImpl implements MillDAO {
         Mill mill = null;
         try {
             mill = new Mill();
-            String sql = "SELECT * FROM mill  WHERE id=" + id;
+            String sql = "SELECT * FROM mill  WHERE id=" + id +  " LIMIT 1";
             connection = DBConnectionUtil.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
                 setMillObject(mill);
+
 
             }
 
@@ -99,6 +101,7 @@ public class MillDAOImpl implements MillDAO {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MillDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         return mill;
     }
 

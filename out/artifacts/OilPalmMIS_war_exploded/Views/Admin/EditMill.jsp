@@ -112,9 +112,8 @@
 
 
 <div class="col">
-<h5>Adhoc Labour Costs</h5>
-
-    <input type="number" class="form-control" required="true" min="0" step=".01" id="ad" name="adhocLabour" value="${mill.millingExpense.adhocLabour}">
+    <label for="adHoc" class="col-form-label-lg">Adhoc Costs</label>
+    <input type="number" class="form-control" required="true" min="0" step=".01" id="adHoc" name="adhocLabour" value="${mill.millingExpense.adhocLabour}">
 </div>
 
 
@@ -132,7 +131,7 @@
            class="form-control" required="true" min="0" step=".01"><br>
 </div>
 <div class="col">
-    <label class="col-form-label col-form-label-lg" for="plantParts">Plant Parts Cost <span>(&#8358;)</span></label>
+    <label class="col-form-label-lg" for="plantParts">Plant Parts Cost <span>(&#8358;)</span></label>
     <input id="plantParts" type="number" name="plantParts" value="${mill.millingExpense.plantParts}"
            class="form-control" required="true" min="0" step=".01"><br>
 </div>
