@@ -88,19 +88,7 @@ batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
         try {
             batch = new Batch();
             String sql = "SELECT * FROM batch  WHERE id=" + id;
-            connection = DBConnectionUtil.openConnection();
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery(sql);
-
-            while (resultSet.next()) {
-                batch.setId(resultSet.getInt("id"));
-                batch.setBatchName(resultSet.getString("batchName"));
-                batch.setBatchMonth(resultSet.getString("batchMonth"));
-                batch.setBatchDate(resultSet.getDate("batchDate"));
-                batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
-
-
-            }
+            openConnection(batch, sql);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -115,19 +103,7 @@ batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
         try {
             batch = new Batch();
             String sql = "SELECT * FROM batch  WHERE batchName='" + name +"'";
-            connection = DBConnectionUtil.openConnection();
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery(sql);
-
-            while (resultSet.next()) {
-                batch.setId(resultSet.getInt("id"));
-                batch.setBatchName(resultSet.getString("batchName"));
-                batch.setBatchMonth(resultSet.getString("batchMonth"));
-                batch.setBatchDate(resultSet.getDate("batchDate"));
-                batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
-
-
-            }
+            openConnection(batch, sql);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -136,6 +112,22 @@ batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
             Logger.getLogger(BatchDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return batch;
+    }
+
+    private void openConnection(Batch batch, String sql) throws ClassNotFoundException, SQLException {
+        connection = DBConnectionUtil.openConnection();
+        statement = connection.createStatement();
+        resultSet = statement.executeQuery(sql);
+
+        while (resultSet.next()) {
+            batch.setId(resultSet.getInt("id"));
+            batch.setBatchName(resultSet.getString("batchName"));
+            batch.setBatchMonth(resultSet.getString("batchMonth"));
+            batch.setBatchDate(resultSet.getDate("batchDate"));
+            batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
+
+
+        }
     }
 
     @Override

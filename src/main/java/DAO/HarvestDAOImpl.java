@@ -17,19 +17,20 @@ public class HarvestDAOImpl implements HarvestDAO {
     Harvest harvest = null;
     PreparedStatement preparedStmt = null;
 
+
+
     @Override
-    public List<Harvest> get() throws SQLException {
+    public List<Harvest> get() {
 
         try {
             list = new ArrayList<>();
-            String sql = "select * from harvest ";
+            String sql = "select * from harvest";
             connection = DBConnectionUtil.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 harvest = new Harvest();
                 setHarvestObject(harvest);
-
 
                 list.add(harvest);
             }
@@ -44,13 +45,13 @@ public class HarvestDAOImpl implements HarvestDAO {
     }
 
     private void setHarvestObject(Harvest harvest) throws SQLException {
-//        harvest.setId(resultSet.getInt("id"));
-//        harvest.setBatch(new BatchDAOImpl().get(resultSet.getInt("batch")));
-//        harvest.setHarvestStock(resultSet.getInt("harvestStock"));
-//        harvest.setStockCost(resultSet.getDouble("stockCost"));
-//        harvest.setNumberOfPresses(resultSet.getInt("numberOfPresses"));
-//        harvest.setHarvestingDate(resultSet.getDate("harvestingDate"));
-//        harvest.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
+        harvest.setId(resultSet.getInt("id"));
+
+        harvest.setDateAdded(resultSet.getDate("dateAdded"));
+        harvest.setBatch(new BatchDAOImpl().get(resultSet.getInt("batch")));
+        harvest.setStockInBunches(resultSet.getInt("stockInBunches"));
+        harvest.setCostPerBunch(resultSet.getDouble("costPerBunch"));
+        harvest.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
     }
 
 
@@ -60,14 +61,14 @@ public class HarvestDAOImpl implements HarvestDAO {
         try {
 
 
-//            String sql = "insert into harvest(batch, harvestStock, stockCost, numberOfPresses, harvestingDate, logger) "
-//                    + "values(" + harvest.getBatch().getId() + ", " + harvest.getHarvestStock() + "," + harvest.getStockCost() + "," + harvest.getNumberOfPresses() + ",'"+ harvest.getHarvestingDate() + "', "+harvest.getLogger().getId() + ")";
+            String sql = "insert into harvest(batch, stockInBunches, costPerBunch, dateAdded, logger) "
+                    + "values(" + harvest.getBatch().getId() + ", " + harvest.getStockInBunches() + "," + harvest.getCostPerBunch()+ ",'"+ harvest.getDateAdded() + "', "+harvest.getLogger().getId() + ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(HarvestDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-//            preparedStmt = connection.prepareStatement(sql);
+            preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();
             flag = true;
 
@@ -107,7 +108,7 @@ public class HarvestDAOImpl implements HarvestDAO {
         boolean flag = false;
 
         try {
-//            String sql = "update harvest set batch=" + harvest.getBatch().getId() + " ,harvestStock=" + harvest.getHarvestStock() + ",stockCost=" + harvest.getStockCost() + ",numberOfPresses =" +harvest.getNumberOfPresses() + ", harvestingDate ='"+harvest.getHarvestingDate()+"', logger="+ harvest.getLogger().getId() +" where id=" + harvest.getId();
+            String sql = "update harvest set batch=" + harvest.getBatch().getId() + " , stockInBunches=" + harvest.getStockInBunches() + ",costPerBunch=" + harvest.getCostPerBunch() + ", milled =" + harvest.isMilled() +", dateAdded ='"+harvest.getDateAdded()+"', logger="+ harvest.getLogger().getId() +" where id=" + harvest.getId();
             connection = DBConnectionUtil.openConnection();
 //            preparedStmt = connection.prepareStatement(sql);
              preparedStmt.executeUpdate();

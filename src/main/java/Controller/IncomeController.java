@@ -76,12 +76,11 @@ public class IncomeController extends HttpServlet {
         String id = request.getParameter("id");
 
 
-
         Income income = new Income();
-       income.setIncomeType(IncomeType.valueOf(incomeType));
-       income.setAmount(Double.valueOf(amount));
-       income.setReceivedFrom(receivedFrom);
-income.setDate(date);
+        income.setIncomeType(IncomeType.valueOf(incomeType));
+        income.setAmount(Double.valueOf(amount));
+        income.setReceivedFrom(receivedFrom);
+        income.setDate(date);
         income.setLogger(logger);
 
 

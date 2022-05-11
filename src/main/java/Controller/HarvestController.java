@@ -1,6 +1,7 @@
 package Controller;
 
 import DAO.*;
+import Model.Batch;
 import Model.Harvest;
 import Model.User;
 
@@ -11,9 +12,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
+import java.util.Enumeration;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,10 +39,10 @@ public class HarvestController extends HttpServlet {
         String action = request.getParameter("action");
 
         if(action == null){
-            action = "MILLS";
+            action = "BATCHES";
         }
         switch (action) {
-            case "MILLS":
+            case "BATCHES":
                 listHarvests(request, response);
                 break;
 
@@ -57,35 +63,43 @@ public class HarvestController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        System.out.println("Post HIT");
+       String harvestDate = (request.getParameter("dateHarvested"));
         User logger = userDAO.getLogger((String) request.getSession().getAttribute("email"));
-        String harvestId = request.getParameter("harvestId");
+        String harvestId = request.getParameter("id");
         String batch = request.getParameter("batch");
-        String harvestStock = request.getParameter("harvestStock");
-        String stockCost = request.getParameter("stockCost");
-        String numberOfPresses = request.getParameter("numberOfPresses");
-        String harvestingDate = request.getParameter("harvestingDate");
-        Harvest harvest = new Harvest();
-//        harvest.setLogger(logger);
-//        harvest.setBatch( new BatchDAOImpl().get(batch));
-//        harvest.setHarvestStock(Integer.valueOf(harvestStock));
-//        harvest.setStockCost(Double.valueOf(stockCost));
-//        harvest.setNumberOfPresses(Integer.valueOf(numberOfPresses));
-//        harvest.setHarvestingDate(Date.valueOf(harvestingDate));
-        if (harvestId.isEmpty()) {
-            //save if
-            if (harvestDAO.saveHarvest(harvest)) {
-                request.setAttribute("message", "harvest saved Successfully");
-            }
-        } else {
-            //update
-            harvest.setId(Integer.parseInt(harvestId));
+        Batch batchObject = new BatchDAOImpl().get(batch);
+        String stockInBunches = request.getParameter("stockInBunches");
+        String costPerBunch = request.getParameter("costPerBunch");
 
-            if (harvestDAO.updateHarvest(harvest)) {
-                request.setAttribute("message", "Harvest updated Successfully");
-            }
-        }
+
+
+
+        Harvest harvest = new Harvest();
+
+        harvest.setLogger(logger);
+        harvest.setBatch(batchObject);
+        harvest.setDateAdded(Date.valueOf(harvestDate));
+        harvest.setMilled(false);
+        harvest.setStockInBunches(Integer.parseInt(stockInBunches));
+        harvest.setCostPerBunch(Double.valueOf(costPerBunch));
+
+
+if(harvestId.isEmpty()){
+    if (harvestDAO.saveHarvest(harvest)) {
+
+        request.setAttribute("message", "harvest saved Successfully");
+    }
+
+}
+else{
+    harvest.setId(Integer.parseInt(harvestId));
+    if(harvestDAO.updateHarvest(harvest)){
+        request.setAttribute("message", "Harvest Updated Successfully");
+    }
+
+}
+
+
         listHarvests(request, response);
 
 
@@ -93,7 +107,7 @@ public class HarvestController extends HttpServlet {
     public void listHarvests(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         try {
             List<Harvest> list = harvestDAO.get();
-            System.out.println("Listing Harvests");
+
             request.setAttribute("list", list);
             request.setAttribute("title", "Harvest List");
             dispatcher = request.getRequestDispatcher("/Views/Admin/Harvests.jsp");
@@ -148,4 +162,29 @@ public class HarvestController extends HttpServlet {
 
     }
 
+    public void handleRequest(HttpServletRequest req, HttpServletResponse res) throws IOException {
+
+        PrintWriter out = res.getWriter();
+        res.setContentType("text/plain");
+
+        Enumeration<String> parameterNames = req.getParameterNames();
+
+        while (parameterNames.hasMoreElements()) {
+
+            String paramName = parameterNames.nextElement();
+            out.write(paramName);
+            out.write("n");
+
+            String[] paramValues = req.getParameterValues(paramName);
+            for (int i = 0; i < paramValues.length; i++) {
+                String paramValue = paramValues[i];
+                out.write("t" + paramValue);
+                out.write("n");
+            }
+
+        }
+
+        out.close();
+
+    }
 }
