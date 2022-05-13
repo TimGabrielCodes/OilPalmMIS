@@ -17,7 +17,6 @@ public interface IncomeDAO {
 
     boolean delete(int id);
 
-    Income get(String name);
 
 
 

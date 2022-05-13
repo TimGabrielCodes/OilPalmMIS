@@ -70,12 +70,7 @@ public class HarvestController extends HttpServlet {
         Batch batchObject = new BatchDAOImpl().get(batch);
         String stockInBunches = request.getParameter("stockInBunches");
         String costPerBunch = request.getParameter("costPerBunch");
-
-
-
-
         Harvest harvest = new Harvest();
-
         harvest.setLogger(logger);
         harvest.setBatch(batchObject);
         harvest.setDateAdded(Date.valueOf(harvestDate));

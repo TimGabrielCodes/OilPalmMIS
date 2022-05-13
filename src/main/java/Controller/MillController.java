@@ -1,10 +1,7 @@
 package Controller;
 
 import DAO.*;
-import Model.Batch;
-import Model.Mill;
-import Model.MillingExpense;
-import Model.User;
+import Model.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,6 +20,8 @@ import java.util.logging.Logger;
 public class MillController extends HttpServlet {
     MillDAO millDAO;
     MillingExpenseDAO millingExpenseDAO;
+
+    HarvestDAO harvestDAO;
     private final UserDAO userDAO;
     private RequestDispatcher dispatcher;
 
@@ -30,6 +29,7 @@ public class MillController extends HttpServlet {
         millDAO = new MillDAOImpl();
         userDAO = new UserDAOImpl();
         millingExpenseDAO = new MillingExpenseDAOImpl();
+        harvestDAO = new HarvestDAOImpl();
     }
 
     @Override
@@ -66,13 +66,10 @@ public class MillController extends HttpServlet {
         User logger = userDAO.getLogger((String) request.getSession().getAttribute("email"));
         String millId = request.getParameter("millId");
         String millExpenseId = request.getParameter("millExpenseId");
-        String batch = request.getParameter("batch");
-        String harvestStock = request.getParameter("harvestStock");
 
+        String harvestID = request.getParameter("harId");
         String numberOfPresses = request.getParameter("numberOfPresses");
         String millingDate = request.getParameter("millingDate");
-//        Milling Expense Fields
-
         String fuel = request.getParameter("fuel");
         String storage = request.getParameter("storage");
         String harvestStockCost = request.getParameter("harvestStockCost");
@@ -80,19 +77,18 @@ public class MillController extends HttpServlet {
         String firewood = request.getParameter("firewood");
         String fruitPurchase = request.getParameter("fruitPurchase");
         String plantParts = request.getParameter("plantParts");
-        Batch batchObject = new BatchDAOImpl().get(batch);
 
 
-//        Create Mill Object
 
         Mill mill = new Mill();
-
+        Harvest harvest = new HarvestDAOImpl().get(Integer.parseInt(harvestID));
 
         mill.setLogger(logger);
-        mill.setBatch( batchObject);
-        mill.setHarvestStock(Integer.valueOf(harvestStock));
+        mill.setBatch(harvest.getBatch());
+        mill.setHarvestStock(harvest.getStockInBunches());
         mill.setNumberOfPresses(Integer.valueOf(numberOfPresses));
         mill.setMillingDate(Date.valueOf(millingDate));
+
 
 //        Create Milling Expense Object
         MillingExpense millingExpense = new MillingExpense();
@@ -104,14 +100,25 @@ public class MillController extends HttpServlet {
         millingExpense.setFruitPurchase(Double.valueOf(fruitPurchase));
         millingExpense.setPlantParts(Double.valueOf(plantParts));
         millingExpense.setLogger(logger);
+        mill.setMillingExpense(millingExpense);
+
 
 
         if (millId.isEmpty()) {
             //save if
-            if (millDAO.saveMill(mill)) {
-                millingExpense.setMill(millDAO.get(batchObject));
-                if(millingExpenseDAO.saveMillingExpense(millingExpense)){
-                    request.setAttribute("message", "mill saved Successfully");
+
+                if (millDAO.saveMill(mill)) {
+                    mill = millDAO.getByBatch(harvest.getBatch().getId());
+
+
+                    millingExpense.setMill(mill);
+                    harvestDAO.millHarvest(harvest);
+                    System.out.println("Is harvest milled ? "+ harvest.isMilled());
+
+                    if(millingExpenseDAO.saveMillingExpense(millingExpense)){
+                        request.setAttribute("message", "mill saved Successfully");
+    //                }
+
                 }
 
             }

@@ -99,6 +99,13 @@
                 </nav>
             </li>
             <li class="nav-item">
+                <a href="" class="nav-link with-sub"><i data-feather="lock"></i> Harvests</a>
+                <nav class="nav nav-sub">
+                    <a href="${pageContext.request.contextPath}/harvests?action=ADD" class="nav-sub-link">Document Harvests</a>
+                    <a href="${pageContext.request.contextPath}/harvests" class="nav-sub-link">View Harvests</a>
+                </nav>
+            </li>
+            <li class="nav-item">
                 <a href="" class="nav-link with-sub"><i data-feather="layout"></i> Mills</a>
                 <nav class="nav nav-sub">
                     <a href="${pageContext.request.contextPath}/mills?action=ADD" class="nav-sub-link">Document Milling Activity</a>
@@ -106,13 +113,7 @@
                     <a href="#" class="nav-sub-link">Analytics</a>
                 </nav>
             </li>
-            <li class="nav-item">
-                <a href="" class="nav-link with-sub"><i data-feather="lock"></i> Harvests</a>
-                <nav class="nav nav-sub">
-                    <a href="${pageContext.request.contextPath}/harvests?action=ADD" class="nav-sub-link">Document Harvests</a>
-                    <a href="${pageContext.request.contextPath}/harvests" class="nav-sub-link">View Harvests</a>
-                </nav>
-            </li>
+
             <li class="nav-item">
                 <a href="" class="nav-link with-sub"><i data-feather="printer"></i> Transactions</a>
                 <nav class="nav nav-sub">

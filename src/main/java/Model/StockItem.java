@@ -5,7 +5,7 @@ public class StockItem {
     private int id;
     private String name;
     private Double sellingPrice;
-    private StorageUnit storageUnit;
+    private ProductUnit productUnit;
 
     private User logger;
 
@@ -36,12 +36,12 @@ public class StockItem {
         this.sellingPrice = sellingPrice;
     }
 
-    public StorageUnit getStorageUnit() {
-        return storageUnit;
+    public ProductUnit getStorageUnit() {
+        return productUnit;
     }
 
-    public void setStorageUnit(StorageUnit storageUnit) {
-        this.storageUnit = storageUnit;
+    public void setStorageUnit(ProductUnit productUnit) {
+        this.productUnit = productUnit;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class StockItem {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", sellingPrice=" + sellingPrice +
-                ", storageUnit=" + storageUnit +
+                ", productUnit=" + productUnit +
                 ", logger=" + logger +
                 '}';
     }

@@ -17,8 +17,7 @@ public interface HarvestDAO {
     boolean delete(int id);
 
 
+    Harvest getHarvestForMill(int batch);
 
-
-
-
+    boolean millHarvest(Harvest harvest);
 }

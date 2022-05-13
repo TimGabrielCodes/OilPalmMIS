@@ -51,6 +51,7 @@ public class HarvestDAOImpl implements HarvestDAO {
         harvest.setBatch(new BatchDAOImpl().get(resultSet.getInt("batch")));
         harvest.setStockInBunches(resultSet.getInt("stockInBunches"));
         harvest.setCostPerBunch(resultSet.getDouble("costPerBunch"));
+        harvest.setMilled(resultSet.getBoolean("milled"));
         harvest.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
     }
 
@@ -61,8 +62,8 @@ public class HarvestDAOImpl implements HarvestDAO {
         try {
 
 
-            String sql = "insert into harvest(batch, stockInBunches, costPerBunch, dateAdded, logger) "
-                    + "values(" + harvest.getBatch().getId() + ", " + harvest.getStockInBunches() + "," + harvest.getCostPerBunch()+ ",'"+ harvest.getDateAdded() + "', "+harvest.getLogger().getId() + ")";
+            String sql = "insert into harvest(batch, stockInBunches, costPerBunch, dateAdded, logger, milled) "
+                    + "values(" + harvest.getBatch().getId() + ", " + harvest.getStockInBunches() + "," + harvest.getCostPerBunch()+ ",'"+ harvest.getDateAdded() + "', "+harvest.getLogger().getId() + ", " +harvest.isMilled()+")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -121,6 +122,25 @@ public class HarvestDAOImpl implements HarvestDAO {
         return flag;
 
     }
+    @Override
+    public boolean millHarvest(Harvest harvest) {
+
+        boolean flag = false;
+
+        try {
+            String sql = "update harvest set milled = 1 where id=" + harvest.getId();
+            connection = DBConnectionUtil.openConnection();
+            preparedStmt = connection.prepareStatement(sql);
+             preparedStmt.executeUpdate();
+            flag = true;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(HarvestDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
+
+    }
 
     @Override
     public boolean delete(int id) {
@@ -138,6 +158,30 @@ public class HarvestDAOImpl implements HarvestDAO {
             Logger.getLogger(HarvestDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return flag;
+    }
+
+    @Override
+    public Harvest getHarvestForMill(int batch) {
+        Harvest harvest = null;
+        try {
+            harvest = new Harvest();
+            String sql = "SELECT * FROM harvest  WHERE batch=" + batch + " and milled = 0";
+            connection = DBConnectionUtil.openConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                setHarvestObject(harvest);
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(HarvestDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return harvest;
     }
 
 

@@ -10,6 +10,8 @@ public class Income {
     private User logger;
     private Date date;
 
+    private String remark;
+
     public Income() {
     }
 
@@ -61,6 +63,14 @@ public class Income {
         this.date = date;
     }
 
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
     @Override
     public String toString() {
         return "Income{" +
@@ -70,6 +80,7 @@ public class Income {
                 ", receivedFrom='" + receivedFrom + '\'' +
                 ", logger=" + logger +
                 ", date=" + date +
+                ", remark='" + remark + '\'' +
                 '}';
     }
 }

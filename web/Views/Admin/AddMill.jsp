@@ -18,7 +18,7 @@
                 <li class="breadcrumb-item active" aria-current="page">Mills</li>
             </ol>
         </nav>
-        <h4 class="content-title content-title-xs">Create New Mill</h4>
+        <h4 class="content-title content-title-xs">Document Milling Activity</h4>
 
     </div>
     <div class="info">
@@ -28,12 +28,14 @@
 
 </div>
 <!-- content-header -->
+
+
 <div class="content-body">
-    <form method="POST" action="${pageContext.request.contextPath}/mills">
+    <form  class="form-group" method="get" name="validateBatchForm" action="${pageContext.request.contextPath}/validateBatch">
         <div class="row">
             <div class="col">
-                <label class="col-form-label col-form-label-lg" for="batch">Batch</label>
-                <select  id="batch" class=" form-control" name="batch" placeholder="Select Batch" data-value="${mill.batch}" required>
+                <label class="col-form-label col-form-label-lg" for="batch">Select Harvest Batch to Mill</label>
+                <select  id="batch" class="col form-control" name="batch" placeholder="Select Harvest" data-value="${mill.batch}" required>
                     <option value="${mill.batch}" selected="selected">-- Select Batch --</option>
                     <% try {
                         String query = "select * from batch order by batchName";
@@ -44,7 +46,7 @@
                             selectedBatchName = rs.getString("batchName");
                             batch_id = rs.getInt("id");
                     %>
-                    <option class="form-control" value="<%=selectedBatchName%>"><%=selectedBatchName%>
+                    <option class="form-control" value="<%=batch_id%>"><%=selectedBatchName%>
                     </option>
                     <%
                             }
@@ -57,12 +59,29 @@
                 </select>
             </div>
         </div>
+        <br>
+        <div class="form-group">
+            <button class="btn btn-success" type="submit"> Log Mill</button>
+        </div>
 
+    </form>
+    <span class="alert">${message}</span>
+    <form method="POST" action="${pageContext.request.contextPath}/mills">
+    <input type="hidden" name="harId" value="${harvest.id}" >
+    <hr class="hr-component-section">
         <div class="row">
             <div class="col">
+                <label class="col-form-label col-form-label-lg" for="harvestStock">Harvest Batch Name</label>
+                <input id="batchName" type="text" name="batchName" value="${harvest.batch.batchName}"
+                       class="form-control" required="true" min="0" disabled><br>
+            </div>
+
+
+        </div>  <div class="row">
+            <div class="col">
                 <label class="col-form-label col-form-label-lg" for="harvestStock">Harvest Stock in Bunches</label>
-                <input id="harvestStock" type="number" name="harvestStock" value="${mill.harvestStock}"
-                       class="form-control" required="true" min="0"><br>
+                <input id="harvestStock" type="number" name="stockInBunches" value="${harvest.stockInBunches}"
+                       class="form-control" required="true" min="0" disabled><br>
             </div>
             <div class="col">
             <label class="col-form-label col-form-label-lg" for="numberOfPresses">Number of Presses</label>

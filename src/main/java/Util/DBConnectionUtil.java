@@ -33,4 +33,7 @@ public class DBConnectionUtil {
         }
     }
 
+    public static void closeConnection() throws SQLException {
+        con.close();
+    }
 }

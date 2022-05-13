@@ -2,6 +2,7 @@ package DAO;
 
 import Model.Batch;
 import Model.Mill;
+import Model.MillingExpense;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,6 +13,7 @@ public interface MillDAO {
     boolean  saveMill(Mill mill);
 
     Mill get(int id);
+  Mill getByBatch(int id);
 
     Mill get(Batch batch);
 

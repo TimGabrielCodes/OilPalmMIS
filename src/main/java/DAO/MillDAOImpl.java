@@ -2,6 +2,7 @@ package DAO;
 
 import Model.Batch;
 import Model.Mill;
+import Model.MillingExpense;
 import Util.DBConnectionUtil;
 
 import java.sql.*;
@@ -56,7 +57,7 @@ public class MillDAOImpl implements MillDAO {
 
 
     @Override
-    public boolean saveMill(Mill mill) {
+    public boolean saveMill(Mill mill)  {
 //        System.out.println("Mill to save" + mill.toString());
         boolean flag = false;
         try {
@@ -73,9 +74,12 @@ public class MillDAOImpl implements MillDAO {
             preparedStmt.executeUpdate();
             flag = true;
 
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return flag;
     }
 
@@ -85,6 +89,31 @@ public class MillDAOImpl implements MillDAO {
         try {
             mill = new Mill();
             String sql = "SELECT * FROM mill  WHERE id=" + id +  " LIMIT 1";
+            connection = DBConnectionUtil.openConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                setMillObject(mill);
+
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MillDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return mill;
+    }
+    @Override
+    public Mill getByBatch(int id) {
+        Mill mill = null;
+        try {
+            mill = new Mill();
+            String sql = "SELECT * FROM mill  WHERE batch=" + id +  " LIMIT 1";
             connection = DBConnectionUtil.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);

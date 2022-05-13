@@ -1,7 +1,7 @@
 package DAO;
 
+import Model.ProductUnit;
 import Model.StockItem;
-import Model.StorageUnit;
 import Model.Vendor;
 import Util.DBConnectionUtil;
 
@@ -36,7 +36,7 @@ public class StockItemDAOImpl implements StockItemDAO{
 stockItem.setId(resultSet.getInt("id"));
 stockItem.setName(resultSet.getString("name"));
 stockItem.setSellingPrice(resultSet.getDouble("sellingPrice"));
-stockItem.setStorageUnit(StorageUnit.valueOf(resultSet.getString("storageUnit")));
+stockItem.setStorageUnit(ProductUnit.valueOf(resultSet.getString("storageUnit")));
 stockItem.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
 
 
@@ -98,7 +98,7 @@ stockItem.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
                 stockItem.setId(resultSet.getInt("id"));
                 stockItem.setName(resultSet.getString("name"));
                 stockItem.setSellingPrice(resultSet.getDouble("sellingPrice"));
-                stockItem.setStorageUnit(StorageUnit.valueOf(resultSet.getString("storageUnit")));
+                stockItem.setStorageUnit(ProductUnit.valueOf(resultSet.getString("storageUnit")));
                 stockItem.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
 
 
@@ -126,7 +126,7 @@ stockItem.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
                 stockItem.setId(resultSet.getInt("id"));
                 stockItem.setName(resultSet.getString("name"));
                 stockItem.setSellingPrice(resultSet.getDouble("sellingPrice"));
-                stockItem.setStorageUnit(StorageUnit.valueOf(resultSet.getString("storageUnit")));
+                stockItem.setStorageUnit(ProductUnit.valueOf(resultSet.getString("storageUnit")));
                 stockItem.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
 
 

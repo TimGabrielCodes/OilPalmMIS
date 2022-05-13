@@ -65,6 +65,15 @@
             </div>
 
         </div>
+        <div class="row">
+            <div class="col">
+                <label class="col-form-label col-form-label-lg" for="remark">Remark </label>
+                <textarea id="remark" type="number" name="amount" value="${income.remark}"
+                       class="form-control" required="true" rows="3"><br>
+            </div>
+
+
+        </div>
             <div class="row">
                 <div class="col">
                     <input type="hidden" value="${income.id}" name="id"/>
