@@ -9,6 +9,7 @@ public class Harvest {
 
     private Batch batch;
 
+    private Double harvestStockCost;
     private int stockInBunches;
 
     private Double costPerBunch;
@@ -65,17 +66,27 @@ public class Harvest {
         return dateAdded;
     }
 
+    public Double getHarvestStockCost() {
+        return (this.costPerBunch * this.stockInBunches);
+    }
+
+
     @Override
     public String toString() {
         return "Harvest{" +
                 "id=" + id +
                 ", logger=" + logger +
                 ", batch=" + batch +
+                ", harvestStockCost=" + harvestStockCost +
                 ", stockInBunches=" + stockInBunches +
                 ", costPerBunch=" + costPerBunch +
                 ", dateAdded=" + dateAdded +
                 ", milled=" + milled +
                 '}';
+    }
+
+    public void setHarvestStockCost(Double harvestStockCost) {
+        this.harvestStockCost = harvestStockCost;
     }
 
     public boolean isMilled() {

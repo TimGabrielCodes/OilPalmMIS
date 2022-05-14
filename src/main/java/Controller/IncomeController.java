@@ -6,6 +6,7 @@ import DAO.UserDAO;
 import DAO.UserDAOImpl;
 import Model.Income;
 import Model.IncomeType;
+import Model.ProductUnit;
 import Model.User;
 
 import javax.servlet.RequestDispatcher;
@@ -68,7 +69,8 @@ public class IncomeController extends HttpServlet {
         String incomeType = request.getParameter("incomeType");
         String amount = request.getParameter("amount");
         String receivedFrom = request.getParameter("receivedFrom");
-
+        String remark = request.getParameter("remark");
+        String productUnit = request.getParameter("productUnit");
         Date date = Date.valueOf(request.getParameter("date"));
         System.out.println("I got this date" + date);
 
@@ -82,8 +84,10 @@ public class IncomeController extends HttpServlet {
         income.setReceivedFrom(receivedFrom);
         income.setDate(date);
         income.setLogger(logger);
+        income.setRemark(remark);
+        income.setProductUnit(ProductUnit.valueOf(productUnit));
 
-
+        System.out.println("Sending product to DAO " + income);
         if (id.isEmpty()) {
             //save if
             if (incomeDAO.saveIncome(income)) {

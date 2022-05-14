@@ -2,6 +2,7 @@ package DAO;
 
 import Model.Income;
 import Model.IncomeType;
+import Model.ProductUnit;
 import Model.Vendor;
 import Util.DBConnectionUtil;
 
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class IncomeDAOImpl implements IncomeDAO{
+public class IncomeDAOImpl implements IncomeDAO {
     Connection connection = null;
     Statement statement = null;
     ResultSet resultSet = null;
@@ -32,17 +33,14 @@ public class IncomeDAOImpl implements IncomeDAO{
             while (resultSet.next()) {
                 income = new Income();
                 //  income.setRole(resultSet.getString("role"));
-income.setId(resultSet.getInt("id"));
-income.setIncomeType(IncomeType.valueOf(resultSet.getString("incomeType")));
-income.setAmount(resultSet.getDouble("amount"));
-income.setReceivedFrom(resultSet.getString("receivedFrom"));
-income.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
-income.setDate(resultSet.getDate("date"));
-income.setRemark(resultSet.getString("remark"));
-
-
-
-
+                income.setId(resultSet.getInt("id"));
+                income.setIncomeType(IncomeType.valueOf(resultSet.getString("incomeType")));
+                income.setAmount(resultSet.getDouble("amount"));
+                income.setReceivedFrom(resultSet.getString("receivedFrom"));
+                income.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
+                income.setDate(resultSet.getDate("incomeDAte"));
+                income.setRemark(resultSet.getString("remark"));
+                income.setProductUnit(ProductUnit.valueOf(resultSet.getString("unit")));
 
 
                 list.add(income);
@@ -58,23 +56,27 @@ income.setRemark(resultSet.getString("remark"));
     }
 
 
-
     @Override
     public boolean saveIncome(Income income) {
         boolean flag = false;
+        System.out.println("Income at DAO " + income);
         try {
 
-
-
-
-            String sql = "insert into income(incomeType, amount, receivedFrom, logger, date, remark) "
-                    + "values('" + income.getIncomeType()+ "', " +income.getAmount() + ",'" + income.getReceivedFrom() + "'," + income.getLogger().getId()+ ", '"+ income.getDate()+"', remark='"+ income.getRemark()+ "')";
+            String sql = "insert into income(incomeType, amount, receivedFrom, logger, incomeDate, remark, unit) "
+                    + "values(?,?,?,?,?,?,?)";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(IncomeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
             preparedStmt = connection.prepareStatement(sql);
+            preparedStmt.setString(1, String.valueOf(income.getIncomeType()));
+            preparedStmt.setDouble(2, income.getAmount());
+            preparedStmt.setString(3, income.getReceivedFrom());
+            preparedStmt.setInt(4, income.getLogger().getId());
+            preparedStmt.setString(5, String.valueOf(income.getDate()));
+            preparedStmt.setString(6, income.getRemark());
+            preparedStmt.setString(7, String.valueOf(income.getProductUnit()));
             preparedStmt.executeUpdate();
             flag = true;
 
@@ -100,9 +102,9 @@ income.setRemark(resultSet.getString("remark"));
                 income.setAmount(resultSet.getDouble("amount"));
                 income.setReceivedFrom(resultSet.getString("receivedFrom"));
                 income.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
-                income.setDate(resultSet.getDate("date"));
+                income.setDate(resultSet.getDate("incomeDAte"));
                 income.setRemark(resultSet.getString("remark"));
-
+                income.setProductUnit(ProductUnit.valueOf(resultSet.getString("unit")));
 
 
             }
@@ -115,13 +117,14 @@ income.setRemark(resultSet.getString("remark"));
         }
         return income;
     }
+
     @Override
     public boolean updateIncome(Income income) {
 
         boolean flag = false;
 
         try {
-            String sql = "update income set incomeType='"+ income.getIncomeType()+"',amount=" + income.getAmount() + ",receivedFrom='" + income.getReceivedFrom() + "',logger =" + income.getLogger().getId()+", date='"+ income.getDate()  +"', remark='"+ income.getRemark()+"' where id=" + income.getId() ;
+            String sql = "update income set incomeType='" + income.getIncomeType() + "',amount=" + income.getAmount() + ",receivedFrom='" + income.getReceivedFrom() + "',logger =" + income.getLogger().getId() + ", incomeDAte='" + income.getDate() + "', remark='" + income.getRemark() + "', unit=" + income.getProductUnit() + "' where id=" + income.getId();
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();
@@ -152,10 +155,6 @@ income.setRemark(resultSet.getString("remark"));
         }
         return flag;
     }
-
-
-
-
 
 
 }

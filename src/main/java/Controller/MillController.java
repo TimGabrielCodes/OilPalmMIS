@@ -94,7 +94,7 @@ public class MillController extends HttpServlet {
         MillingExpense millingExpense = new MillingExpense();
         millingExpense.setFuel(Double.valueOf(fuel));
         millingExpense.setStorage(Double.valueOf(storage));
-        millingExpense.setHarvestStockCost(Double.valueOf(harvestStockCost));
+        millingExpense.setHarvestStockCost(harvest.getHarvestStockCost());
         millingExpense.setAdhocLabour(Double.valueOf(adhocLabour));
         millingExpense.setFirewood(Double.valueOf(firewood));
         millingExpense.setFruitPurchase(Double.valueOf(fruitPurchase));

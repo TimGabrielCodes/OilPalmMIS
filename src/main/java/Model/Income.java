@@ -10,6 +10,8 @@ public class Income {
     private User logger;
     private Date date;
 
+    private ProductUnit productUnit;
+
     private String remark;
 
     public Income() {
@@ -71,6 +73,14 @@ public class Income {
         this.remark = remark;
     }
 
+    public ProductUnit getProductUnit() {
+        return productUnit;
+    }
+
+    public void setProductUnit(ProductUnit productUnit) {
+        this.productUnit = productUnit;
+    }
+
     @Override
     public String toString() {
         return "Income{" +
@@ -80,6 +90,7 @@ public class Income {
                 ", receivedFrom='" + receivedFrom + '\'' +
                 ", logger=" + logger +
                 ", date=" + date +
+                ", productUnit=" + productUnit +
                 ", remark='" + remark + '\'' +
                 '}';
     }
