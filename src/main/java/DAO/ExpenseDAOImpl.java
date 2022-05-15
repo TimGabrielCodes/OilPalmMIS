@@ -1,5 +1,6 @@
 package DAO;
 
+import Model.ExpenseCategory;
 import Model.Mill;
 import Model.Expense;
 import Util.DBConnectionUtil;
@@ -46,15 +47,11 @@ public class ExpenseDAOImpl implements ExpenseDAO{
 
     private void setExpenseObject(Expense expense) throws SQLException {
         expense.setId(resultSet.getInt("id"));
-        expense.setFuel(resultSet.getDouble("fuel"));
-        expense.setStorage(resultSet.getDouble("storage"));
-        expense.setHarvestStockCost(resultSet.getDouble("harvestStockCost"));
-        expense.setAdhocLabour(resultSet.getDouble("adhocLabour"));
-        expense.setFirewood(resultSet.getDouble("firewood"));
-        expense.setFruitPurchase(resultSet.getDouble("fruitPurchase"));
-        expense.setPlantParts(resultSet.getDouble("plantParts"));
+        expense.setDate(resultSet.getDate("date"));
+        expense.setExpenseCategory(ExpenseCategory.valueOf(resultSet.getString("expenseCategory")));
+        expense.setAmount(resultSet.getDouble("amount"));
+        expense.setRemark(resultSet.getString("remark"));
         expense.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
-        expense.setMill(new MillDAOImpl().get(resultSet.getInt("mill")));
 
 
     }
@@ -66,9 +63,8 @@ public class ExpenseDAOImpl implements ExpenseDAO{
         try {
 
 
-            String sql = "insert into expense(fuel, storage, harvestStockCost, adhocLabour, firewood, fruitPurchase, plantParts, logger, mill) "
-                    + "values(" +expense.getFuel() + ", " + expense.getStorage() + "," + expense.getHarvestStockCost() + "," + expense.getAdhocLabour() + ","+ expense.getFirewood()
-                    + "," +expense.getFruitPurchase()+ ", "+ expense.getPlantParts() + "," + expense.getLogger().getId() +","+ expense.getMill().getId()  + ")";
+            String sql = "insert into expense(expenseCategory, amount, remark, date, logger) "
+                    + "values('"+expense.getExpenseCategory() + "'," + expense.getAmount() +",'"+expense.getRemark() +"','" + expense.getDate() +"',"+expense.getLogger()  + ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -106,27 +102,6 @@ public class ExpenseDAOImpl implements ExpenseDAO{
             Logger.getLogger(ExpenseDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return expense;
-    }    public Expense get(Mill mill) {
-        Expense expense = null;
-        try {
-            expense = new Expense();
-            String sql = "SELECT * FROM expense  WHERE mill=" + mill.getId();
-            connection = DBConnectionUtil.openConnection();
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery(sql);
-
-            while (resultSet.next()) {
-                setExpenseObject(expense);
-
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ExpenseDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return expense;
     }
 
     @Override
@@ -135,10 +110,8 @@ public class ExpenseDAOImpl implements ExpenseDAO{
         boolean flag = false;
 
         try {
-            String sql = "update expense set fuel=" + expense.getFuel() + " ,storage=" + expense.getStorage() + ",harvestStockCost="
-                    + expense.getHarvestStockCost() + ",adhocLabour =" +expense.getAdhocLabour()
-                    + ", firewood ="+ expense.getFirewood()+", fruitPurchase="+ expense.getFruitPurchase()
-                    + ", plantParts=" +  expense.getPlantParts() + ", logger="+ expense.getLogger()+ " where id=" + expense.getId();
+            String sql = "update expense set expenseCategory='" + expense.getExpenseCategory() + "' ,amount=" + expense.getAmount() + ",remark='"
+                    + expense.getRemark() + "',date ='" +expense.getDate() +"' where id=" + expense.getId();
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();
