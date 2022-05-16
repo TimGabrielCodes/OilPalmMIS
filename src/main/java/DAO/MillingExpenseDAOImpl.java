@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MillingExpenseDAOImpl implements MillingExpenseDAO{
+public class MillingExpenseDAOImpl implements MillingExpenseDAO {
 
     Connection connection = null;
     Statement statement = null;
@@ -67,8 +67,8 @@ public class MillingExpenseDAOImpl implements MillingExpenseDAO{
 
 
             String sql = "insert into millingExpense(fuel, storage, harvestStockCost, adhocLabour, firewood, fruitPurchase, plantParts, logger, mill) "
-                    + "values(" +millingExpense.getFuel() + ", " + millingExpense.getStorage() + "," + millingExpense.getHarvestStockCost() + "," + millingExpense.getAdhocLabour() + ","+ millingExpense.getFirewood()
-                    + "," +millingExpense.getFruitPurchase()+ ", "+ millingExpense.getPlantParts() + "," + millingExpense.getLogger().getId() +","+ millingExpense.getMill().getId()  + ")";
+                    + "values(" + millingExpense.getFuel() + ", " + millingExpense.getStorage() + "," + millingExpense.getHarvestStockCost() + "," + millingExpense.getAdhocLabour() + "," + millingExpense.getFirewood()
+                    + "," + millingExpense.getFruitPurchase() + ", " + millingExpense.getPlantParts() + "," + millingExpense.getLogger().getId() + "," + millingExpense.getMill().getId() + ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -106,7 +106,9 @@ public class MillingExpenseDAOImpl implements MillingExpenseDAO{
             Logger.getLogger(MillingExpenseDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return millingExpense;
-    }    public MillingExpense get(Mill mill) {
+    }
+
+    public MillingExpense get(Mill mill) {
         MillingExpense millingExpense = null;
         try {
             millingExpense = new MillingExpense();
@@ -136,9 +138,9 @@ public class MillingExpenseDAOImpl implements MillingExpenseDAO{
 
         try {
             String sql = "update millingExpense set fuel=" + millingExpense.getFuel() + " ,storage=" + millingExpense.getStorage() + ",harvestStockCost="
-                    + millingExpense.getHarvestStockCost() + ",adhocLabour =" +millingExpense.getAdhocLabour()
-                    + ", firewood ="+ millingExpense.getFirewood()+", fruitPurchase="+ millingExpense.getFruitPurchase()
-                    + ", plantParts=" +  millingExpense.getPlantParts() + ", logger="+ millingExpense.getLogger()+ " where id=" + millingExpense.getId();
+                    + millingExpense.getHarvestStockCost() + ",adhocLabour =" + millingExpense.getAdhocLabour()
+                    + ", firewood =" + millingExpense.getFirewood() + ", fruitPurchase=" + millingExpense.getFruitPurchase()
+                    + ", plantParts=" + millingExpense.getPlantParts() + ", logger=" + millingExpense.getLogger() + " where id=" + millingExpense.getId();
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();

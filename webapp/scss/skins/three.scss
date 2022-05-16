@@ -1,4 +1,3 @@
-
 // Local variables
 @import "../variables";
 @import "../bootstrap/variables";
@@ -20,7 +19,9 @@ body {
 }
 
 .toggle-sidebar {
-  .sidebar { border-right: 0; }
+  .sidebar {
+    border-right: 0;
+  }
 }
 
 .sidebar {
@@ -36,7 +37,9 @@ body {
 
 .sidebar-logo {
   color: #fff;
-  @include hover-focus() { color: #fff; }
+  @include hover-focus() {
+    color: #fff;
+  }
 
   span {
     font-weight: 500;
@@ -53,7 +56,9 @@ body {
   padding-left: 0;
   padding-right: 0;
 
-  hr { opacity: 0.06; }
+  hr {
+    opacity: 0.06;
+  }
 }
 
 .nav-sidebar {
@@ -80,7 +85,9 @@ body {
           background-color: darken($color-local-01, 4%);
           color: lighten($color-brand-01, 12%);
 
-          &::after { border-color: lighten($color-brand-01, 12%); }
+          &::after {
+            border-color: lighten($color-brand-01, 12%);
+          }
 
           svg {
             color: lighten($color-brand-01, 12%);
@@ -130,12 +137,19 @@ body {
     padding-left: 49px;
     background-color: darken($color-local-01, 2%);
 
-    &::before { opacity: 0; }
+    &::before {
+      opacity: 0;
+    }
   }
 
   .nav-sub-item {
-    &:first-child { margin-top: 0; }
-    &:last-child { margin-bottom: 0; }
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .nav-sub-link {
@@ -144,28 +158,40 @@ body {
     font-weight: 300;
     padding: 10px 0;
 
-    @include hover-focus() { color: rgba(#fff, .7); }
+    @include hover-focus() {
+      color: rgba(#fff, .7);
+    }
 
     &.active {
       color: lighten($color-brand-01, 12%);
       font-weight: 400;
 
-      &::before { display: none; }
+      &::before {
+        display: none;
+      }
     }
 
-    + .nav-sub-link { margin-top: 0; }
+    + .nav-sub-link {
+      margin-top: 0;
+    }
   }
 }
 
 .content {
   padding-top: $header-height-mobile;
-  @include media-breakpoint-up(sm) { padding-top: $header-height - 10px; }
-  @include media-breakpoint-up(lg) { padding-top: $header-height; }
+  @include media-breakpoint-up(sm) {
+    padding-top: $header-height - 10px;
+  }
+  @include media-breakpoint-up(lg) {
+    padding-top: $header-height;
+  }
 }
 
 .content-header {
   padding: 15px;
-  @include media-breakpoint-up(sm) { padding: 20px; }
+  @include media-breakpoint-up(sm) {
+    padding: 20px;
+  }
 }
 
 .header {
@@ -177,30 +203,45 @@ body {
   left: 0;
   z-index: 100;
 
-  @include media-breakpoint-up(lg) { left: $sidebar-width - 10px; }
-  @include media-breakpoint-up(xl) { left: $sidebar-width; }
+  @include media-breakpoint-up(lg) {
+    left: $sidebar-width - 10px;
+  }
+  @include media-breakpoint-up(xl) {
+    left: $sidebar-width;
+  }
 }
 
 .header-left .burger-menu {
   color: rgba(#fff, .8);
-  @include hover-focus() { color: #fff; }
+  @include hover-focus() {
+    color: #fff;
+  }
 }
 
 .header-search {
   background-color: rgba(#000, .2);
   border-width: 0;
 
-  svg { color: #fff; }
+  svg {
+    color: #fff;
+  }
 
   .form-control {
-    &::placeholder { color: rgba(#fff, .5); }
-    &:focus::placeholder { color: $color-text-04; }
+    &::placeholder {
+      color: rgba(#fff, .5);
+    }
+
+    &:focus::placeholder {
+      color: $color-text-04;
+    }
   }
 
   &.active {
     box-shadow: none;
 
-    svg { color: $color-text-01; }
+    svg {
+      color: $color-text-01;
+    }
   }
 }
 
@@ -208,7 +249,9 @@ body {
   .header-help-link,
   .dropdown-notification .dropdown-link {
     color: rgba(#fff, .8);
-    @include hover-focus() { color: #fff; }
+    @include hover-focus() {
+      color: #fff;
+    }
   }
 
   .dropdown-notification,
@@ -224,7 +267,9 @@ body {
 .content-body-chat,
 .content-body-profile {
   padding-top: 10px;
-  @include media-breakpoint-up(sm) { padding-top: 20px; }
+  @include media-breakpoint-up(sm) {
+    padding-top: 20px;
+  }
 }
 
 .content-calendar {

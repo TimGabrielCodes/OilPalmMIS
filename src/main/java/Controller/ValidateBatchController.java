@@ -1,7 +1,5 @@
 package Controller;
 
-import DAO.BatchDAO;
-import DAO.BatchDAOImpl;
 import DAO.HarvestDAO;
 import DAO.HarvestDAOImpl;
 import Model.Harvest;
@@ -24,23 +22,22 @@ public class ValidateBatchController extends HttpServlet {
     }
 
 
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Batch to validate is"+ request.getParameter("batch"));
+        System.out.println("Batch to validate is" + request.getParameter("batch"));
         Harvest harvestToMill = harvestDAO.getHarvestForMill(Integer.parseInt(request.getParameter("batch")));
         System.out.println("I got " + harvestToMill.toString());
 
-        if(harvestToMill.getId() != 0){
+        if (harvestToMill.getId() != 0) {
             request.setAttribute("harvest", harvestToMill);
             request.setAttribute("message", "Harvest is ready to be milled");
-        }else {
+        } else {
             request.setAttribute("message", "Harvest not available for milling");
         }
 
 
         request.setAttribute("title", "Mill a Harvest");
-        dispatcher= request.getRequestDispatcher("/Views/Admin/AddMill.jsp");
+        dispatcher = request.getRequestDispatcher("/Views/Admin/AddMill.jsp");
         dispatcher.forward(request, response);
 
 

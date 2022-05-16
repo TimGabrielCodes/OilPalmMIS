@@ -1,5 +1,4 @@
-
-<%@include file="AdminHeader.jsp"%>
+<%@include file="AdminHeader.jsp" %>
 
 <div class="content-header">
     <div>
@@ -18,13 +17,12 @@
     </div>
 
 
-</div><!-- content-header -->
+</div>
+<!-- content-header -->
 <div class="content-body">
 
 
-
-
-    <table  class="" id="datatable">
+    <table class="" id="datatable">
         <thead>
         <tr class="thead-light">
             <th>SN</th>
@@ -34,33 +32,22 @@
             <th>Amount (Naira)</th>
             <th>Received From</th>
             <th>Remark</th>
-<%--            <th>Action</th>--%>
-
-
+            <th>Date</th>
 
         </tr>
         </thead>
-        <%--<%@page import="javax.xml.bind.DatatypeConverter"%>
-        <%@page import="javax.imageio.ImageIO"%>
-        <%@page import="java.awt.image.*"%>
-        <%@page import="java.io.*"%>--%>
         <tbody>
 
         <c:forEach items="${list}" var="income" varStatus="loop">
-            <tr>  <td>${loop.index+1}</td>
+            <tr>
+                <td>${loop.index+1}</td>
                 <td>${income.logger.fullName}</td>
                 <td>${income.incomeType}</td>
                 <td>${income.productUnit}</td>
                 <td>${income.amount}</td>
                 <td>${income.receivedFrom}</td>
                 <td>${income.remark}</td>
-<%--                <td>--%>
-<%--                    <a href="${pageContext.request.contextPath}/sales?action=EDIT&id=${income.id}">Edit</a>--%>
-<%--                    |--%>
-<%--                    <a href="${pageContext.request.contextPath}/sales?action=DELETE&id=${income.id}">Delete</a>--%>
-<%--                </td>--%>
-
-
+                <td>${income.date}</td>
             </tr>
         </c:forEach>
         </tbody>
@@ -68,11 +55,12 @@
 
     </table>
     <button class="btn btn-primary pull-right" onclick="window.location.href = 'sales?action=NEW'">Make Sales</button>
-<%--    <button class="btn btn-primary pull-left " onclick="window.location.href = 'incomees?action=ADDBATCH'"></button>--%>
     <div>
         <p> ${message} </p>
     </div>
 
-</div><!-- content-body -->
-</div><!-- content -->
-<%@include file="AdminFooter.jsp"%>
+</div>
+<!-- content-body -->
+</div>
+<!-- content -->
+<%@include file="AdminFooter.jsp" %>

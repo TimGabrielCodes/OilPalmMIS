@@ -7,9 +7,10 @@ public class DashboardUtil {
     private int warehouse;
     private int clerk;
 
-    public DashboardUtil(){
+    public DashboardUtil() {
 
     }
+
     public int getManagers() {
         return managers;
     }
@@ -54,7 +55,6 @@ public class DashboardUtil {
     public String toString() {
         return "DashboardUtil{" + "managers=" + managers + ", users=" + users + ", admin=" + admin + ", warehouse=" + warehouse + ", clerk=" + clerk + '}';
     }
-
 
 
 }

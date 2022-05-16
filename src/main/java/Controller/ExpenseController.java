@@ -1,8 +1,9 @@
 package Controller;
 
 import DAO.*;
-import Model.*;
 import Model.Expense;
+import Model.ExpenseCategory;
+import Model.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,14 +37,14 @@ public class ExpenseController extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action == null) {
-            action = "MILLS";
+            action = "ALL";
         }
         switch (action) {
-            case "MILLS":
+            case "ALL":
                 listExpenses(request, response);
                 break;
 
-            case "ADD":
+            case "NEW":
                 newExpense(request, response);
                 break;
             case "DELETE":
@@ -77,8 +78,8 @@ public class ExpenseController extends HttpServlet {
         expense.setDate(date);
 
 
-                if (expenseDAO.saveExpense(expense)) {
-                    request.setAttribute("message", "Expense saved Successfully");
+        if (expenseDAO.saveExpense(expense)) {
+            request.setAttribute("message", "Expense saved Successfully");
         } else {
             //update
             expense.setId(Integer.parseInt(expenseId));

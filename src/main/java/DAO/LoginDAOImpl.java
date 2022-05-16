@@ -12,7 +12,7 @@ public class LoginDAOImpl implements LoginDAO {
     public String authenticate(Login login) {
         String sql = "select * from user where email=? and password =?";
 
-        try{
+        try {
             Connection connection = DBConnectionUtil.openConnection();
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, login.getEmail());
@@ -20,15 +20,15 @@ public class LoginDAOImpl implements LoginDAO {
 
             ResultSet rs = stmt.executeQuery();
 
-            if (rs.next()){
+            if (rs.next()) {
                 return "true";
-            } else{
+            } else {
                 return "false";
 
             }
 
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
 

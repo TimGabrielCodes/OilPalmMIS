@@ -8,7 +8,7 @@ import java.util.List;
 public interface BatchDAO {
     List<Batch> get() throws SQLException;
 
-    boolean  saveBatch(Batch batch);
+    boolean saveBatch(Batch batch);
 
     Batch get(int id);
 
@@ -17,8 +17,6 @@ public interface BatchDAO {
     boolean delete(int id);
 
     Batch get(String name);
-
-
 
 
 }

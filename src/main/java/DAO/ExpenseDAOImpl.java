@@ -1,8 +1,7 @@
 package DAO;
 
-import Model.ExpenseCategory;
-import Model.Mill;
 import Model.Expense;
+import Model.ExpenseCategory;
 import Util.DBConnectionUtil;
 
 import java.sql.*;
@@ -11,7 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ExpenseDAOImpl implements ExpenseDAO{
+public class ExpenseDAOImpl implements ExpenseDAO {
 
     Connection connection = null;
     Statement statement = null;
@@ -64,7 +63,7 @@ public class ExpenseDAOImpl implements ExpenseDAO{
 
 
             String sql = "insert into expense(expenseCategory, amount, remark, date, logger) "
-                    + "values('"+expense.getExpenseCategory() + "'," + expense.getAmount() +",'"+expense.getRemark() +"','" + expense.getDate() +"',"+expense.getLogger()  + ")";
+                    + "values('" + expense.getExpenseCategory() + "'," + expense.getAmount() + ",'" + expense.getRemark() + "','" + expense.getDate() + "'," + expense.getLogger().getId() + ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -111,7 +110,7 @@ public class ExpenseDAOImpl implements ExpenseDAO{
 
         try {
             String sql = "update expense set expenseCategory='" + expense.getExpenseCategory() + "' ,amount=" + expense.getAmount() + ",remark='"
-                    + expense.getRemark() + "',date ='" +expense.getDate() +"' where id=" + expense.getId();
+                    + expense.getRemark() + "',date ='" + expense.getDate() + "' where id=" + expense.getId();
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();

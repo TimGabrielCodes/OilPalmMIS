@@ -1,5 +1,4 @@
-
-<%@include file="AdminHeader.jsp"%>
+<%@include file="AdminHeader.jsp" %>
 
 <div class="content-header">
     <div>
@@ -12,9 +11,11 @@
         </nav>
         <h4 class="content-title content-title-xs">Dashboard, Charts and Analytics</h4>
     </div>
-</div><!-- content-header -->
+</div>
+<!-- content-header -->
 <div class="content-body">
 
-</div><!-- content-body -->
+</div>
+<!-- content-body -->
 </div><!-- content -->
-<%@include file="AdminFooter.jsp"%>
+<%@include file="AdminFooter.jsp" %>

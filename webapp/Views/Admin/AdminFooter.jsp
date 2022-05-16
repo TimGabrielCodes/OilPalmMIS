@@ -1,4 +1,3 @@
-
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="lib/feather-icons/feather.min.js"></script>
@@ -17,7 +16,8 @@
 <script src="assets/js/vmap.sampledata.js"></script>
 <script src="assets/js/dashboard-one.js"></script>
 <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js" charset="utf8"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"
+        charset="utf8"></script>
 
 <script>
     $(document).ready(function () {

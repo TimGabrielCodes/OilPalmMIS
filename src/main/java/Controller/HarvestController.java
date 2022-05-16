@@ -15,21 +15,18 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.format.TextStyle;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @WebServlet(value = "/harvests")
 public class HarvestController extends HttpServlet {
-    HarvestDAO harvestDAO;
     private final UserDAO userDAO;
+    HarvestDAO harvestDAO;
     private RequestDispatcher dispatcher;
 
-    public HarvestController(){
+    public HarvestController() {
         harvestDAO = new HarvestDAOImpl();
         userDAO = new UserDAOImpl();
     }
@@ -38,7 +35,7 @@ public class HarvestController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
 
-        if(action == null){
+        if (action == null) {
             action = "BATCHES";
         }
         switch (action) {
@@ -55,21 +52,22 @@ public class HarvestController extends HttpServlet {
             case "EDIT":
                 editHarvest(request, response);
 
-                default:
-                    listHarvests(request, response);
-                    break;
+            default:
+                listHarvests(request, response);
+                break;
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       String harvestDate = (request.getParameter("dateHarvested"));
+        String harvestDate = (request.getParameter("dateHarvested"));
         User logger = userDAO.getLogger((String) request.getSession().getAttribute("email"));
         String harvestId = request.getParameter("id");
         String batch = request.getParameter("batch");
         Batch batchObject = new BatchDAOImpl().get(batch);
         String stockInBunches = request.getParameter("stockInBunches");
         String costPerBunch = request.getParameter("costPerBunch");
+        String otherCosts = request.getParameter("otherCosts");
         Harvest harvest = new Harvest();
         harvest.setLogger(logger);
         harvest.setBatch(batchObject);
@@ -77,28 +75,29 @@ public class HarvestController extends HttpServlet {
         harvest.setMilled(false);
         harvest.setStockInBunches(Integer.parseInt(stockInBunches));
         harvest.setCostPerBunch(Double.valueOf(costPerBunch));
+        harvest.setOtherCosts(Double.valueOf(otherCosts));
 
 
-if(harvestId.isEmpty()){
-    if (harvestDAO.saveHarvest(harvest)) {
+        if (harvestId.isEmpty()) {
+            if (harvestDAO.saveHarvest(harvest)) {
 
-        request.setAttribute("message", "harvest saved Successfully");
-    }
+                request.setAttribute("message", "harvest saved Successfully");
+            }
 
-}
-else{
-    harvest.setId(Integer.parseInt(harvestId));
-    if(harvestDAO.updateHarvest(harvest)){
-        request.setAttribute("message", "Harvest Updated Successfully");
-    }
+        } else {
+            harvest.setId(Integer.parseInt(harvestId));
+            if (harvestDAO.updateHarvest(harvest)) {
+                request.setAttribute("message", "Harvest Updated Successfully");
+            }
 
-}
+        }
 
 
         listHarvests(request, response);
 
 
     }
+
     public void listHarvests(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         try {
             List<Harvest> list = harvestDAO.get();
@@ -113,6 +112,7 @@ else{
             e.printStackTrace();
         }
     }
+
     public void newHarvest(HttpServletRequest request, HttpServletResponse response) {
 
         try {
@@ -128,13 +128,14 @@ else{
         }
 
     }
-    public void deleteHarvest(HttpServletRequest request, HttpServletResponse response) throws ServletException{
+
+    public void deleteHarvest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
 
         String id = request.getParameter("id");
 
 
-        if(harvestDAO.delete(Integer.parseInt(id))){
+        if (harvestDAO.delete(Integer.parseInt(id))) {
             request.setAttribute("title", "Delete Harvest");
             request.setAttribute("message", "Harvest Deleted!");
 
@@ -142,7 +143,8 @@ else{
         listHarvests(request, response);
 
     }
-    public void editHarvest(HttpServletRequest request, HttpServletResponse response){
+
+    public void editHarvest(HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("id");
         Harvest harvest = harvestDAO.get(Integer.parseInt(id));
         request.setAttribute("title", "Edit Harvest");

@@ -1,7 +1,10 @@
 package Controller;
 
 import DAO.*;
-import Model.*;
+import Model.Harvest;
+import Model.Mill;
+import Model.MillingExpense;
+import Model.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,14 +21,13 @@ import java.util.logging.Logger;
 
 @WebServlet(value = "/mills")
 public class MillController extends HttpServlet {
+    private final UserDAO userDAO;
     MillDAO millDAO;
     MillingExpenseDAO millingExpenseDAO;
-
     HarvestDAO harvestDAO;
-    private final UserDAO userDAO;
     private RequestDispatcher dispatcher;
 
-    public MillController(){
+    public MillController() {
         millDAO = new MillDAOImpl();
         userDAO = new UserDAOImpl();
         millingExpenseDAO = new MillingExpenseDAOImpl();
@@ -36,7 +38,7 @@ public class MillController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
 
-        if(action == null){
+        if (action == null) {
             action = "MILLS";
         }
         switch (action) {
@@ -53,14 +55,14 @@ public class MillController extends HttpServlet {
             case "EDIT":
                 editMill(request, response);
 
-                default:
-                    listMills(request, response);
-                    break;
+            default:
+                listMills(request, response);
+                break;
         }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException{
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
         System.out.println("Post HIT");
         User logger = userDAO.getLogger((String) request.getSession().getAttribute("email"));
@@ -77,7 +79,6 @@ public class MillController extends HttpServlet {
         String firewood = request.getParameter("firewood");
         String fruitPurchase = request.getParameter("fruitPurchase");
         String plantParts = request.getParameter("plantParts");
-
 
 
         Mill mill = new Mill();
@@ -103,21 +104,20 @@ public class MillController extends HttpServlet {
         mill.setMillingExpense(millingExpense);
 
 
-
         if (millId.isEmpty()) {
             //save if
 
-                if (millDAO.saveMill(mill)) {
-                    mill = millDAO.getByBatch(harvest.getBatch().getId());
+            if (millDAO.saveMill(mill)) {
+                mill = millDAO.getByBatch(harvest.getBatch().getId());
 
 
-                    millingExpense.setMill(mill);
-                    harvestDAO.millHarvest(harvest);
-                    System.out.println("Is harvest milled ? "+ harvest.isMilled());
+                millingExpense.setMill(mill);
+                harvestDAO.millHarvest(harvest);
+                System.out.println("Is harvest milled ? " + harvest.isMilled());
 
-                    if(millingExpenseDAO.saveMillingExpense(millingExpense)){
-                        request.setAttribute("message", "mill saved Successfully");
-    //                }
+                if (millingExpenseDAO.saveMillingExpense(millingExpense)) {
+                    request.setAttribute("message", "mill saved Successfully");
+                    //                }
 
                 }
 
@@ -136,6 +136,7 @@ public class MillController extends HttpServlet {
 
 
     }
+
     public void listMills(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         try {
             List<Mill> list = millDAO.get();
@@ -151,6 +152,7 @@ public class MillController extends HttpServlet {
             e.printStackTrace();
         }
     }
+
     public void newMill(HttpServletRequest request, HttpServletResponse response) {
 
         try {
@@ -167,13 +169,14 @@ public class MillController extends HttpServlet {
         }
 
     }
-    public void deleteMill(HttpServletRequest request, HttpServletResponse response) throws ServletException{
+
+    public void deleteMill(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
 
         String id = request.getParameter("id");
 
 
-        if(millDAO.delete(Integer.parseInt(id))){
+        if (millDAO.delete(Integer.parseInt(id))) {
             request.setAttribute("title", "Delete Mill");
             request.setAttribute("message", "Mill Deleted!");
 
@@ -181,6 +184,7 @@ public class MillController extends HttpServlet {
         listMills(request, response);
 
     }
+
     public void editMill(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Edit Mill");
         String id = request.getParameter("id");
@@ -193,7 +197,6 @@ public class MillController extends HttpServlet {
         request.setAttribute("mill", mill);
         dispatcher = request.getRequestDispatcher("/Views/Admin/EditMill.jsp");
         dispatcher.forward(request, response);
-
 
 
     }

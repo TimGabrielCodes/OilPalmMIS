@@ -61,6 +61,8 @@
 
 
     </form>
-</div><!-- content-body -->
-</div><!-- content -->
+</div>
+<!-- content-body -->
+</div>
+<!-- content -->
 <%@include file="AdminFooter.jsp"%>

@@ -3,8 +3,12 @@
   @include media-breakpoint-down(sm) {
     overflow: hidden;
 
-    .mail-sidebar { display: block; }
-    .mail-body { transform: translateX(220px); }
+    .mail-sidebar {
+      display: block;
+    }
+    .mail-body {
+      transform: translateX(220px);
+    }
   }
 }
 
@@ -58,7 +62,9 @@
   justify-content: space-between;
   margin-bottom: 15px;
 
-  @include media-breakpoint-up(sm) { margin-bottom: 20px; }
+  @include media-breakpoint-up(sm) {
+    margin-bottom: 20px;
+  }
 
   h5 {
     margin-bottom: 0;
@@ -80,7 +86,9 @@
   box-shadow: $shadow-01, $shadow-base;
   height: calc(100% - 45px);
 
-  @include media-breakpoint-up(lg) { height: calc(100% - 50px); }
+  @include media-breakpoint-up(lg) {
+    height: calc(100% - 50px);
+  }
 }
 
 .mail-navbar {
@@ -100,9 +108,13 @@
     a {
       display: inline-block;
       color: $color-text-04;
-      @include hover-focus() { color: $color-text-02; }
+      @include hover-focus() {
+        color: $color-text-02;
+      }
 
-      + a { margin-left: 10px; }
+      + a {
+        margin-left: 10px;
+      }
     }
   }
 }
@@ -115,7 +127,9 @@
   overflow: hidden;
   position: relative;
 
-  @include media-breakpoint-up(lg) { height: calc(100% - 50px); }
+  @include media-breakpoint-up(lg) {
+    height: calc(100% - 50px);
+  }
 }
 
 .mail-item {
@@ -127,11 +141,15 @@
     margin-top: 2px;
     display: none;
 
-    @include media-breakpoint-up(lg) { display: block; }
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
   }
 
   .avatar {
-    @include media-breakpoint-up(lg) { margin-left: 15px; }
+    @include media-breakpoint-up(lg) {
+      margin-left: 15px;
+    }
   }
 
   @include hover-focus() {
@@ -145,7 +163,9 @@
 
   &.unread {
     background-color: #fff;
-    @include hover-focus() { background-color: #fff; }
+    @include hover-focus() {
+      background-color: #fff;
+    }
 
     .mail-item-body {
       > div:first-child span:first-child {
@@ -153,13 +173,18 @@
         font-weight: $font-weight-medium;
       }
 
-      h6 { color: $color-text-01; }
-      p { color: $color-text-02; }
+      h6 {
+        color: $color-text-01;
+      }
+
+      p {
+        color: $color-text-02;
+      }
     }
   }
 
   &.selected {
-    &,&:hover,&:focus {
+    &, &:hover, &:focus {
       background-color: lighten($color-brand-01, 43%);
     }
   }
@@ -191,7 +216,9 @@
     color: $color-text-03;
     font-size: 14px;
 
-    @include media-breakpoint-up(lg) { font-size: 15px; }
+    @include media-breakpoint-up(lg) {
+      font-size: 15px;
+    }
   }
 
   p {
@@ -199,7 +226,9 @@
     color: $color-text-04;
     font-size: $font-size-xs;
 
-    @include media-breakpoint-up(lg) { font-size: $font-size-sm; }
+    @include media-breakpoint-up(lg) {
+      font-size: $font-size-sm;
+    }
   }
 }
 
@@ -223,8 +252,13 @@
   overflow: hidden;
   height: calc(100% - 50px);
 
-  p { color: $color-text-02; }
-  strong { font-weight: $font-weight-medium; }
+  p {
+    color: $color-text-02;
+  }
+
+  strong {
+    font-weight: $font-weight-medium;
+  }
 }
 
 .mail-compose {
@@ -237,13 +271,13 @@
   z-index: 1050;
   opacity: 0;
   visibility: hidden;
-  transform: scale(1.2,1.2);
+  transform: scale(1.2, 1.2);
   @include transition(all 0.3s);
 
   &.show {
     opacity: 1;
     visibility: visible;
-    transform: scale(1,1);
+    transform: scale(1, 1);
 
     &.shrink {
       background-color: transparent;
@@ -259,8 +293,13 @@
       }
 
       .nav-link-shrink {
-        svg:first-child { display: none; }
-        svg:last-child { display: block; }
+        svg:first-child {
+          display: none;
+        }
+
+        svg:last-child {
+          display: block;
+        }
       }
 
       .mail-compose-body {
@@ -286,11 +325,18 @@
       }
 
       .nav-link-minimize {
-        svg:first-child { display: none; }
-        svg:last-child { display: block; }
+        svg:first-child {
+          display: none;
+        }
+
+        svg:last-child {
+          display: block;
+        }
       }
 
-      .mail-compose-body { display: none; }
+      .mail-compose-body {
+        display: none;
+      }
     }
   }
 }
@@ -316,9 +362,13 @@
 
   .nav-link {
     color: rgba(#fff, .5);
-    @include hover-focus() { color: #fff; }
+    @include hover-focus() {
+      color: #fff;
+    }
 
-    svg:last-child:not(:first-child) { display: none; }
+    svg:last-child:not(:first-child) {
+      display: none;
+    }
   }
 }
 
@@ -338,5 +388,7 @@
     padding: 20px;
   }
 
-  .form-control { box-shadow: none !important; }
+  .form-control {
+    box-shadow: none !important;
+  }
 }

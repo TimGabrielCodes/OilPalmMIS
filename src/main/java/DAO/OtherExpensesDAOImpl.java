@@ -5,7 +5,7 @@ import Model.OtherExpenses;
 import java.sql.SQLException;
 import java.util.List;
 
-public class OtherExpensesDAOImpl implements OtherExpenseDAO{
+public class OtherExpensesDAOImpl implements OtherExpenseDAO {
     @Override
     public List<OtherExpenses> get() throws SQLException {
         return null;

@@ -1,7 +1,6 @@
 package DAO;
 
 import Model.Expense;
-import Model.ExpenseCategory;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.List;
 public interface ExpenseDAO {
     List<Expense> get() throws SQLException;
 
-    boolean  saveExpense(Expense expense);
+    boolean saveExpense(Expense expense);
 
     Expense get(int id);
 
@@ -18,10 +17,6 @@ public interface ExpenseDAO {
     boolean updateExpense(Expense expense);
 
     boolean delete(int id);
-
-
-
-
 
 
 }

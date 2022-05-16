@@ -7,7 +7,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Users</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Harvestes</li>
+                <li class="breadcrumb-item active" aria-current="page">Harvests</li>
             </ol>
         </nav>
         <h4 class="content-title content-title-xs">Harvests</h4>
@@ -31,6 +31,7 @@
             <th>Batch</th>
             <th>Stock In Bunches</th>
             <th>Cost Per Bunch</th>
+            <th>Other Costs</th>
             <th>Date Added</th>
             <th>Milled</th>
             <th>Logger</th>
@@ -39,10 +40,6 @@
 
         </tr>
         </thead>
-        <%--<%@page import="javax.xml.bind.DatatypeConverter"%>
-        <%@page import="javax.imageio.ImageIO"%>
-        <%@page import="java.awt.image.*"%>
-        <%@page import="java.io.*"%>--%>
         <tbody>
 
         <c:forEach items="${list}" var="harvest" varStatus="loop">
@@ -50,17 +47,10 @@
                 <td>${harvest.batch.batchName}</td>
                 <td>${harvest.stockInBunches}</td>
                 <td>${harvest.costPerBunch}</td>
+                <td>${harvest.otherCosts}</td>
                 <td>${harvest.dateAdded}</td>
                 <td>${harvest.milled}</td>
-
                 <td>${harvest.logger.fullName}</td>
-<%--                <td>--%>
-<%--                    <a href="${pageContext.request.contextPath}/harvests?action=EDIT&id=${harvest.id}">Edit</a>--%>
-<%--                    |--%>
-<%--                    <a href="${pageContext.request.contextPath}/harvests?action=DELETE&id=${harvest.id}">Delete</a>--%>
-<%--                </td>--%>
-
-
             </tr>
         </c:forEach>
         </tbody>
@@ -73,6 +63,8 @@
         <p> ${message} </p>
     </div>
 
-</div><!-- content-body -->
-</div><!-- content -->
+</div>
+<!-- content-body -->
+</div>
+<!-- content -->
 <%@include file="AdminFooter.jsp"%>

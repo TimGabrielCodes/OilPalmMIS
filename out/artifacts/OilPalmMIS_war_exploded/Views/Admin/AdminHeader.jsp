@@ -86,16 +86,6 @@
                 <a href="" class="nav-link with-sub active"><i data-feather="box"></i> Dashboard</a>
                 <nav class="nav nav-sub">
                     <a href="#" class="nav-sub-link active">Analytics &amp; Monitoring</a>
-                    <a href="#" class="nav-sub-link">Projects &amp; Web Services</a>
-                    <a href="#" class="nav-sub-link">Blog &amp; Social Media</a>
-                </nav>
-            </li>
-            <li class="nav-item">
-                <a href="" class="nav-link with-sub"><i data-feather="layout"></i> Batches</a>
-                <nav class="nav nav-sub">
-                    <a href="${pageContext.request.contextPath}/batches?action=ADDBATCH" class="nav-sub-link">Create Batch</a>
-                    <a href="${pageContext.request.contextPath}/batches" class="nav-sub-link">View Batches</a>
-<%--                    <a href="#" class="nav-sub-link">Analytics</a>--%>
                 </nav>
             </li>
             <li class="nav-item">
@@ -124,8 +114,8 @@
             </li>    <li class="nav-item">
                 <a href="" class="nav-link with-sub"><i data-feather="send"></i> Expenses</a>
                 <nav class="nav nav-sub">
-                    <a href="#" class="nav-sub-link">Expenditures</a>
-                    <a href="#" class="nav-sub-link">Create Expenditures</a>
+                    <a href="${pageContext.request.contextPath}/expenses" class="nav-sub-link">Expenditures</a>
+                    <a href="${pageContext.request.contextPath}/expenses?action=NEW" class="nav-sub-link">Create Expenditures</a>
                     <a href="#" class="nav-sub-link">Reports</a>
 <%--                    <a href="page-505.html" class="nav-sub-link">Forbidden Access</a>--%>
                 </nav>
@@ -164,7 +154,6 @@
         </div><!-- header-left -->
 
         <div class="header-right">
-<%--            <a href="" class="header-help-link"><i data-feather="help-circle"></i></a>--%>
             <div class="dropdown dropdown-notification">
                 <a href="" class="dropdown-link new" data-toggle="dropdown"><i data-feather="bell"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">

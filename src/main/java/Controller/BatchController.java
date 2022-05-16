@@ -25,11 +25,11 @@ import java.util.logging.Logger;
 
 @WebServlet(value = "/batches")
 public class BatchController extends HttpServlet {
-    BatchDAO batchDAO;
     private final UserDAO userDAO;
+    BatchDAO batchDAO;
     private RequestDispatcher dispatcher;
 
-    public BatchController(){
+    public BatchController() {
         batchDAO = new BatchDAOImpl();
         userDAO = new UserDAOImpl();
     }
@@ -38,7 +38,7 @@ public class BatchController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
 
-        if(action == null){
+        if (action == null) {
             action = "BATCHES";
         }
         switch (action) {
@@ -55,9 +55,9 @@ public class BatchController extends HttpServlet {
             case "EDIT":
                 editBatch(request, response);
 
-                default:
-                    listBatches(request, response);
-                    break;
+            default:
+                listBatches(request, response);
+                break;
         }
     }
 
@@ -94,6 +94,7 @@ public class BatchController extends HttpServlet {
 
 
     }
+
     public void listBatches(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         try {
             List<Batch> list = batchDAO.get();
@@ -108,6 +109,7 @@ public class BatchController extends HttpServlet {
             e.printStackTrace();
         }
     }
+
     public void newBatch(HttpServletRequest request, HttpServletResponse response) {
 
         try {
@@ -123,13 +125,14 @@ public class BatchController extends HttpServlet {
         }
 
     }
-    public void deleteBatch(HttpServletRequest request, HttpServletResponse response) throws ServletException{
+
+    public void deleteBatch(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
 
         String id = request.getParameter("id");
 
 
-        if(batchDAO.delete(Integer.parseInt(id))){
+        if (batchDAO.delete(Integer.parseInt(id))) {
             request.setAttribute("title", "Delete Batch");
             request.setAttribute("message", "Batch Deleted!");
 
@@ -137,7 +140,8 @@ public class BatchController extends HttpServlet {
         listBatches(request, response);
 
     }
-    public void editBatch(HttpServletRequest request, HttpServletResponse response){
+
+    public void editBatch(HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("id");
         Batch batch = batchDAO.get(Integer.parseInt(id));
         request.setAttribute("title", "Edit Batch");

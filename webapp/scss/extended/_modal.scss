@@ -1,7 +1,7 @@
 
 .modal {
   &.animated .modal-dialog {
-    transform: translate(0,0);
+    transform: translate(0, 0);
   }
 
   &.effect-scale {
@@ -187,7 +187,10 @@
       transition: all 0.3s;
     }
 
-    .modal-content { background-color: transparent; }
+    .modal-content {
+      background-color: transparent;
+    }
+
     .close {
       text-shadow: none;
       color: #fff;
@@ -195,7 +198,7 @@
 
     .modal-header {
       background-color: transparent;
-      border-bottom-color: rgba(#fff,.1);
+      border-bottom-color: rgba(#fff, .1);
       padding-left: 0;
       padding-right: 0;
 
@@ -210,7 +213,9 @@
       padding-left: 0;
       padding-right: 0;
 
-      h6 { color: #fff; }
+      h6 {
+        color: #fff;
+      }
     }
 
     .modal-footer {
@@ -220,7 +225,10 @@
       border-top-color: rgba(#fff, .1);
     }
 
-    &.show ~ .modal-backdrop { opacity: .96; }
+    &.show ~ .modal-backdrop {
+      opacity: .96;
+    }
+
     &.show .modal-dialog {
       transform: scale(1);
       opacity: 1;

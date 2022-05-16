@@ -1,7 +1,11 @@
 package Model;
 
 public enum ExpenseCategory {
-    FIELD_PRUNING,
-    FRUIT_CUTTING,
+    FIELD_CUTTING,
+    BUSH_CUTTING,
+    PALM_PRUNING,
+    HARVEST_COST,
+    HONORARIUM,
+    OTHERS_PR
 
 }

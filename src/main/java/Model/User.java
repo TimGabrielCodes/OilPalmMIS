@@ -21,7 +21,7 @@ public class User {
         this.isAdmin = isAdmin;
     }
 
-    public User(){
+    public User() {
 
     }
 
@@ -81,9 +81,10 @@ public class User {
         isAdmin = admin;
 
     }
-     public String getFullName(){
+
+    public String getFullName() {
         return this.firstName + " " + this.surname;
-     }
+    }
 
     public void setFullName() {
         this.fullName = this.firstName + " " + this.surname;

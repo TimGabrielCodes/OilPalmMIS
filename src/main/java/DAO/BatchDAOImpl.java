@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class BatchDAOImpl implements BatchDAO{
+public class BatchDAOImpl implements BatchDAO {
     Connection connection = null;
     Statement statement = null;
     ResultSet resultSet = null;
@@ -32,15 +32,11 @@ public class BatchDAOImpl implements BatchDAO{
             while (resultSet.next()) {
                 batch = new Batch();
                 //  batch.setRole(resultSet.getString("role"));
-batch.setId(resultSet.getInt("id"));
-batch.setBatchName(resultSet.getString("batchName"));
-batch.setBatchMonth(resultSet.getString("batchMonth"));
-batch.setBatchDate(resultSet.getDate("batchDate"));
-batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
-
-
-
-
+                batch.setId(resultSet.getInt("id"));
+                batch.setBatchName(resultSet.getString("batchName"));
+                batch.setBatchMonth(resultSet.getString("batchMonth"));
+                batch.setBatchDate(resultSet.getDate("batchDate"));
+                batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
 
 
                 list.add(batch);
@@ -56,17 +52,14 @@ batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
     }
 
 
-
     @Override
     public boolean saveBatch(Batch batch) {
         boolean flag = false;
         try {
 
 
-
-
             String sql = "insert into batch(batchName, batchMonth, batchDate, logger) "
-                    + "values('" + batch.getBatchName()+ "', '" +batch.getBatchMonth() + "','" + batch.getBatchDate() + "'," + batch.getLogger().getId()+ ")";
+                    + "values('" + batch.getBatchName() + "', '" + batch.getBatchMonth() + "','" + batch.getBatchDate() + "'," + batch.getLogger().getId() + ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -97,12 +90,14 @@ batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
             Logger.getLogger(BatchDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return batch;
-    }    @Override
+    }
+
+    @Override
     public Batch get(String name) {
         Batch batch = null;
         try {
             batch = new Batch();
-            String sql = "SELECT * FROM batch  WHERE batchName='" + name +"'";
+            String sql = "SELECT * FROM batch  WHERE batchName='" + name + "'";
             openConnection(batch, sql);
 
         } catch (SQLException e) {
@@ -136,7 +131,7 @@ batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
         boolean flag = false;
 
         try {
-            String sql = "update batch set batchName='"+ batch.getBatchName()+"',batchMonth='" + batch.getBatchMonth() + "',batchDate='" + batch.getBatchDate() + "',logger =" + batch.getLogger().getId()  +" where id=" + batch.getId() ;
+            String sql = "update batch set batchName='" + batch.getBatchName() + "',batchMonth='" + batch.getBatchMonth() + "',batchDate='" + batch.getBatchDate() + "',logger =" + batch.getLogger().getId() + " where id=" + batch.getId();
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();
@@ -167,10 +162,6 @@ batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
         }
         return flag;
     }
-
-
-
-
 
 
 }

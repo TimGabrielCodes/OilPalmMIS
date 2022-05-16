@@ -1,4 +1,3 @@
-
 // Alert outline variant
 @mixin alert-outline-variant($text-color, $border-color) {
   border-color: $border-color;
@@ -10,12 +9,17 @@
   color: #fff;
 
   &.marker-icon {
-    &::before { background-color: $color; }
+    &::before {
+      background-color: $color;
+    }
   }
 
   &.marker-ribbon {
     background-color: $color;
-    &::after { border-bottom-color: darken($color, 15%); }
+
+    &::after {
+      border-bottom-color: darken($color, 15%);
+    }
   }
 }
 
@@ -28,46 +32,70 @@
     }
   }
 
-  .popover-header { background-color: $color; }
+  .popover-header {
+    background-color: $color;
+  }
 }
 
 // Popover Full Background Color Variant
 @mixin popover-full-variant($color) {
   background-color: $color;
-  &.bs-popover-top .arrow::after { border-top-color: $color; }
-  &.bs-popover-bottom .arrow::after { border-bottom-color: $color; }
-  &.bs-popover-right .arrow::after { border-right-color: $color; }
-  &.bs-popover-left .arrow::after { border-left-color: $color; }
+  &.bs-popover-top .arrow::after {
+    border-top-color: $color;
+  }
+  &.bs-popover-bottom .arrow::after {
+    border-bottom-color: $color;
+  }
+  &.bs-popover-right .arrow::after {
+    border-right-color: $color;
+  }
+  &.bs-popover-left .arrow::after {
+    border-left-color: $color;
+  }
 }
 
 // Tooltip color variant
 @mixin tooltip-variant($color) {
-  .tooltip-inner { background-color: $color; }
+  .tooltip-inner {
+    background-color: $color;
+  }
 
   &.bs-tooltip-top,
   &.bs-tooltip-auto[x-placement^="top"] {
-    .arrow::before { border-top-color: $color; }
+    .arrow::before {
+      border-top-color: $color;
+    }
   }
 
   &.bs-tooltip-bottom,
   &.bs-tooltip-auto[x-placement^="bottom"] {
-    .arrow::before { border-bottom-color: $color; }
+    .arrow::before {
+      border-bottom-color: $color;
+    }
   }
 
   &.bs-tooltip-left,
   &.bs-tooltip-auto[x-placement^="left"] {
-    .arrow::before { border-left-color: $color; }
+    .arrow::before {
+      border-left-color: $color;
+    }
   }
 
   &.bs-tooltip-right,
   &.bs-tooltip-auto[x-placement^="right"] {
-    .arrow::before { border-right-color: $color; }
+    .arrow::before {
+      border-right-color: $color;
+    }
   }
 }
 
 @mixin table-variant($thead-bg, $tbody-bg) {
-  thead { background-color: $thead-bg; }
-  tbody tr { background-color: $tbody-bg; }
+  thead {
+    background-color: $thead-bg;
+  }
+  tbody tr {
+    background-color: $tbody-bg;
+  }
 
   &.table-striped tbody tr:nth-of-type(2n+1) {
     background-color: darken($tbody-bg, 3%);
@@ -88,7 +116,11 @@
     color: #fff;
   }
 
-  .card-title { font-weight: $font-weight-medium; }
+  .card-title {
+    font-weight: $font-weight-medium;
+  }
 
-  @include hover-focus() { background-color: lighten($color, 3%); }
+  @include hover-focus() {
+    background-color: lighten($color, 3%);
+  }
 }

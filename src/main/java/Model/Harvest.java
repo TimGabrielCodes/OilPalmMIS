@@ -16,6 +16,8 @@ public class Harvest {
 
     private Date dateAdded;
 
+    private Double otherCosts;
+
     private boolean milled;
 
 
@@ -66,10 +68,25 @@ public class Harvest {
         return dateAdded;
     }
 
+    public void setDateAdded(Date dateAdded) {
+        this.dateAdded = dateAdded;
+    }
+
+    public Double getOtherCosts() {
+        return otherCosts;
+    }
+
+    public void setOtherCosts(Double otherCosts) {
+        this.otherCosts = otherCosts;
+    }
+
     public Double getHarvestStockCost() {
         return (this.costPerBunch * this.stockInBunches);
     }
 
+    public void setHarvestStockCost(Double harvestStockCost) {
+        this.harvestStockCost = harvestStockCost;
+    }
 
     @Override
     public String toString() {
@@ -81,12 +98,9 @@ public class Harvest {
                 ", stockInBunches=" + stockInBunches +
                 ", costPerBunch=" + costPerBunch +
                 ", dateAdded=" + dateAdded +
+                ", otherCosts=" + otherCosts +
                 ", milled=" + milled +
                 '}';
-    }
-
-    public void setHarvestStockCost(Double harvestStockCost) {
-        this.harvestStockCost = harvestStockCost;
     }
 
     public boolean isMilled() {
@@ -95,10 +109,6 @@ public class Harvest {
 
     public void setMilled(boolean milled) {
         this.milled = milled;
-    }
-
-    public void setDateAdded(Date dateAdded) {
-        this.dateAdded = dateAdded;
     }
 
 }

@@ -3,7 +3,9 @@
   .row {
     justify-content: space-between;
 
-    > div:first-child { text-align: right; }
+    > div:first-child {
+      text-align: right;
+    }
   }
 
   .date-wrapper {
@@ -25,8 +27,12 @@
       padding-top: 48px;
     }
 
-    @include media-breakpoint-up(lg) { padding-right: 5px; }
-    @media (min-width: 1100px) { padding-right: 0; }
+    @include media-breakpoint-up(lg) {
+      padding-right: 5px;
+    }
+    @media (min-width: 1100px) {
+      padding-right: 0;
+    }
   }
 }
 
@@ -56,7 +62,9 @@
     font-size: 14px;
   }
 
-  @include media-breakpoint-up(md) { font-size: 21px; }
+  @include media-breakpoint-up(md) {
+    font-size: 21px;
+  }
 
   span {
     font-size: 10px;
@@ -94,7 +102,9 @@
       height: auto;
     }
 
-    @include media-breakpoint-up(md) { left: -47px; }
+    @include media-breakpoint-up(md) {
+      left: -47px;
+    }
   }
 }
 
@@ -109,7 +119,9 @@
     color: $color-text-01;
     font-size: $font-size-sm;
 
-    @include media-breakpoint-up(md) { font-size: $font-size-base; }
+    @include media-breakpoint-up(md) {
+      font-size: $font-size-base;
+    }
   }
 
   > span {
@@ -117,7 +129,9 @@
     color: $color-text-04;
     font-size: $font-size-sm;
 
-    @include media-breakpoint-up(md) { font-size: $font-size-base; }
+    @include media-breakpoint-up(md) {
+      font-size: $font-size-base;
+    }
   }
 
   .avatar {
@@ -126,7 +140,9 @@
       height: 20px;
     }
 
-    &::after { right: 0px; }
+    &::after {
+      right: 0px;
+    }
   }
 }
 
@@ -213,7 +229,10 @@
 .timeline-list-event {
   li {
     display: block;
-    + li { margin-top: 10px; }
+
+    + li {
+      margin-top: 10px;
+    }
   }
 }
 

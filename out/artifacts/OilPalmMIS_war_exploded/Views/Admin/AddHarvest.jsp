@@ -76,6 +76,11 @@
                 <input type="number" id="costPerBunch" name="costPerBunch" value="${harvest.costPerBunch}"
                        class="form-control" required="true" min="0" step=".01"/>
             </div>
+<div class="col">
+                <label class="col-form-label col-form-label-lg" for="otherCosts">Other Costs</label>
+                <input type="number" id="otherCosts" name="otherCosts" value="${harvest.otherCosts}"
+                       class="form-control" required="true" min="0" step=".01"/>
+            </div>
 
 
         </div>

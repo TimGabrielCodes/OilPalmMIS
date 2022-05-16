@@ -2,7 +2,7 @@
 // Finnish (fi) localization
 // https://github.com/bgrins/spectrum
 
-(function ( $ ) {
+(function ($) {
 
     var localization = $.spectrum.localization["fi"] = {
         cancelText: "Kumoa",
@@ -11,4 +11,4 @@
 
     $.extend($.fn.spectrum.defaults, localization);
 
-})( jQuery );
+})(jQuery);

@@ -1,20 +1,29 @@
 
-
 .form-control {
   color: $color-text-02;
   font-size: inherit;
 
-  &::placeholder { color: $color-text-04; }
+  &::placeholder {
+    color: $color-text-04;
+  }
 
   &:disabled,
-  &[readonly] { background-color: $color-ui-02; }
+  &[readonly] {
+    background-color: $color-ui-02;
+  }
 
-  &:focus { box-shadow: none; }
+  &:focus {
+    box-shadow: none;
+  }
 }
 
-textarea.form-control { min-height: 38px; }
+textarea.form-control {
+  min-height: 38px;
+}
 
-.form-group { margin-bottom: 20px; }
+.form-group {
+  margin-bottom: 20px;
+}
 
 .form-fieldset {
   background-color: #fff;
@@ -22,7 +31,9 @@ textarea.form-control { min-height: 38px; }
   padding: 20px 25px 25px;
   @include border-radius();
 
-  .form-group:last-child { margin-bottom: 0; }
+  .form-group:last-child {
+    margin-bottom: 0;
+  }
 
   legend {
     width: auto;

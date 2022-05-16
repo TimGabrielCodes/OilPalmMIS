@@ -6,7 +6,9 @@
 .content-body-calendar {
   padding: 15px;
 
-  @include media-breakpoint-up(sm) { padding: 20px; }
+  @include media-breakpoint-up(sm) {
+    padding: 20px;
+  }
 }
 
 .content-calendar {
@@ -73,7 +75,9 @@
         width: 34px;
         justify-content: center;
 
-        span { margin: 0; }
+        span {
+          margin: 0;
+        }
       }
 
       &.fc-state-active {
@@ -88,7 +92,9 @@
         background-color: #fff;
         display: none;
 
-        @include media-breakpoint-up(md) { display: block; }
+        @include media-breakpoint-up(md) {
+          display: block;
+        }
 
         @include hover-focus() {
           border-color: $color-ui-04;
@@ -146,9 +152,15 @@
           }
         }
 
-        &.fc-month-button::before { content: 'M'; }
-        &.fc-agendaWeek-button::before { content: 'W'; }
-        &.fc-agendaDay-button::before { content: 'D'; }
+        &.fc-month-button::before {
+          content: 'M';
+        }
+        &.fc-agendaWeek-button::before {
+          content: 'W';
+        }
+        &.fc-agendaDay-button::before {
+          content: 'D';
+        }
         &.fc-listWeek-button::before,
         &.fc-listMonth-button::before {
           content: 'L';
@@ -167,15 +179,24 @@
         font-weight: $font-weight-base;
         line-height: 1;
 
-        @include media-breakpoint-up(lg) { line-height: .9; }
+        @include media-breakpoint-up(lg) {
+          line-height: .9;
+        }
       }
     }
 
 
-    .fc-icon-left-single-arrow::after { content: '\f3cf'; }
-    .fc-icon-right-single-arrow::after { content: '\f3d1'; }
+    .fc-icon-left-single-arrow::after {
+      content: '\f3cf';
+    }
 
-    .fc-clear { display: none; }
+    .fc-icon-right-single-arrow::after {
+      content: '\f3d1';
+    }
+
+    .fc-clear {
+      display: none;
+    }
 
     .fc-left {
       order: 1;
@@ -195,8 +216,12 @@
         font-family: $font-family-numeric;
         letter-spacing: -.2px;
 
-        @include media-breakpoint-up(sm) { font-size: 18px; }
-        @include media-breakpoint-up(lg) { font-size: 20px; }
+        @include media-breakpoint-up(sm) {
+          font-size: 18px;
+        }
+        @include media-breakpoint-up(lg) {
+          font-size: 20px;
+        }
       }
     }
 
@@ -263,7 +288,9 @@
     }
   }
 
-  .fc-other-month { background-color: lighten($color-ui-01, 1%); }
+  .fc-other-month {
+    background-color: lighten($color-ui-01, 1%);
+  }
 
   .fc-day-number {
     font-size: 14px;
@@ -305,10 +332,17 @@
       display: none;
       font-size: 11px;
 
-      @include media-breakpoint-up(sm) { display: block; }
+      @include media-breakpoint-up(sm) {
+        display: block;
+      }
 
-      .fc-time { font-weight: $font-weight-medium; }
-      .fc-desc { display: none; }
+      .fc-time {
+        font-weight: $font-weight-medium;
+      }
+
+      .fc-desc {
+        display: none;
+      }
     }
   }
 
@@ -317,7 +351,10 @@
     border-left-width: 0;
     border-top-width: 2px;
 
-    .fc-time { font-size: 12px; }
+    .fc-time {
+      font-size: 12px;
+    }
+
     .fc-title {
       font-size: 13px;
       font-weight: $font-weight-medium;
@@ -334,12 +371,19 @@
   .fc-agendaWeek-view {
     .fc-time-grid-event > div {
       display: none;
-      @include media-breakpoint-up(sm) { display: block; }
+      @include media-breakpoint-up(sm) {
+        display: block;
+      }
 
-      .fc-time { font-size: 11px; }
+      .fc-time {
+        font-size: 11px;
+      }
+
       .fc-desc {
         display: none;
-        @include media-breakpoint-up(lg) { display: block; }
+        @include media-breakpoint-up(lg) {
+          display: block;
+        }
       }
     }
   }
@@ -373,11 +417,15 @@
           font-family: $font-family-numeric;
           line-height: 1;
 
-          @include media-breakpoint-up(sm) { font-size: 25px; }
+          @include media-breakpoint-up(sm) {
+            font-size: 25px;
+          }
         }
       }
 
-      &.fc-today > a { color: $color-brand-01; }
+      &.fc-today > a {
+        color: $color-brand-01;
+      }
     }
   }
 
@@ -428,7 +476,10 @@
 
       &:first-child {
         margin-top: 0;
-        + .fc-list-item { margin-top: 0; }
+
+        + .fc-list-item {
+          margin-top: 0;
+        }
       }
 
       td {
@@ -456,13 +507,20 @@
         color: $color-text-01;
         line-height: 1;
 
-        @include media-breakpoint-up(sm) { font-size: 32px; }
-        @include media-breakpoint-up(xl) { font-size: 36px; }
+        @include media-breakpoint-up(sm) {
+          font-size: 32px;
+        }
+        @include media-breakpoint-up(xl) {
+          font-size: 36px;
+        }
       }
 
       &.now {
         color: $color-brand-01;
-        span:last-child { color: $color-brand-01; }
+
+        span:last-child {
+          color: $color-brand-01;
+        }
       }
     }
 
@@ -496,11 +554,13 @@
       }
 
 
-
       &:hover,
       &:focus {
         cursor: pointer;
-        td { background-color: transparent; }
+
+        td {
+          background-color: transparent;
+        }
       }
 
       > td {
@@ -522,14 +582,24 @@
       + .fc-list-item {
         margin-left: 20%;
 
-        @include media-breakpoint-up(sm) { margin-left: 15%; }
-        @include media-breakpoint-up(md) { margin-left: 12%; }
-        @include media-breakpoint-up(lg) { margin-left: 10%; }
-        @include media-breakpoint-up(xl) { margin-left: 8%; }
+        @include media-breakpoint-up(sm) {
+          margin-left: 15%;
+        }
+        @include media-breakpoint-up(md) {
+          margin-left: 12%;
+        }
+        @include media-breakpoint-up(lg) {
+          margin-left: 10%;
+        }
+        @include media-breakpoint-up(xl) {
+          margin-left: 8%;
+        }
       }
     }
 
-    .fc-list-item-marker { display: none; }
+    .fc-list-item-marker {
+      display: none;
+    }
 
     .fc-list-item-time {
       padding: 12px 15px 2px;
@@ -551,7 +621,9 @@
         margin-bottom: 2px;
         color: $color-text-01;
 
-        @include media-breakpoint-up(sm) { font-size: 18px; }
+        @include media-breakpoint-up(sm) {
+          font-size: 18px;
+        }
       }
 
       .fc-desc {
@@ -560,7 +632,9 @@
         display: block;
         color: $color-text-03;
 
-        @include media-breakpoint-up(lg) { font-size: 13px; }
+        @include media-breakpoint-up(lg) {
+          font-size: 13px;
+        }
       }
     }
   }
@@ -573,13 +647,17 @@
       padding: 5px 0;
       color: $color-text-02;
 
-      @include media-breakpoint-up(sm) { font-size: 12px; }
+      @include media-breakpoint-up(sm) {
+        font-size: 12px;
+      }
     }
   }
 
   .fc-axis {
     font-size: 11px;
-    @include media-breakpoint-up(sm) { font-size: 12px; }
+    @include media-breakpoint-up(sm) {
+      font-size: 12px;
+    }
   }
 }
 
@@ -614,9 +692,13 @@
       }
 
       &:hover,
-      &:focus { color: #fff; }
+      &:focus {
+        color: #fff;
+      }
 
-      + .nav-link { margin-left: 10px; }
+      + .nav-link {
+        margin-left: 10px;
+      }
     }
   }
 
@@ -631,7 +713,9 @@
     text-overflow: ellipsis;
     overflow: hidden;
 
-    @include media-breakpoint-up(lg) { font-size: 20px; }
+    @include media-breakpoint-up(lg) {
+      font-size: 20px;
+    }
   }
 
   .modal-body {
@@ -639,7 +723,9 @@
     background-color: #fff;
     @include border-bottom-radius($border-radius);
 
-    @include media-breakpoint-up(sm) { padding: 25px; }
+    @include media-breakpoint-up(sm) {
+      padding: 25px;
+    }
   }
 
   .event-start-date,
@@ -648,7 +734,11 @@
     font-weight: $font-weight-medium;
   }
 
-  .event-desc { margin-top: 5px; }
+  .event-desc {
+    margin-top: 5px;
+  }
 
-  .event-desc:empty { margin-bottom: 5px; }
+  .event-desc:empty {
+    margin-bottom: 5px;
+  }
 }

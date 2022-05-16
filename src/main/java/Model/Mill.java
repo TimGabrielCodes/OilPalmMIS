@@ -14,8 +14,6 @@ public class Mill {
     private MillingExpense millingExpense;
 
 
-
-
     public Mill() {
     }
 
@@ -42,7 +40,6 @@ public class Mill {
     public void setHarvestStock(Integer harvestStock) {
         this.harvestStock = harvestStock;
     }
-
 
 
     public Integer getNumberOfPresses() {

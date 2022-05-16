@@ -11,7 +11,11 @@
         <entry key="file://$PROJECT_DIR$/web/Views/Admin/EditMill.jsp" value="file://$PROJECT_DIR$/web/Views/Admin" />
         <entry key="file://$PROJECT_DIR$/web/Views/Admin/Mills.jsp" value="file://$PROJECT_DIR$/web/Views/Admin" />
         <entry key="file://$PROJECT_DIR$/web/Views/Admin/page-settings.jsp" value="file://$PROJECT_DIR$/web/Views/Admin" />
+        <entry key="file://$PROJECT_DIR$/webapp/Views/Admin/AddExpense.jsp" value="file://$PROJECT_DIR$/webapp/Views/Admin" />
+        <entry key="file://$PROJECT_DIR$/webapp/Views/Admin/AddHarvest.jsp" value="file://$PROJECT_DIR$/webapp/Views/Admin" />
         <entry key="file://$PROJECT_DIR$/webapp/Views/Admin/AddIncome.jsp" value="file://$PROJECT_DIR$/webapp/Views/Admin" />
+        <entry key="file://$PROJECT_DIR$/webapp/Views/Admin/AdminHeader.jsp" value="file://$PROJECT_DIR$/webapp/Views/Admin" />
+        <entry key="file://$PROJECT_DIR$/webapp/Views/Admin/Expenses.jsp" value="file://$PROJECT_DIR$/webapp/Views/Admin" />
       </map>
     </option>
   </component>

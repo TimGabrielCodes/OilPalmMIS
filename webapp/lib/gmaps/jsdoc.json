@@ -1,6 +1,8 @@
 {
   "source": {
-    "include": [ "./lib" ],
+    "include": [
+      "./lib"
+    ],
     "includePattern": ".js$"
   },
   "plugins": [

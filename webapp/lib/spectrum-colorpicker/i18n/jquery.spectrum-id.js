@@ -2,7 +2,7 @@
 // Indonesia/Bahasa Indonesia (id) localization
 // https://github.com/bgrins/spectrum
 
-(function ( $ ) {
+(function ($) {
 
     var localization = $.spectrum.localization["id"] = {
         cancelText: "Batal",
@@ -15,4 +15,4 @@
 
     $.extend($.fn.spectrum.defaults, localization);
 
-})( jQuery );
+})(jQuery);

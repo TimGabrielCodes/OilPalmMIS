@@ -21,6 +21,7 @@ import java.util.logging.Logger;
 public class UserController extends HttpServlet {
     UserDAO userDAO = null;
     RequestDispatcher dispatcher = null;
+
     public UserController() {
         userDAO = new UserDAOImpl();
     }
@@ -45,7 +46,6 @@ public class UserController extends HttpServlet {
                 break;
 
 
-
             default:
                 dashboard(request, response);
                 break;
@@ -65,9 +65,7 @@ public class UserController extends HttpServlet {
         boolean admin = Boolean.parseBoolean(request.getParameter("admin"));
 
 
-
         User user = new User();
-
 
 
         user.setFirstName(firstName);
@@ -139,13 +137,13 @@ public class UserController extends HttpServlet {
 
     }
 
-    public void deleteUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+    public void deleteUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 
         String id = request.getParameter("id");
 
         User user = userDAO.get(Integer.parseInt(id));
-        if(userDAO.delete(Integer.parseInt(id))){
+        if (userDAO.delete(Integer.parseInt(id))) {
             request.setAttribute("title", "Delete User");
             request.setAttribute("message", "User Deleted!");
 
@@ -216,14 +214,15 @@ public class UserController extends HttpServlet {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void viewProfile(HttpServletRequest request, HttpServletResponse response){
+
+    public void viewProfile(HttpServletRequest request, HttpServletResponse response) {
         try {
             //System.out.println("the page");
             User user = userDAO.getLogger((String) request.getSession().getAttribute("email"));
             user.setFullName();
             request.setAttribute("title", "Profile Settings");
-        request.setAttribute("user", user);
-        dispatcher = request.getRequestDispatcher("/Views/Admin/page-settings.jsp");
+            request.setAttribute("user", user);
+            dispatcher = request.getRequestDispatcher("/Views/Admin/page-settings.jsp");
 
             dispatcher.forward(request, response);
             //System.out.println("done");
@@ -233,6 +232,7 @@ public class UserController extends HttpServlet {
             e.printStackTrace();
         }
     }
+
     public void listUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         try {
             User user = userDAO.getLogger((String) request.getSession().getAttribute("email"));

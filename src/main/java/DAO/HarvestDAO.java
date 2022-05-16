@@ -8,7 +8,7 @@ import java.util.List;
 public interface HarvestDAO {
     List<Harvest> get() throws SQLException;
 
-    boolean  saveHarvest(Harvest harvest);
+    boolean saveHarvest(Harvest harvest);
 
     Harvest get(int id);
 

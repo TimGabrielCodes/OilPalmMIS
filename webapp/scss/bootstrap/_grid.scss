@@ -40,25 +40,49 @@
 }
 
 @include media-breakpoint-up(sm) {
-  .row-xs--sm { @include create-row(5px); }
-  .row-sm--sm { @include create-row(10px); }
-  .row--sm { @include create-row(15px); }
+  .row-xs--sm {
+    @include create-row(5px);
+  }
+  .row-sm--sm {
+    @include create-row(10px);
+  }
+  .row--sm {
+    @include create-row(15px);
+  }
 }
 
 @include media-breakpoint-up(md) {
-  .row-xs--md { @include create-row(5px); }
-  .row-sm--md { @include create-row(10px); }
-  .row--md { @include create-row(15px); }
+  .row-xs--md {
+    @include create-row(5px);
+  }
+  .row-sm--md {
+    @include create-row(10px);
+  }
+  .row--md {
+    @include create-row(15px);
+  }
 }
 
 @include media-breakpoint-up(lg) {
-  .row-xs--lg { @include create-row(5px); }
-  .row-sm--lg { @include create-row(10px); }
-  .row--lg { @include create-row(15px); }
+  .row-xs--lg {
+    @include create-row(5px);
+  }
+  .row-sm--lg {
+    @include create-row(10px);
+  }
+  .row--lg {
+    @include create-row(15px);
+  }
 }
 
 @include media-breakpoint-up(xl) {
-  .row-xs--xl { @include create-row(5px); }
-  .row-sm--xl { @include create-row(10px); }
-  .row--xl { @include create-row(15px); }
+  .row-xs--xl {
+    @include create-row(5px);
+  }
+  .row-sm--xl {
+    @include create-row(10px);
+  }
+  .row--xl {
+    @include create-row(15px);
+  }
 }

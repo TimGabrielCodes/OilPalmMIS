@@ -1,17 +1,17 @@
-$(function(){
-  'use strict'
+$(function () {
+    'use strict'
 
-  // Line chart
-  $('.peity-line').peity('line');
+    // Line chart
+    $('.peity-line').peity('line');
 
-  // Bar charts
-  $('.peity-bar').peity('bar');
+    // Bar charts
+    $('.peity-bar').peity('bar');
 
-  // Pie chart
-  $('.peity-pie').peity('pie');
+    // Pie chart
+    $('.peity-pie').peity('pie');
 
-  // Donut chart
-  $('.peity-donut').peity('donut');
+    // Donut chart
+    $('.peity-donut').peity('donut');
 
-  // Bar chart is already initialized found in bracket.js
+    // Bar chart is already initialized found in bracket.js
 });

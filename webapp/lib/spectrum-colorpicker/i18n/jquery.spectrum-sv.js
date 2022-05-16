@@ -2,7 +2,7 @@
 // Swedish (sv) localization
 // https://github.com/bgrins/spectrum
 
-(function ( $ ) {
+(function ($) {
 
     var localization = $.spectrum.localization["sv"] = {
         cancelText: "Avbryt",
@@ -11,4 +11,4 @@
 
     $.extend($.fn.spectrum.defaults, localization);
 
-})( jQuery );
+})(jQuery);

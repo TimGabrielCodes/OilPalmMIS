@@ -12,14 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(value ="/dashboard")
+@WebServlet(value = "/dashboard")
 public class Dashboard extends HttpServlet {
 
 
-    private User loggedIn;
     UserDAO userDAO;
+    private User loggedIn;
     private RequestDispatcher dispatcher;
-    public Dashboard(){
+
+    public Dashboard() {
         userDAO = new UserDAOImpl();
 
     }
@@ -28,20 +29,21 @@ public class Dashboard extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         loggedIn = userDAO.getLogger(request.getSession().getAttribute("email").toString());
-        if(loggedIn.isAdmin()){
+        if (loggedIn.isAdmin()) {
             adminDashboard(request, response);
-        } else{
+        } else {
             clerkDashboard(request, response);
         }
 
     }
+
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -71,7 +73,6 @@ public class Dashboard extends HttpServlet {
         dispatcher.forward(request, response);
 
     }
-
 
 
 }

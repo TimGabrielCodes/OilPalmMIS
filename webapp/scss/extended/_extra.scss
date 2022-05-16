@@ -8,7 +8,9 @@
     font-size: 11px;
     color: $color-text-03;
 
-    + label { margin-left: 10px; }
+    + label {
+      margin-left: 10px;
+    }
   }
 
   span {

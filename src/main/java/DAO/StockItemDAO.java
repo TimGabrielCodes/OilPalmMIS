@@ -8,7 +8,7 @@ import java.util.List;
 public interface StockItemDAO {
     List<StockItem> get() throws SQLException;
 
-    boolean  saveStockItem(StockItem stockItem);
+    boolean saveStockItem(StockItem stockItem);
 
     StockItem get(int id);
 
@@ -17,8 +17,6 @@ public interface StockItemDAO {
     boolean delete(int id);
 
     StockItem get(String name);
-
-
 
 
 }

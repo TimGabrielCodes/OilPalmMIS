@@ -4,7 +4,7 @@
 
   > .ps__rail-y {
     width: 3px;
-    background-color: rgba(darken($gray-100,60%), .06);
+    background-color: rgba(darken($gray-100, 60%), .06);
     z-index: 10;
     position: absolute;
     left: auto !important;
@@ -25,7 +25,9 @@
   &.ps--active-y {
     &:hover,
     &:focus {
-      > .ps__rail-y { opacity: 1; }
+      > .ps__rail-y {
+        opacity: 1;
+      }
     }
   }
 }
@@ -33,25 +35,35 @@
 .scrollbar-sm {
   > .ps__rail-y {
     width: 1px;
-    > .ps__thumb-y { width: 1px; }
+
+    > .ps__thumb-y {
+      width: 1px;
+    }
   }
 }
 
 .scrollbar-lg {
   > .ps__rail-y {
     width: 6px;
-    > .ps__thumb-y { width: 6px; }
+
+    > .ps__thumb-y {
+      width: 6px;
+    }
   }
 }
 
 .scrollbar-primary {
   > .ps__rail-y {
-    > .ps__thumb-y { background-color: $blue; }
+    > .ps__thumb-y {
+      background-color: $blue;
+    }
   }
 }
 
 .scrollbar-dark {
   > .ps__rail-y {
-    > .ps__thumb-y { background-color: $gray-900; }
+    > .ps__thumb-y {
+      background-color: $gray-900;
+    }
   }
 }

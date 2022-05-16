@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Batch {
     private int id;
     private String batchName;
-    private  String batchMonth;
+    private String batchMonth;
     private Date batchDate;
     private User logger;
 
@@ -62,8 +62,6 @@ public class Batch {
     public void setLogger(User logger) {
         this.logger = logger;
     }
-
-
 
 
 }

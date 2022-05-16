@@ -14,7 +14,9 @@
     color: $color-text-03;
     margin: 0;
 
-    svg { margin-right: 10px; }
+    svg {
+      margin-right: 10px;
+    }
 
     .badge {
       margin-left: auto;
@@ -31,7 +33,9 @@
       background-color: $color-ui-02;
     }
 
-    + .nav-link { margin-top: 1px; }
+    + .nav-link {
+      margin-top: 1px;
+    }
   }
 }
 
@@ -40,7 +44,10 @@
 
   .nav-link {
     padding: 0;
-    + .nav-link { margin-left: 10px; }
+
+    + .nav-link {
+      margin-left: 10px;
+    }
   }
 
   svg {
@@ -57,10 +64,14 @@
 
     @include hover-focus() {
       color: $color-brand-01;
-      svg { fill: rgba($color-brand-01, .2); }
+      svg {
+        fill: rgba($color-brand-01, .2);
+      }
     }
 
-    + a { margin-left: 5px; }
+    + a {
+      margin-left: 5px;
+    }
   }
 
   svg {
@@ -88,7 +99,9 @@
       background-color: $gray-200;
     }
 
-    + a { margin-left: 1px; }
+    + a {
+      margin-left: 1px;
+    }
 
     &.active {
       background-color: $gray-400;

@@ -10,17 +10,16 @@ public class DBConnectionUtil {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "%310594%";
-    private static Connection con  = null;
+    private static Connection con = null;
 
 
     //Static method to get connection
 
     public static Connection openConnection() throws ClassNotFoundException, SQLException {
         //Check the connection
-        if(con != null){
+        if (con != null) {
             return con;
-        }
-        else{
+        } else {
 
             //load the driver
             Class.forName(DRIVER);

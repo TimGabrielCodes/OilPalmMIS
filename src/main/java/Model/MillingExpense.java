@@ -13,6 +13,9 @@ public class MillingExpense {
     private User logger;
     private Mill mill;
 
+    public MillingExpense() {
+    }
+
     @Override
     public String toString() {
         return "MillingExpense{" +
@@ -107,8 +110,5 @@ public class MillingExpense {
 
     public void setMill(Mill mill) {
         this.mill = mill;
-    }
-
-    public MillingExpense() {
     }
 }

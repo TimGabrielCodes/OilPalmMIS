@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class StockItemDAOImpl implements StockItemDAO{
+public class StockItemDAOImpl implements StockItemDAO {
     Connection connection = null;
     Statement statement = null;
     ResultSet resultSet = null;
@@ -33,15 +33,11 @@ public class StockItemDAOImpl implements StockItemDAO{
             while (resultSet.next()) {
                 stockItem = new StockItem();
                 //  stockItem.setRole(resultSet.getString("role"));
-stockItem.setId(resultSet.getInt("id"));
-stockItem.setName(resultSet.getString("name"));
-stockItem.setSellingPrice(resultSet.getDouble("sellingPrice"));
-stockItem.setStorageUnit(ProductUnit.valueOf(resultSet.getString("storageUnit")));
-stockItem.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
-
-
-
-
+                stockItem.setId(resultSet.getInt("id"));
+                stockItem.setName(resultSet.getString("name"));
+                stockItem.setSellingPrice(resultSet.getDouble("sellingPrice"));
+                stockItem.setStorageUnit(ProductUnit.valueOf(resultSet.getString("storageUnit")));
+                stockItem.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
 
 
                 list.add(stockItem);
@@ -57,17 +53,14 @@ stockItem.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
     }
 
 
-
     @Override
     public boolean saveStockItem(StockItem stockItem) {
         boolean flag = false;
         try {
 
 
-
-
             String sql = "insert into stockItem(name, sellingPrice, storageUnit, logger) "
-                    + "values('" + stockItem.getName()+ "', " +stockItem.getSellingPrice() + ",'" + stockItem.getStorageUnit() + "'," + stockItem.getLogger().getId()+ ")";
+                    + "values('" + stockItem.getName() + "', " + stockItem.getSellingPrice() + ",'" + stockItem.getStorageUnit() + "'," + stockItem.getLogger().getId() + ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -111,12 +104,14 @@ stockItem.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
             Logger.getLogger(StockItemDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return stockItem;
-    }    @Override
+    }
+
+    @Override
     public StockItem get(String name) {
         StockItem stockItem = null;
         try {
             stockItem = new StockItem();
-            String sql = "SELECT * FROM stockItem  WHERE stockItemName='" + name +"'";
+            String sql = "SELECT * FROM stockItem  WHERE stockItemName='" + name + "'";
             connection = DBConnectionUtil.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
@@ -147,7 +142,7 @@ stockItem.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
         boolean flag = false;
 
         try {
-            String sql = "update stockItem set name='"+ stockItem.getName()+"',sellingPrice=" + stockItem.getSellingPrice() + ",storageUnit='" + stockItem.getStorageUnit() + "',logger =" + stockItem.getLogger().getId()  +" where id=" + stockItem.getId() ;
+            String sql = "update stockItem set name='" + stockItem.getName() + "',sellingPrice=" + stockItem.getSellingPrice() + ",storageUnit='" + stockItem.getStorageUnit() + "',logger =" + stockItem.getLogger().getId() + " where id=" + stockItem.getId();
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();
@@ -178,10 +173,6 @@ stockItem.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
         }
         return flag;
     }
-
-
-
-
 
 
 }

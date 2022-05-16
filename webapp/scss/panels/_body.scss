@@ -4,7 +4,9 @@ body {
   //@include gradient-y($color-ui-01, darken($color-ui-01, 0.8%));
   background-attachment: fixed;
 
-  @media (min-width: 1281px) { font-size: 14px; }
+  @media (min-width: 1281px) {
+    font-size: 14px;
+  }
 }
 
 .toggle-sidebar {
@@ -17,7 +19,9 @@ body {
       border-right: 1px solid $border-color;
     }
 
-    .content { transform: translateX($sidebar-width - 10px); }
+    .content {
+      transform: translateX($sidebar-width - 10px);
+    }
   }
 
   @include media-breakpoint-up(lg) {
@@ -27,7 +31,11 @@ body {
       box-shadow: none;
     }
 
-    .content { margin-left: 0; }
-    .header { left: 0; }
+    .content {
+      margin-left: 0;
+    }
+    .header {
+      left: 0;
+    }
   }
 }

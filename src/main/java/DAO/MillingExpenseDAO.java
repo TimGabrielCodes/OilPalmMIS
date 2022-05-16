@@ -9,7 +9,7 @@ import java.util.List;
 public interface MillingExpenseDAO {
     List<MillingExpense> get() throws SQLException;
 
-    boolean  saveMillingExpense(MillingExpense millingExpense);
+    boolean saveMillingExpense(MillingExpense millingExpense);
 
     MillingExpense get(int id);
 
@@ -18,10 +18,6 @@ public interface MillingExpenseDAO {
     boolean updateMillingExpense(MillingExpense millingExpense);
 
     boolean delete(int id);
-
-
-
-
 
 
 }

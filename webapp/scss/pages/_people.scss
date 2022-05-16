@@ -3,8 +3,12 @@
   width: calc(100% + 15px);
   overflow: hidden;
 
-  @include media-breakpoint-up(sm) { width: calc(100% + 20px); }
-  @include media-breakpoint-up(lg) { width: calc(100% + 30px); }
+  @include media-breakpoint-up(sm) {
+    width: calc(100% + 20px);
+  }
+  @include media-breakpoint-up(lg) {
+    width: calc(100% + 30px);
+  }
 
   .row {
     padding-right: 10px;
@@ -16,13 +20,22 @@
 
     .row {
       width: 800px;
-      @include media-breakpoint-up(sm) { width: 900px; }
-      @include media-breakpoint-up(xl) { width: auto; }
+      @include media-breakpoint-up(sm) {
+        width: 900px;
+      }
+      @include media-breakpoint-up(xl) {
+        width: auto;
+      }
     }
   }
 
-  &.people-list-two { height: 330px; }
-  &.people-list-three { height: 230px; }
+  &.people-list-two {
+    height: 330px;
+  }
+
+  &.people-list-three {
+    height: 230px;
+  }
 
   @include media-breakpoint-up(xl) {
     width: auto;
@@ -30,7 +43,7 @@
     overflow: visible;
 
     .row {
-      width:  auto;
+      width: auto;
       padding-right: 0;
     }
   }
@@ -41,7 +54,9 @@
   overflow-x: auto;
   padding-bottom: 30px;
 
-  @include media-breakpoint-up(xl) { overflow-x: visible; }
+  @include media-breakpoint-up(xl) {
+    overflow-x: visible;
+  }
 }
 
 .card-people {
@@ -55,7 +70,9 @@
     box-shadow: $shadow-01, $shadow-base, inset 0 0 0 1px darken($border-color, 5%);
   }
 
-  .card-body { padding: 15px; }
+  .card-body {
+    padding: 15px;
+  }
 
   .media-body {
     margin-left: 15px;
@@ -73,7 +90,9 @@
 
       a {
         color: $color-text-03;
-        @include hover-focus() { text-decoration: underline; }
+        @include hover-focus() {
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -88,11 +107,15 @@
 
     a:not([class*="btn-"]) {
       color: $color-text-04;
-      @include hover-focus() { color: $color-text-03; }
+      @include hover-focus() {
+        color: $color-text-03;
+      }
     }
   }
 
-  &:not([class*="bg-"]) .card-footer { background-color: transparent; }
+  &:not([class*="bg-"]) .card-footer {
+    background-color: transparent;
+  }
 
   &.selected {
     background-color: lighten($color-brand-01, 38%);
@@ -109,7 +132,9 @@
     box-shadow: $shadow-01, $shadow-base;
 
     .card-body,
-    .card-footer { border-color: darken($border-color, 4%); }
+    .card-footer {
+      border-color: darken($border-color, 4%);
+    }
   }
 
   .card-header {
@@ -136,9 +161,13 @@
     @include border-radius(100%);
   }
 
-  .avatar-initial { font-size: 32px; }
+  .avatar-initial {
+    font-size: 32px;
+  }
 
-  &:not([class*="bg-"]) .card-header { background-color: $color-ui-03; }
+  &:not([class*="bg-"]) .card-header {
+    background-color: $color-ui-03;
+  }
 
   .card-body {
     border: 1px solid $border-color;
@@ -161,7 +190,9 @@
 
       a {
         color: $color-text-03;
-        @include hover-focus() { text-decoration: underline; }
+        @include hover-focus() {
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -207,7 +238,9 @@
 
   @include hover() {
     box-shadow: $shadow-01, $shadow-base;
-    .card-body { border-color: darken($border-color, 4%); }
+    .card-body {
+      border-color: darken($border-color, 4%);
+    }
   }
 
   .card-img {

@@ -2,7 +2,6 @@ package DAO;
 
 import Model.Batch;
 import Model.Mill;
-import Model.MillingExpense;
 import Util.DBConnectionUtil;
 
 import java.sql.*;
@@ -57,14 +56,13 @@ public class MillDAOImpl implements MillDAO {
 
 
     @Override
-    public boolean saveMill(Mill mill)  {
-//        System.out.println("Mill to save" + mill.toString());
+    public boolean saveMill(Mill mill) {
         boolean flag = false;
         try {
 
 
             String sql = "insert into mill(batch, harvestStock, numberOfPresses, millingDate, logger) "
-                    + "values(" + mill.getBatch().getId() + ", " + mill.getHarvestStock() + "," + mill.getNumberOfPresses() + ",'"+ mill.getMillingDate() + "', "+mill.getLogger().getId() + ")";
+                    + "values(" + mill.getBatch().getId() + ", " + mill.getHarvestStock() + "," + mill.getNumberOfPresses() + ",'" + mill.getMillingDate() + "', " + mill.getLogger().getId() + ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -73,7 +71,6 @@ public class MillDAOImpl implements MillDAO {
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();
             flag = true;
-
 
 
         } catch (SQLException e) {
@@ -88,7 +85,7 @@ public class MillDAOImpl implements MillDAO {
         Mill mill = null;
         try {
             mill = new Mill();
-            String sql = "SELECT * FROM mill  WHERE id=" + id +  " LIMIT 1";
+            String sql = "SELECT * FROM mill  WHERE id=" + id + " LIMIT 1";
             connection = DBConnectionUtil.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
@@ -108,12 +105,13 @@ public class MillDAOImpl implements MillDAO {
 
         return mill;
     }
+
     @Override
     public Mill getByBatch(int id) {
         Mill mill = null;
         try {
             mill = new Mill();
-            String sql = "SELECT * FROM mill  WHERE batch=" + id +  " LIMIT 1";
+            String sql = "SELECT * FROM mill  WHERE batch=" + id + " LIMIT 1";
             connection = DBConnectionUtil.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
@@ -164,10 +162,10 @@ public class MillDAOImpl implements MillDAO {
         boolean flag = false;
 
         try {
-            String sql = "update mill set batch=" + mill.getBatch().getId() + " ,harvestStock=" + mill.getHarvestStock() + ",numberOfPresses =" +mill.getNumberOfPresses() + ", millingDate ='"+mill.getMillingDate()+"', logger="+ mill.getLogger().getId() +" where id=" + mill.getId();
+            String sql = "update mill set batch=" + mill.getBatch().getId() + " ,harvestStock=" + mill.getHarvestStock() + ",numberOfPresses =" + mill.getNumberOfPresses() + ", millingDate ='" + mill.getMillingDate() + "', logger=" + mill.getLogger().getId() + " where id=" + mill.getId();
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
-             preparedStmt.executeUpdate();
+            preparedStmt.executeUpdate();
             flag = true;
         } catch (SQLException ex) {
             ex.printStackTrace();

@@ -7,7 +7,6 @@ import DAO.UserDAOImpl;
 import Model.Login;
 import Model.User;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,12 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(value="/loginprocess")
+@WebServlet(value = "/loginprocess")
 public class LoginController extends HttpServlet {
     LoginDAO loginDAO = null;
     User user;
     UserDAO userDAO;
-    public LoginController(){
+
+    public LoginController() {
         loginDAO = new LoginDAOImpl();
         userDAO = new UserDAOImpl();
         user = new User();
@@ -28,7 +28,7 @@ public class LoginController extends HttpServlet {
 
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
         Login login = new Login();
         login.setEmail(request.getParameter("email"));
@@ -36,19 +36,19 @@ public class LoginController extends HttpServlet {
 
         login.setPassword(request.getParameter("password"));
 //        System.out.println("Logging in" +login.toString());
-        String status =  loginDAO.authenticate(login);
+        String status = loginDAO.authenticate(login);
 //        System.out.println(status);
 
-        if(status.equals("true")){
+        if (status.equals("true")) {
             user = userDAO.getLogger(login.getEmail());
             session.setAttribute("email", login.getEmail());
             session.setAttribute("loggedIn", user);
             response.sendRedirect("dashboard");
         }
-        if(status.equals("false")){
+        if (status.equals("false")) {
             response.sendRedirect("index.jsp?status=false");
         }
-        if(status.equals("error")){
+        if (status.equals("error")) {
             response.sendRedirect("index.jsp?status=error");
         }
     }

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class UserDAOImpl implements UserDAO{
+public class UserDAOImpl implements UserDAO {
     Connection connection = null;
     Statement statement = null;
     ResultSet resultSet = null;
@@ -39,9 +39,6 @@ public class UserDAOImpl implements UserDAO{
                 user.setEmail(resultSet.getString("email"));
                 user.setPassword(resultSet.getString("password"));
                 user.setAdmin(resultSet.getBoolean("isAdmin"));
-
-
-
 
 
                 list.add(user);
@@ -93,7 +90,7 @@ public class UserDAOImpl implements UserDAO{
 
 
             String sql = "insert into user(firstName, otherNames, surname, email, password, isAdmin) "
-                    + "values('" + user.getFirstName() + "','" + user.getOtherNames() + "','" + user.getSurname() + "','" + user.getEmail() + "','" + user.getEmail() + "','" + user.getPassword() + "',"+ user.isAdmin()+")";
+                    + "values('" + user.getFirstName() + "','" + user.getOtherNames() + "','" + user.getSurname() + "','" + user.getEmail() + "','" + user.getEmail() + "','" + user.getPassword() + "'," + user.isAdmin() + ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -146,7 +143,7 @@ public class UserDAOImpl implements UserDAO{
         boolean flag = false;
 
         try {
-            String sql = "update user set firstName='" + user.getFirstName() + "', otherNames='" + user.getOtherNames() + "', surname ='" + user.getSurname() + "', email= '" + user.getEmail()+ "', isAdmin="  + user.isAdmin() +" where id=" + user.getId() ;
+            String sql = "update user set firstName='" + user.getFirstName() + "', otherNames='" + user.getOtherNames() + "', surname ='" + user.getSurname() + "', email= '" + user.getEmail() + "', isAdmin=" + user.isAdmin() + " where id=" + user.getId();
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();
@@ -341,6 +338,7 @@ public class UserDAOImpl implements UserDAO{
         }
         return count;
     }
+
     public int getAdminCount() {
         int count = 0;
         try {
@@ -360,6 +358,7 @@ public class UserDAOImpl implements UserDAO{
         }
         return count;
     }
+
     public int getClerkCount() {
         int count = 0;
         try {
@@ -379,6 +378,7 @@ public class UserDAOImpl implements UserDAO{
         }
         return count;
     }
+
     public int getWarehouseManagerCount() {
         int count = 0;
         try {
@@ -399,6 +399,7 @@ public class UserDAOImpl implements UserDAO{
         }
         return count;
     }
+
     public int getManagerCount() {
         int count = 0;
         try {
@@ -424,7 +425,7 @@ public class UserDAOImpl implements UserDAO{
         int count = 0;
         try {
 
-            String sql = "SELECT COUNT(*) as trans FROM transaction GROUP BY logger HAVING logger= '"+name+"' ";
+            String sql = "SELECT COUNT(*) as trans FROM transaction GROUP BY logger HAVING logger= '" + name + "' ";
             connection = DBConnectionUtil.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
@@ -446,7 +447,7 @@ public class UserDAOImpl implements UserDAO{
         int count = 0;
         try {
 
-            String sql = "SELECT COUNT(*) as prod FROM product GROUP BY logger_id HAVING logger_id= "+id;
+            String sql = "SELECT COUNT(*) as prod FROM product GROUP BY logger_id HAVING logger_id= " + id;
             connection = DBConnectionUtil.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
@@ -484,7 +485,6 @@ public class UserDAOImpl implements UserDAO{
         return count;
 
     }
-
 
 
     @Override
@@ -566,7 +566,8 @@ public class UserDAOImpl implements UserDAO{
 
         }
 
-        return list;  }
+        return list;
+    }
 
     @Override
     public List<User> getClerks() {
@@ -596,6 +597,7 @@ public class UserDAOImpl implements UserDAO{
 
         }
 
-        return list;}
+        return list;
+    }
 
 }

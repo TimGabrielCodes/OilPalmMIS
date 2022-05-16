@@ -31,11 +31,13 @@
 
 
 <div class="content-body">
-    <form  class="form-group" method="get" name="validateBatchForm" action="${pageContext.request.contextPath}/validateBatch">
+    <form class="form-group" method="get" name="validateBatchForm"
+          action="${pageContext.request.contextPath}/validateBatch">
         <div class="row">
             <div class="col">
                 <label class="col-form-label col-form-label-lg" for="batch">Select Harvest Batch to Mill</label>
-                <select  id="batch" class="col form-control" name="batch" placeholder="Select Harvest" data-value="${mill.batch}" required>
+                <select id="batch" class="col form-control" name="batch" placeholder="Select Harvest"
+                        data-value="${mill.batch}" required>
                     <option value="${mill.batch}" selected="selected">-- Select Batch --</option>
                     <% try {
                         String query = "select * from batch order by batchName";
@@ -67,8 +69,8 @@
     </form>
     <span class="alert">${message}</span>
     <form method="POST" action="${pageContext.request.contextPath}/mills">
-    <input type="hidden" name="harId" value="${harvest.id}" >
-    <hr class="hr-component-section">
+        <input type="hidden" name="harId" value="${harvest.id}">
+        <hr class="hr-component-section">
         <div class="row">
             <div class="col">
                 <label class="col-form-label col-form-label-lg" for="harvestStock">Harvest Batch Name</label>
@@ -77,33 +79,31 @@
             </div>
 
 
-        </div>  <div class="row">
+        </div>
+        <div class="row">
             <div class="col">
                 <label class="col-form-label col-form-label-lg" for="harvestStock">Harvest Stock in Bunches</label>
                 <input id="harvestStock" type="number" name="stockInBunches" value="${harvest.stockInBunches}"
                        class="form-control" required="true" min="0" disabled><br>
             </div>
-        <div class="col">
-            <label class="col-form-label col-form-label-lg" for="harvestStockCost">Harvest Stock Cost <span>(&#8358;)</span></label>
-            <input id="harvestStockCost" type="number" name="harvestStockCost" value="${harvest.harvestStockCost}"
-                   class="form-control" required="true" min="0" step=".01" disabled><br>
+            <div class="col">
+                <label class="col-form-label col-form-label-lg" for="harvestStockCost">Harvest Stock Cost <span>(&#8358;)</span></label>
+                <input id="harvestStockCost" type="number" name="harvestStockCost" value="${harvest.harvestStockCost}"
+                       class="form-control" required="true" min="0" step=".01" disabled><br>
+            </div>
         </div>
-    </div>
-
-
-
-
 
 
         <div class="row">
 
             <div class="col">
                 <label class="col-form-label col-form-label-lg" for="millingDate">Milling Date</label>
-                <input type="date" id="millingDate" name="millingDate" value="${mill.millingDate}" class="form-control" >
+                <input type="date" id="millingDate" name="millingDate" value="${mill.millingDate}" class="form-control">
             </div>
             <div class="col">
                 <label class="col-form-label col-form-label-lg" for="logger">Mill Logged By:</label>
-                <input type ="text"  id="logger" name="logger" value="<%out.print(getUserName());%>" placeholder="logger name" class="form-control" disabled/>
+                <input type="text" id="logger" name="logger" value="<%out.print(getUserName());%>"
+                       placeholder="logger name" class="form-control" disabled/>
             </div>
         </div>
 
@@ -117,7 +117,8 @@
                        class="form-control" required="true" min="0" step=".01"><br>
             </div>
             <div class="col">
-                <label class="col-form-label col-form-label-lg" for="storage">Storage Cost <span>(&#8358;)</span></label>
+                <label class="col-form-label col-form-label-lg" for="storage">Storage Cost
+                    <span>(&#8358;)</span></label>
                 <input id="storage" type="number" name="storage" value="${millingExpense.storage}"
                        class="form-control" required="true" min="0" step=".01"><br>
             </div>
@@ -131,36 +132,39 @@
         </div>
         <div class="row">
             <div class="col">
-                <label class="col-form-label col-form-label-lg" for="adhocLabour">Adhoc Labour <span>(&#8358;)</span></label>
+                <label class="col-form-label col-form-label-lg" for="adhocLabour">Adhoc Labour
+                    <span>(&#8358;)</span></label>
                 <input id="adhocLabour" type="number" name="adhocLabour" value="${millingExpense.adhocLabour}"
                        class="form-control" required="true" min="0" step=".01"><br>
             </div>
             <div class="col">
-                <label class="col-form-label col-form-label-lg" for="firewood">Firewood Cost <span>(&#8358;)</span></label>
+                <label class="col-form-label col-form-label-lg" for="firewood">Firewood Cost
+                    <span>(&#8358;)</span></label>
                 <input id="firewood" type="number" name="firewood" value="${millingExpense.firewood}"
                        class="form-control" required="true" min="0" step=".01"><br>
             </div>
             <div class="col">
-                <label class="col-form-label col-form-label-lg" for="fruitPurchase">Fruit Purchase Cost <span>(&#8358;)</span></label>
+                <label class="col-form-label col-form-label-lg" for="fruitPurchase">Fruit Purchase Cost
+                    <span>(&#8358;)</span></label>
                 <input id="fruitPurchase" type="number" name="fruitPurchase" value="${millingExpense.fruitPurchase}"
                        class="form-control" required="true" min="0" step=".01"><br>
             </div>
-        <div class="col">
-                <label class="col-form-label col-form-label-lg" for="plantParts">Plant Parts  Cost <span>(&#8358;)</span></label>
+            <div class="col">
+                <label class="col-form-label col-form-label-lg" for="plantParts">Plant Parts Cost <span>(&#8358;)</span></label>
                 <input id="plantParts" type="number" name="plantParts" value="${millingExpense.plantParts}"
                        class="form-control" required="true" min="0" step=".01"><br>
             </div>
 
 
-        </br>
+            </br>
 
-        <div class="row">
-            <div class="col">
-                <input type="hidden" value="${mill.id}" name="millId"/>
+            <div class="row">
+                <div class="col">
+                    <input type="hidden" value="${mill.id}" name="millId"/>
 
+                </div>
             </div>
-        </div>
-        </br>
+            </br>
         </div>
 
         <div class="form-group">
@@ -170,6 +174,7 @@
 
     </form>
 
-<!-- content-body -->
-</div><!-- content -->
+    <!-- content-body -->
+</div>
+<!-- content -->
 <%@include file="AdminFooter.jsp" %>

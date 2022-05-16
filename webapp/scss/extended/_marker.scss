@@ -104,10 +104,30 @@
   }
 }
 
-.marker-primary { @include marker-variant($blue); }
-.marker-secondary { @include marker-variant($gray-500); }
-.marker-success { @include marker-variant($green); }
-.marker-danger { @include marker-variant($red); }
-.marker-warning { @include marker-variant($yellow); }
-.marker-info { @include marker-variant($cyan); }
-.marker-dark { @include marker-variant($gray-900); }
+.marker-primary {
+  @include marker-variant($blue);
+}
+
+.marker-secondary {
+  @include marker-variant($gray-500);
+}
+
+.marker-success {
+  @include marker-variant($green);
+}
+
+.marker-danger {
+  @include marker-variant($red);
+}
+
+.marker-warning {
+  @include marker-variant($yellow);
+}
+
+.marker-info {
+  @include marker-variant($cyan);
+}
+
+.marker-dark {
+  @include marker-variant($gray-900);
+}
