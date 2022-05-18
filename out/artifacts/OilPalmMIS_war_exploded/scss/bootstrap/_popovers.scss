@@ -36,18 +36,39 @@
   }
 
   &.bs-popover-bottom {
-    .popover-header::before { display: none; }
+    .popover-header::before {
+      display: none;
+    }
   }
 }
 
-.popover-header-warning .popover-header { color: $body-color; }
+.popover-header-warning .popover-header {
+  color: $body-color;
+}
 
-.popover-header-primary { @include popover-header-variant($blue); }
-.popover-header-secondary  { @include popover-header-variant($gray-600); }
-.popover-header-success  { @include popover-header-variant($green); }
-.popover-header-danger  { @include popover-header-variant($red); }
-.popover-header-warning  { @include popover-header-variant($yellow); }
-.popover-header-info  { @include popover-header-variant($cyan); }
+.popover-header-primary {
+  @include popover-header-variant($blue);
+}
+
+.popover-header-secondary {
+  @include popover-header-variant($gray-600);
+}
+
+.popover-header-success {
+  @include popover-header-variant($green);
+}
+
+.popover-header-danger {
+  @include popover-header-variant($red);
+}
+
+.popover-header-warning {
+  @include popover-header-variant($yellow);
+}
+
+.popover-header-info {
+  @include popover-header-variant($cyan);
+}
 
 
 // Full Background Variant
@@ -64,19 +85,43 @@
     border-bottom-color: rgba(#fff, .08);
     color: #fff;
 
-    &::before { display: none; }
+    &::before {
+      display: none;
+    }
   }
 
-  .popover-body { color: rgba(#fff, .7); }
-  .arrow::before { display: none; }
+  .popover-body {
+    color: rgba(#fff, .7);
+  }
+
+  .arrow::before {
+    display: none;
+  }
 }
 
-.popover-primary { @include popover-full-variant($blue); }
-.popover-secondary { @include popover-full-variant($gray-600); }
-.popover-success { @include popover-full-variant($green); }
-.popover-warning { @include popover-full-variant($yellow); }
-.popover-danger { @include popover-full-variant($red); }
-.popover-info { @include popover-full-variant($cyan); }
+.popover-primary {
+  @include popover-full-variant($blue);
+}
+
+.popover-secondary {
+  @include popover-full-variant($gray-600);
+}
+
+.popover-success {
+  @include popover-full-variant($green);
+}
+
+.popover-warning {
+  @include popover-full-variant($yellow);
+}
+
+.popover-danger {
+  @include popover-full-variant($red);
+}
+
+.popover-info {
+  @include popover-full-variant($cyan);
+}
 
 .popover-warning {
   .popover-header {
@@ -84,5 +129,7 @@
     border-bottom-color: rgba($body-color, .05);
   }
 
-  .popover-body { color: rgba($body-color, .8); }
+  .popover-body {
+    color: rgba($body-color, .8);
+  }
 }

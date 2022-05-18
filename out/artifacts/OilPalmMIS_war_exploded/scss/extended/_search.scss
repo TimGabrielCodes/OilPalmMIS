@@ -1,5 +1,4 @@
 
-
 .search-form {
   display: flex;
   align-items: stretch;
@@ -13,7 +12,9 @@
       border-color: $gray-400;
       box-shadow: none !important;
 
-      + button { border-color: $gray-400; }
+      + button {
+        border-color: $gray-400;
+      }
     }
   }
 
@@ -37,7 +38,9 @@
   .twitter-typeahead,
   .tt-hint,
   .tt-input,
-  .tt-menu { width: 100%; }
+  .tt-menu {
+    width: 100%;
+  }
 
   .tt-hint,
   .tt-input {
@@ -45,8 +48,13 @@
     @include border-radius();
   }
 
-  .tt-hint { color: $color-text-04; }
-  .tt-input { color: $color-text-02; }
+  .tt-hint {
+    color: $color-text-04;
+  }
+
+  .tt-input {
+    color: $color-text-02;
+  }
 
   .tt-dataset {
     margin-bottom: 5px;
@@ -62,7 +70,9 @@
     padding: 2px 5px;
     @include border-radius();
 
-    strong { font-weight: $font-weight-medium; }
+    strong {
+      font-weight: $font-weight-medium;
+    }
   }
 }
 
@@ -75,7 +85,9 @@
   flex-shrink: 0;
   @include transition(all 0.3s);
 
-  .form-control { @include border-radius(); }
+  .form-control {
+    @include border-radius();
+  }
 
   button {
     padding: 0;

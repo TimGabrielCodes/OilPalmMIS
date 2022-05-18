@@ -8,7 +8,9 @@
     }
   }
 
-  .content-label { margin-bottom: 5px; }
+  .content-label {
+    margin-bottom: 5px;
+  }
 
   .card-value {
     font-family: $font-family-numeric;
@@ -31,7 +33,9 @@
       top: 1px;
       margin-right: 2px;
 
-      &::before { line-height: 0; }
+      &::before {
+        line-height: 0;
+      }
     }
   }
 
@@ -50,7 +54,9 @@
   .chart-wrapper {
     height: 160px;
 
-    @include media-breakpoint-up(md) { height: 187px; }
+    @include media-breakpoint-up(md) {
+      height: 187px;
+    }
   }
 
   .flot-chart {
@@ -73,9 +79,14 @@
 
   .card-footer {
     padding: 15px;
-    @include media-breakpoint-up(sm) { padding: 18px 20px; }
+    @include media-breakpoint-up(sm) {
+      padding: 18px 20px;
+    }
 
-    .row { flex-wrap: nowrap; }
+    .row {
+      flex-wrap: nowrap;
+    }
+
     .row > div {
       flex-grow: 0;
 
@@ -105,19 +116,25 @@
       font-weight: 400;
       margin-left: 2px;
 
-      @include media-breakpoint-up(md) { font-size: 10px; }
+      @include media-breakpoint-up(md) {
+        font-size: 10px;
+      }
 
       .icon {
         font-size: 10px;
         top: 0;
 
-        @include media-breakpoint-up(md) { font-size: 12px; }
+        @include media-breakpoint-up(md) {
+          font-size: 12px;
+        }
       }
     }
 
     h4 {
       margin-bottom: 0;
-      @include media-breakpoint-up(xl) { font-size: 20px; }
+      @include media-breakpoint-up(xl) {
+        font-size: 20px;
+      }
     }
   }
 }
@@ -130,7 +147,9 @@
     justify-content: space-between;
   }
 
-  .card-body { padding: 0; }
+  .card-body {
+    padding: 0;
+  }
 
   .list-group-item {
     box-shadow: none;
@@ -203,7 +222,9 @@
       padding: 18px 20px 5px;
     }
 
-    .nav { margin-right: -5px; }
+    .nav {
+      margin-right: -5px;
+    }
   }
 
   .card-body {
@@ -214,7 +235,9 @@
 
   .card-footer {
     padding: 12px 15px;
-    @include media-breakpoint-up(sm) { padding: 15px 20px; }
+    @include media-breakpoint-up(sm) {
+      padding: 15px 20px;
+    }
 
     h4 {
       font-family: $font-family-numeric;
@@ -231,12 +254,14 @@
     color: $color-text-01;
     margin-bottom: 5px;
 
-    @include media-breakpoint-up(xl) { font-size: 28px; }
+    @include media-breakpoint-up(xl) {
+      font-size: 28px;
+    }
 
     span {
       font-weight: 400;
       font-family: $font-family-mono;
-      color: rgba($color-text-01,.85);
+      color: rgba($color-text-01, .85);
       letter-spacing: normal;
     }
   }
@@ -245,7 +270,9 @@
     width: 100px;
     height: 70px;
 
-    @include media-breakpoint-up(xl) { width: 120px; }
+    @include media-breakpoint-up(xl) {
+      width: 120px;
+    }
   }
 
   .flot-chart-two {
@@ -268,13 +295,22 @@
 
     .card-header,
     .card-title,
-    .card-body { color: #fff; }
+    .card-body {
+      color: #fff;
+    }
 
-    .chart-legend label { color: rgba(#fff, .5); }
+    .chart-legend label {
+      color: rgba(#fff, .5);
+    }
 
     .flot-chart-two {
-      .flot-y-axis .flot-tick-label { color: rgba(#fff, .5); }
-      .flot-x-axis .flot-tick-label { color: #fff; }
+      .flot-y-axis .flot-tick-label {
+        color: rgba(#fff, .5);
+      }
+
+      .flot-x-axis .flot-tick-label {
+        color: #fff;
+      }
     }
 
     .card-footer {
@@ -283,7 +319,9 @@
     }
 
     @include hover-focus() {
-      .card-footer { border-color: darken($border-color, 4%); }
+      .card-footer {
+        border-color: darken($border-color, 4%);
+      }
     }
   }
 }
@@ -323,7 +361,9 @@
       text-transform: uppercase;
       margin-left: 2px;
 
-      @include media-breakpoint-up(xl) { font-size: 20px; }
+      @include media-breakpoint-up(xl) {
+        font-size: 20px;
+      }
     }
   }
 
@@ -353,7 +393,9 @@
     padding: 100px 0 0;
     position: relative;
 
-    @include media-breakpoint-up(xl) { padding-top: 75px; }
+    @include media-breakpoint-up(xl) {
+      padding-top: 75px;
+    }
   }
 
   .chart-wrapper {
@@ -367,7 +409,9 @@
     margin-right: -8px;
     margin-bottom: -14px;
 
-    @include media-breakpoint-up(xl) { height: 295px; }
+    @include media-breakpoint-up(xl) {
+      height: 295px;
+    }
 
     .flot-x-axis .flot-tick-label {
       font-family: $font-family-sans-serif;
@@ -380,13 +424,17 @@
 }
 
 .card-chart-three {
-  @include media-breakpoint-up(md) { height: 100%; }
+  @include media-breakpoint-up(md) {
+    height: 100%;
+  }
 
   .card-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @include media-breakpoint-up(lg) { padding: 18px 20px; }
+    @include media-breakpoint-up(lg) {
+      padding: 18px 20px;
+    }
   }
 
   .card-chart-header {
@@ -422,7 +470,9 @@
     @media(max-width: 575px) {
       display: block;
 
-      label { display: block; }
+      label {
+        display: block;
+      }
       label + label {
         margin-left: 0;
       }
@@ -439,7 +489,9 @@
 }
 
 .card-chart-four {
-  @include media-breakpoint-up(md) { height: 100%; }
+  @include media-breakpoint-up(md) {
+    height: 100%;
+  }
 
   .card-header {
     display: flex;
@@ -488,14 +540,18 @@
       color: darken($color-brand-01, 5%);
       background-color: rgba($color-brand-01, .16);
 
-      svg { fill: rgba($color-brand-01, .2); }
+      svg {
+        fill: rgba($color-brand-01, .2);
+      }
     }
 
     &.brand-02 {
       color: darken($color-brand-02, 10%);
       background-color: rgba($color-brand-02, .3);
 
-      svg { fill: rgba($color-brand-02, .2); }
+      svg {
+        fill: rgba($color-brand-02, .2);
+      }
     }
   }
 
@@ -529,9 +585,14 @@
   .table {
     thead > tr,
     tbody > tr {
-      th,td {
-        &:first-child { padding-left: 20px; }
-        &:last-child { padding-right: 20px; }
+      th, td {
+        &:first-child {
+          padding-left: 20px;
+        }
+
+        &:last-child {
+          padding-right: 20px;
+        }
 
         white-space: nowrap;
       }
@@ -540,24 +601,30 @@
     thead > tr {
       background-color: $color-ui-01;
 
-      th,td {
+      th, td {
         font-size: 12px;
         text-align: right;
 
-        @include media-breakpoint-up(sm) { padding: 8px 0; }
+        @include media-breakpoint-up(sm) {
+          padding: 8px 0;
+        }
 
-        &:first-child { text-align: left; }
+        &:first-child {
+          text-align: left;
+        }
       }
     }
 
     tbody > tr {
-      th,td {
+      th, td {
         text-align: right;
         font-size: 13px;
         color: $color-text-03;
         vertical-align: middle;
 
-        @include media-breakpoint-up(sm) { padding: 10px 0; }
+        @include media-breakpoint-up(sm) {
+          padding: 10px 0;
+        }
 
         &:first-child {
           text-align: left;
@@ -570,7 +637,9 @@
 
 .card-deal,
 .card-transactions {
-  .avatar { flex-shrink: 0; }
+  .avatar {
+    flex-shrink: 0;
+  }
 
   .card-footer {
     display: flex;
@@ -588,7 +657,9 @@
         font-size: 9px;
         margin-top: 1px;
 
-        &:first-of-type { margin-left: 5px; }
+        &:first-of-type {
+          margin-left: 5px;
+        }
       }
     }
   }
@@ -633,7 +704,9 @@
       margin-bottom: 2px;
       font-size: $font-size-xs;
 
-      @include media-breakpoint-up(sm) { font-size: $font-size-sm; }
+      @include media-breakpoint-up(sm) {
+        font-size: $font-size-sm;
+      }
     }
 
     small {
@@ -642,7 +715,9 @@
     }
   }
 
-  .card-footer { justify-content: center; }
+  .card-footer {
+    justify-content: center;
+  }
 }
 
 .card-sale-location {
@@ -650,7 +725,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @include media-breakpoint-up(lg) { padding: 18px 20px; }
+    @include media-breakpoint-up(lg) {
+      padding: 18px 20px;
+    }
 
     .nav {
       line-height: 0;
@@ -669,7 +746,9 @@
       padding: 20px;
     }
 
-    @include media-breakpoint-up(md) { flex-direction: row; }
+    @include media-breakpoint-up(md) {
+      flex-direction: row;
+    }
   }
 
   .list-group-wrapper {
@@ -682,7 +761,9 @@
   .vmap-wrapper {
     height: 150px;
 
-    @include media-breakpoint-up(sm) { height: 200px; }
+    @include media-breakpoint-up(sm) {
+      height: 200px;
+    }
     @include media-breakpoint-up(md) {
       flex-shrink: 0;
       width: calc(100% - 190px);
@@ -696,7 +777,10 @@
     height: 100%;
   }
 
-  .list-group { margin-bottom: 10px; }
+  .list-group {
+    margin-bottom: 10px;
+  }
+
   .list-group-item {
     padding: 8px 0;
     display: flex;
@@ -732,8 +816,12 @@
     > div + div {
       margin-left: 15px;
 
-      @include media-breakpoint-up(sm) { margin-left: 20px; }
-      @include media-breakpoint-up(xl) { margin-left: 30px; }
+      @include media-breakpoint-up(sm) {
+        margin-left: 20px;
+      }
+      @include media-breakpoint-up(xl) {
+        margin-left: 30px;
+      }
     }
 
     label {
@@ -745,7 +833,9 @@
       color: $color-text-03;
       text-transform: uppercase;
 
-      @include media-breakpoint-up(sm) { font-size: 10px; }
+      @include media-breakpoint-up(sm) {
+        font-size: 10px;
+      }
     }
 
     h5 {
@@ -754,7 +844,9 @@
       font-size: 14px;
       font-weight: 400;
 
-      @include media-breakpoint-up(sm) { font-size: 16px; }
+      @include media-breakpoint-up(sm) {
+        font-size: 16px;
+      }
 
       span {
         font-size: 11px;
@@ -763,7 +855,9 @@
         text-transform: uppercase;
         margin-left: 2px;
 
-        @include media-breakpoint-up(sm) { font-size: 13px; }
+        @include media-breakpoint-up(sm) {
+          font-size: 13px;
+        }
       }
     }
   }
@@ -846,7 +940,9 @@
   align-items: center;
   justify-content: space-between;
 
-  @include media-breakpoint-up(lg) { padding: 15px; }
+  @include media-breakpoint-up(lg) {
+    padding: 15px;
+  }
 
   .flot-wrapper {
     position: relative;
@@ -884,7 +980,9 @@
     width: 100%;
 
     tbody > tr {
-      + tr { border-top: 1px dashed darken($border-color, 3%); }
+      + tr {
+        border-top: 1px dashed darken($border-color, 3%);
+      }
 
       td {
         font-size: $font-size-sm;
@@ -897,8 +995,13 @@
           border-style: solid;
         }
 
-        &:nth-child(3) { font-weight: 500; }
-        &:nth-child(4) { color: $color-text-03; }
+        &:nth-child(3) {
+          font-weight: 500;
+        }
+
+        &:nth-child(4) {
+          color: $color-text-03;
+        }
 
         &:nth-child(3),
         &:nth-child(4) {
@@ -906,7 +1009,9 @@
         }
       }
 
-      &:last-child td { padding-bottom: 0; }
+      &:last-child td {
+        padding-bottom: 0;
+      }
     }
   }
 }
@@ -931,7 +1036,9 @@
   .flot-chart {
     height: 180px;
 
-    @include media-breakpoint-up(xl) { height: 206px; }
+    @include media-breakpoint-up(xl) {
+      height: 206px;
+    }
 
     .flot-y-axis .flot-tick-label {
       font-family: $font-family-sans;
@@ -958,8 +1065,12 @@
 
   .chart-wrapper {
     height: 180px;
-    @include media-breakpoint-up(sm) { height: 138px; }
-    @include media-breakpoint-up(xl) { height: 208px; }
+    @include media-breakpoint-up(sm) {
+      height: 138px;
+    }
+    @include media-breakpoint-up(xl) {
+      height: 208px;
+    }
   }
 
   .card-body {
@@ -968,8 +1079,12 @@
       font-weight: 400;
       color: $color-text-01;
 
-      @include media-breakpoint-up(sm) { font-size: 18px; }
-      @include media-breakpoint-up(xl) { font-size: 20px; }
+      @include media-breakpoint-up(sm) {
+        font-size: 18px;
+      }
+      @include media-breakpoint-up(xl) {
+        font-size: 20px;
+      }
 
       small {
         font-size: 14px;
@@ -980,7 +1095,9 @@
     }
   }
 
-  .progress { height: 3px; }
+  .progress {
+    height: 3px;
+  }
 }
 
 .card-pie-two {
@@ -1014,8 +1131,13 @@
   .list-unstyled li {
     padding: 5px 0;
 
-    &:first-child { padding-top: 0; }
-    &:last-child { padding-bottom: 0; }
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
 
     h6 {
       font-weight: 400;
@@ -1034,7 +1156,10 @@
     height: 140px;
   }
 
-  .list-group { margin-bottom: 13px; }
+  .list-group {
+    margin-bottom: 13px;
+  }
+
   .list-group-item {
     padding: 8px 0;
     display: flex;
@@ -1064,7 +1189,10 @@
         font-weight: $font-weight-medium;
         margin-bottom: 2px;
       }
-      span { color: $color-text-04; }
+
+      span {
+        color: $color-text-04;
+      }
     }
 
     > div:last-child {
@@ -1090,9 +1218,13 @@
     display: flex;
     align-items: center;
 
-    .icon + .icon { margin-left: 1px; }
+    .icon + .icon {
+      margin-left: 1px;
+    }
 
-    .active { color: $orange; }
+    .active {
+      color: $orange;
+    }
   }
 
   .card-value {
@@ -1102,7 +1234,9 @@
     font-weight: 400;
     color: $color-text-01;
 
-    @include media-breakpoint-only(sm) { font-size: 26px; }
+    @include media-breakpoint-only(sm) {
+      font-size: 26px;
+    }
   }
 
   .list-group-item {
@@ -1122,7 +1256,9 @@
       font-weight: 500;
     }
 
-    .stars { font-size: 13px; }
+    .stars {
+      font-size: 13px;
+    }
 
     > div:nth-child(3) {
       font-weight: 500;
@@ -1130,6 +1266,7 @@
       margin-left: auto;
       text-align: right;
     }
+
     > div:last-child {
       width: 40px;
       text-align: right;
@@ -1138,6 +1275,8 @@
   }
 
   .review-item {
-    .stars { font-size: 13px; }
+    .stars {
+      font-size: 13px;
+    }
   }
 }

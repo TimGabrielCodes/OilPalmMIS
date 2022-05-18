@@ -76,10 +76,15 @@
                 <input type="number" id="costPerBunch" name="costPerBunch" value="${harvest.costPerBunch}"
                        class="form-control" required="true" min="0" step=".01"/>
             </div>
-<div class="col">
+            <div class="col">
                 <label class="col-form-label col-form-label-lg" for="otherCosts">Other Costs</label>
                 <input type="number" id="otherCosts" name="otherCosts" value="${harvest.otherCosts}"
                        class="form-control" required="true" min="0" step=".01"/>
+            </div>
+            <div class="col">
+                <label class="col-form-label col-form-label-lg" for="honorarium">Honorarium</label>
+                <input type="number" id="honorarium" name="honorarium" value="${harvest.honorarium}"
+                       class="form-control"  min="0" step=".01"/>
             </div>
 
 
@@ -88,14 +93,13 @@
 
             <div class="col">
                 <label class="col-form-label col-form-label-lg" for="dateHarvested">Harvesting Date</label>
-                <input type="date" id="dateHarvested" name="dateHarvested" value="${harvest.dateAdded}" class="form-control">
+                <input type="date" id="dateHarvested" name="dateHarvested" value="${harvest.dateAdded}"
+                       class="form-control">
             </div>
 
         </div>
 
-                <input type="hidden" value="${harvest.id}" name="id"/>
-
-
+        <input type="hidden" value="${harvest.id}" name="id"/>
 
 
         <br>

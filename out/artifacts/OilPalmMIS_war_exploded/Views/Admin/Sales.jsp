@@ -1,5 +1,5 @@
-
-<%@include file="AdminHeader.jsp"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@include file="AdminHeader.jsp" %>
 
 <div class="content-header">
     <div>
@@ -23,9 +23,7 @@
 <div class="content-body">
 
 
-
-
-    <table  class="" id="datatable">
+    <table class="" id="datatable">
         <thead>
         <tr class="thead-light">
             <th>SN</th>
@@ -40,13 +38,15 @@
         </tr>
         </thead>
         <tbody>
-
+        <fmt:setLocale value="en_NG"/>
         <c:forEach items="${list}" var="income" varStatus="loop">
-            <tr>  <td>${loop.index+1}</td>
+            <tr>
+                <td>${loop.index+1}</td>
                 <td>${income.logger.fullName}</td>
                 <td>${income.incomeType}</td>
                 <td>${income.productUnit}</td>
-                <td>${income.amount}</td>
+                <td><fmt:formatNumber value = "${income.amount}" type = "currency"/>
+                </td>
                 <td>${income.receivedFrom}</td>
                 <td>${income.remark}</td>
                 <td>${income.date}</td>
@@ -65,4 +65,4 @@
 <!-- content-body -->
 </div>
 <!-- content -->
-<%@include file="AdminFooter.jsp"%>
+<%@include file="AdminFooter.jsp" %>

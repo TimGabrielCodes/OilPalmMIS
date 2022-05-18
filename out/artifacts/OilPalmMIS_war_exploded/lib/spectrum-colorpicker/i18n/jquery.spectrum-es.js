@@ -2,7 +2,7 @@
 // Spanish (es) localization
 // https://github.com/bgrins/spectrum
 
-(function ( $ ) {
+(function ($) {
 
     var localization = $.spectrum.localization["es"] = {
         cancelText: "Cancelar",
@@ -15,4 +15,4 @@
 
     $.extend($.fn.spectrum.defaults, localization);
 
-})( jQuery );
+})(jQuery);

@@ -25,16 +25,28 @@ textarea.parsley-success {
     @include border-radius();
   }
 
-  &.parsley-error { border: 1px solid $red; }
-  &.parsley-success { border: 1px solid $green; }
+  &.parsley-error {
+    border: 1px solid $red;
+  }
+
+  &.parsley-success {
+    border: 1px solid $green;
+  }
 }
 
 .custom-select {
   &.parsley-error,
-  &.parsley-success { box-shadow: none !important; }
+  &.parsley-success {
+    box-shadow: none !important;
+  }
 
-  &.parsley-error { border-color: $red; }
-  &.parsley-success { border-color: $green; }
+  &.parsley-error {
+    border-color: $red;
+  }
+
+  &.parsley-success {
+    border-color: $green;
+  }
 }
 
 
@@ -45,7 +57,9 @@ textarea.parsley-success {
   padding: 0;
   margin-bottom: 0;
 
-  li { margin: 5px 0 0; }
+  li {
+    margin: 5px 0 0;
+  }
 }
 
 /***** CUSTOM STYLED ERROR MESSAGE *****/
@@ -61,7 +75,9 @@ textarea.parsley-success {
     }
 
     &.parsley-success {
-      .form-control { border-color: $green; }
+      .form-control {
+        border-color: $green;
+      }
     }
   }
 
@@ -73,7 +89,9 @@ textarea.parsley-success {
       @include border-top-radius(2px);
     }
 
-    .parsley-errors-list.filled { @include border-bottom-radius(1px); }
+    .parsley-errors-list.filled {
+      @include border-bottom-radius(1px);
+    }
   }
 
   .custom-select {
@@ -90,6 +108,8 @@ textarea.parsley-success {
     font-size: 11px;
     @include border-bottom-radius(2px);
 
-    li:first-child { margin-top: 0; }
+    li:first-child {
+      margin-top: 0;
+    }
   }
 }

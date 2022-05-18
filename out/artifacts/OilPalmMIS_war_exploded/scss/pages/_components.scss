@@ -7,9 +7,13 @@
   display: none;
   @include transition(all 0.15s);
 
-  @include media-breakpoint-up(xl) { display: block; }
+  @include media-breakpoint-up(xl) {
+    display: block;
+  }
 
-  &.scroll-top { top: 25px; }
+  &.scroll-top {
+    top: 25px;
+  }
 
   label {
     display: block;
@@ -33,9 +37,13 @@
     color: $color-text-03;
     line-height: 1;
 
-    @include hover-focus() { color: $color-text-02; }
+    @include hover-focus() {
+      color: $color-text-02;
+    }
 
-    + .nav-link { margin-top: 12px; }
+    + .nav-link {
+      margin-top: 12px;
+    }
 
     &.active {
       color: $color-brand-01;
@@ -48,11 +56,13 @@
   color: $color-text-03;
   line-height: 1.65;
 
-  @include media-breakpoint-up(xl) { padding-right: 270px; }
+  @include media-breakpoint-up(xl) {
+    padding-right: 270px;
+  }
 
-  input,textarea,label,.alert,
-  .breadcrumb,.btn,.card,.list-group-item,
-  .nav,.navbar,.pagination,.table {
+  input, textarea, label, .alert,
+  .breadcrumb, .btn, .card, .list-group-item,
+  .nav, .navbar, .pagination, .table {
     font-size: $font-size-base;
   }
 
@@ -93,15 +103,23 @@
     margin-top: 40px;
   }
 
-  > h5 { color: $color-text-02; }
+  > h5 {
+    color: $color-text-02;
+  }
 
   &:first-of-type {
     margin-top: 25px;
-    @include media-breakpoint-up(sm) { margin-top: 30px; }
-    @include media-breakpoint-up(lg) { margin-top: 35px; }
+    @include media-breakpoint-up(sm) {
+      margin-top: 30px;
+    }
+    @include media-breakpoint-up(lg) {
+      margin-top: 35px;
+    }
   }
 
-  &.no-code { padding-bottom: 0; }
+  &.no-code {
+    padding-bottom: 0;
+  }
 }
 
 .demo-avatar-group {
@@ -113,7 +131,9 @@
 
     + .avatar {
       margin-left: 5px;
-      @include media-breakpoint-up(sm) { margin-left: 10px; }
+      @include media-breakpoint-up(sm) {
+        margin-left: 10px;
+      }
     }
   }
 }
@@ -127,7 +147,9 @@
     margin-top: 5px;
     margin-right: 5px;
 
-    @include media-breakpoint-up(lg) { margin-top: 0; }
+    @include media-breakpoint-up(lg) {
+      margin-top: 0;
+    }
   }
 }
 
@@ -152,7 +174,9 @@
 }
 
 .demo-static-toast {
-  .toast { opacity: 1; }
+  .toast {
+    opacity: 1;
+  }
 }
 
 .demo-animate-media {
@@ -197,7 +221,9 @@
       color: inherit;
     }
 
-    + .nav-link { margin-top: 1px; }
+    + .nav-link {
+      margin-top: 1px;
+    }
 
     &.active {
       background-color: $gray-600;
@@ -217,7 +243,9 @@
     color: #fff;
     letter-spacing: -1px;
 
-    &::before { flex-shrink: 0; }
+    &::before {
+      flex-shrink: 0;
+    }
   }
 }
 
@@ -233,7 +261,7 @@
   tbody tr {
     th:first-child,
     td:first-child {
-      &,code {
+      &, code {
         font-family: 'Roboto Mono', monospace;
         font-size: 12px;
         color: $red;
@@ -248,12 +276,16 @@
   margin-left: -15px;
   margin-right: -15px;
 
-  @include media-breakpoint-up(sm) { height: 300px; }
+  @include media-breakpoint-up(sm) {
+    height: 300px;
+  }
 }
 
 .morris-donut-wrapper-demo {
   height: 200px;
-  @include media-breakpoint-up(sm) { height: 250px; }
+  @include media-breakpoint-up(sm) {
+    height: 250px;
+  }
 }
 
 // themes.html
@@ -298,12 +330,15 @@
 .theme-selected {
   position: relative;
 
-  &,&:hover,&:focus {
+  &, &:hover, &:focus {
     border-color: $green;
     box-shadow: inset 0 0 0 1px $green;
   }
 
-  &::before { border-bottom-color: $green; }
+  &::before {
+    border-bottom-color: $green;
+  }
+
   &::before,
   &::after {
     display: block;
@@ -334,5 +369,7 @@
   background-color: rgba($gray-900, .75);
   display: none;
 
-  .btn { border-width: 0; }
+  .btn {
+    border-width: 0;
+  }
 }

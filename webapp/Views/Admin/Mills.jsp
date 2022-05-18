@@ -36,10 +36,6 @@
 
         </tr>
         </thead>
-        <%--<%@page import="javax.xml.bind.DatatypeConverter"%>
-        <%@page import="javax.imageio.ImageIO"%>
-        <%@page import="java.awt.image.*"%>
-        <%@page import="java.io.*"%>--%>
         <tbody>
 
         <c:forEach items="${list}" var="mill" varStatus="loop">

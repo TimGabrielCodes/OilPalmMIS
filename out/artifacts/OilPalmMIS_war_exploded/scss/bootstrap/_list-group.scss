@@ -16,5 +16,7 @@
 }
 
 .list-group-item-action {
-  @include hover-focus() { background-color: lighten($color-brand-01, 38%); }
+  @include hover-focus() {
+    background-color: lighten($color-brand-01, 38%);
+  }
 }

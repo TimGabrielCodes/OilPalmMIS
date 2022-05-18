@@ -129,6 +129,11 @@
                 <input type="text" id="numberOfPresses" name="numberOfPresses" value="${mill.numberOfPresses}"
                        class="form-control"/>
             </div>
+            <div class="col">
+                <label class="col-form-label col-form-label-lg" for="honorarium">Honorarium</label>
+                <input type="text" id="honorarium" name="honorarium" value="${millingExpense.honorarium}"
+                       class="form-control"/>
+            </div>
         </div>
         <div class="row">
             <div class="col">

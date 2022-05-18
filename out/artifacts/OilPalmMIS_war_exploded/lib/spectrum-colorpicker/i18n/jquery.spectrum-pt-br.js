@@ -2,7 +2,7 @@
 // Brazilian (pt-br) localization
 // https://github.com/bgrins/spectrum
 
-(function ( $ ) {
+(function ($) {
 
     var localization = $.spectrum.localization["pt-br"] = {
         cancelText: "Cancelar",
@@ -15,4 +15,4 @@
 
     $.extend($.fn.spectrum.defaults, localization);
 
-})( jQuery );
+})(jQuery);

@@ -8,14 +8,18 @@
   border-bottom: 1px solid $border-color;
   @include transition(all 0.25s);
 
-  @include media-breakpoint-up(sm) { height: 70px; }
+  @include media-breakpoint-up(sm) {
+    height: 70px;
+  }
 
   @include media-breakpoint-up(lg) {
     height: 80px;
     left: $sidebar-width - 9px;
   }
 
-  @include media-breakpoint-up(xl) { left: $sidebar-width; }
+  @include media-breakpoint-up(xl) {
+    left: $sidebar-width;
+  }
 }
 
 .header-left {
@@ -23,7 +27,9 @@
   align-items: center;
   padding-left: 5px;
 
-  @include media-breakpoint-up(sm) { padding-left: 10px; }
+  @include media-breakpoint-up(sm) {
+    padding-left: 10px;
+  }
 
   .burger-menu {
     color: $color-text-02;
@@ -39,8 +45,12 @@
       height: 24px;
     }
 
-    @include hover-focus() { color: $color-text-01; }
-    @include hover() { transform: scale(1.2); }
+    @include hover-focus() {
+      color: $color-text-01;
+    }
+    @include hover() {
+      transform: scale(1.2);
+    }
   }
 }
 
@@ -54,7 +64,9 @@
   border: 1px solid $gray-300;
   @include transition($transition-base);
 
-  @include media-breakpoint-up(sm) { display: flex; }
+  @include media-breakpoint-up(sm) {
+    display: flex;
+  }
 
   &.active {
     background-color: #fff;
@@ -94,12 +106,16 @@
   display: flex;
   align-items: center;
 
-  @include media-breakpoint-up(sm) { padding-right: 20px; }
+  @include media-breakpoint-up(sm) {
+    padding-right: 20px;
+  }
   //@include media-breakpoint-up(lg) { padding-right: 30px; }
 
   a {
     color: $color-text-03;
-    @include hover-focus() { color: $color-text-01; }
+    @include hover-focus() {
+      color: $color-text-01;
+    }
   }
 
   svg {
@@ -113,20 +129,29 @@
   }
 
   .header-help-link {
-    svg { @include transition(all 0.2s); }
+    svg {
+      @include transition(all 0.2s);
+    }
+
     @include hover-focus() {
-      svg { transform: scale(1.15); }
+      svg {
+        transform: scale(1.15);
+      }
     }
   }
 
   .dropdown-link {
     color: $color-text-03;
-    @include hover-focus() { color: $color-text-01; }
+    @include hover-focus() {
+      color: $color-text-01;
+    }
   }
 
   .dropdown-notification {
     margin-left: 5px;
-    @include media-breakpoint-up(lg) { margin-left: 10px; }
+    @include media-breakpoint-up(lg) {
+      margin-left: 10px;
+    }
 
     .dropdown-link {
       &.new {
@@ -144,10 +169,14 @@
         }
       }
 
-      svg { @include transition(all 0.2s); }
+      svg {
+        @include transition(all 0.2s);
+      }
 
       @include hover-focus() {
-        svg { transform: scale(1.1); }
+        svg {
+          transform: scale(1.1);
+        }
       }
     }
 
@@ -161,8 +190,12 @@
       border-color: darken($border-color, 2%);
       box-shadow: $shadow-01, $shadow-base;
 
-      @include media-breakpoint-up(sm) { margin-top: 26px; }
-      @include media-breakpoint-up(lg) { margin-top: 31.5px; }
+      @include media-breakpoint-up(sm) {
+        margin-top: 26px;
+      }
+      @include media-breakpoint-up(lg) {
+        margin-top: 31.5px;
+      }
     }
 
     .dropdown-menu-header {
@@ -190,7 +223,9 @@
       color: $color-text-02;
       white-space: normal;
 
-      @include hover-focus() { background-color: darken($color-ui-01, 2%); }
+      @include hover-focus() {
+        background-color: darken($color-ui-01, 2%);
+      }
 
       &:active {
         background-color: $color-ui-02;
@@ -235,10 +270,14 @@
     margin-left: 10px;
 
     .dropdown-link {
-      .avatar { @include transition(all 0.2s); }
+      .avatar {
+        @include transition(all 0.2s);
+      }
 
       @include hover-focus() {
-        .avatar { transform: scale(1.1); }
+        .avatar {
+          transform: scale(1.1);
+        }
       }
     }
 
@@ -251,9 +290,15 @@
       border-color: darken($border-color, 2%);
       box-shadow: $shadow-01, $shadow-base;
 
-      @include media-breakpoint-up(sm) { margin-top: 18.5px; }
-      @include media-breakpoint-up(md) { margin-top: 17px; }
-      @include media-breakpoint-up(lg) { margin-top: 22px; }
+      @include media-breakpoint-up(sm) {
+        margin-top: 18.5px;
+      }
+      @include media-breakpoint-up(md) {
+        margin-top: 17px;
+      }
+      @include media-breakpoint-up(lg) {
+        margin-top: 22px;
+      }
     }
 
     .dropdown-menu-header {
@@ -281,7 +326,9 @@
       font-size: $font-size-sm;
       color: $color-text-02;
 
-      @include hover-focus() { background-color: darken($color-ui-01, 2%); }
+      @include hover-focus() {
+        background-color: darken($color-ui-01, 2%);
+      }
 
       svg {
         width: 16px;
@@ -295,7 +342,9 @@
         background-color: $color-ui-04;
         color: #fff;
 
-        svg { color: #fff; }
+        svg {
+          color: #fff;
+        }
       }
     }
   }

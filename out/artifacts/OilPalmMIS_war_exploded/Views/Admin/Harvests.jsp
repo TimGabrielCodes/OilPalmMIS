@@ -1,5 +1,5 @@
-
-<%@include file="AdminHeader.jsp"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@include file="AdminHeader.jsp" %>
 
 <div class="content-header">
     <div>
@@ -18,13 +18,12 @@
     </div>
 
 
-</div><!-- content-header -->
+</div>
+<!-- content-header -->
 <div class="content-body">
 
 
-
-
-    <table  class="" id="datatable">
+    <table class="" id="datatable">
         <thead>
         <tr class="thead-light">
             <th>SN</th>
@@ -32,22 +31,30 @@
             <th>Stock In Bunches</th>
             <th>Cost Per Bunch</th>
             <th>Other Costs</th>
+            <th>Honorarium</th>
             <th>Date Added</th>
             <th>Milled</th>
             <th>Logger</th>
 
 
-
         </tr>
         </thead>
         <tbody>
-
+        <fmt:setLocale value = "en_NG"/>
         <c:forEach items="${list}" var="harvest" varStatus="loop">
-            <tr>  <td>${loop.index+1}</td>
+            <tr>
+
+                <td>${loop.index+1}</td>
                 <td>${harvest.batch.batchName}</td>
                 <td>${harvest.stockInBunches}</td>
-                <td>${harvest.costPerBunch}</td>
-                <td>${harvest.otherCosts}</td>
+                <td>
+                    <fmt:formatNumber value = "${harvest.costPerBunch}" type = "currency"/>
+                </td>
+                <td>
+                    <fmt:formatNumber value = "${harvest.otherCosts}" type = "currency"/></td>
+                <td>
+                    <fmt:formatNumber value = "${harvest.honorarium}" type = "currency"/>
+                </td>
                 <td>${harvest.dateAdded}</td>
                 <td>${harvest.milled}</td>
                 <td>${harvest.logger.fullName}</td>
@@ -58,7 +65,8 @@
 
     </table>
     <button class="btn btn-primary pull-right" onclick="window.location.href = 'harvests'">View Harvests</button>
-    <button class="btn btn-primary pull-left " onclick="window.location.href = 'harvests?action=NEW'">Add new Harvest</button>
+    <button class="btn btn-primary pull-left " onclick="window.location.href = 'harvests?action=NEW'">Add new Harvest
+    </button>
     <div>
         <p> ${message} </p>
     </div>
@@ -67,4 +75,4 @@
 <!-- content-body -->
 </div>
 <!-- content -->
-<%@include file="AdminFooter.jsp"%>
+<%@include file="AdminFooter.jsp" %>

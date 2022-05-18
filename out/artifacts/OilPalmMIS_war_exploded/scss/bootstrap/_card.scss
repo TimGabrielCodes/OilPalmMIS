@@ -7,32 +7,45 @@
 
   &.card-dark {
     color: rgba(#fff, .7);
-    .card-title { color: #fff; }
+
+    .card-title {
+      color: #fff;
+    }
 
     a {
       color: inherit;
-      @include hover-focus() { color: #fff; }
+      @include hover-focus() {
+        color: #fff;
+      }
     }
   }
 }
 
 .card-header {
   padding: 12px 15px;
-  @include media-breakpoint-up(sm) { padding: 20px; }
+  @include media-breakpoint-up(sm) {
+    padding: 20px;
+  }
 
-  .nav-card-icon { line-height: 0; }
+  .nav-card-icon {
+    line-height: 0;
+  }
 }
 
 .card-body {
   padding: 15px;
-  @include media-breakpoint-up(sm) { padding: 20px; }
+  @include media-breakpoint-up(sm) {
+    padding: 20px;
+  }
 }
 
 .card-link {
   color: $color-text-02;
   text-decoration: underline;
 
-  @include hover-focus() { color: $color-text-01; }
+  @include hover-focus() {
+    color: $color-text-01;
+  }
 }
 
 .card-title {

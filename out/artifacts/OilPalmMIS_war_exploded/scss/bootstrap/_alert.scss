@@ -2,9 +2,11 @@
 .alert-primary {
   border-color: lighten(#0168fa, 35%);
   background-color: lighten(#0168fa, 45%);
-  color: rgba(darken(#0168fa, 30%),.8);
+  color: rgba(darken(#0168fa, 30%), .8);
 
-  .alert-heading { color: darken(#0168fa, 25%); }
+  .alert-heading {
+    color: darken(#0168fa, 25%);
+  }
 }
 
 .alert-light {
@@ -12,8 +14,13 @@
   border-color: $border-color;
 }
 
-.alert-secondary { background-color: $color-ui-02; }
-.alert-dark { background-color: $color-ui-03; }
+.alert-secondary {
+  background-color: $color-ui-02;
+}
+
+.alert-dark {
+  background-color: $color-ui-03;
+}
 
 .alert-dismissible .close {
   padding: 0;
@@ -31,14 +38,37 @@
   padding: 11px 15px;
 
   // alert-outline-variant($text-color, $border-color);
-  &.alert-primary { @include alert-outline-variant($blue, $blue); }
-  &.alert-secondary { @include alert-outline-variant($gray-600, $gray-500); }
-  &.alert-success { @include alert-outline-variant($green, $green); }
-  &.alert-danger { @include alert-outline-variant($red, $red); }
-  &.alert-warning { @include alert-outline-variant(darken($yellow, 5%), darken($yellow, 5%)); }
-  &.alert-info { @include alert-outline-variant($cyan, $cyan); }
-  &.alert-light { @include alert-outline-variant($gray-500, $gray-300); }
-  &.alert-dark { @include alert-outline-variant($gray-700, $gray-600); }
+  &.alert-primary {
+    @include alert-outline-variant($blue, $blue);
+  }
+
+  &.alert-secondary {
+    @include alert-outline-variant($gray-600, $gray-500);
+  }
+
+  &.alert-success {
+    @include alert-outline-variant($green, $green);
+  }
+
+  &.alert-danger {
+    @include alert-outline-variant($red, $red);
+  }
+
+  &.alert-warning {
+    @include alert-outline-variant(darken($yellow, 5%), darken($yellow, 5%));
+  }
+
+  &.alert-info {
+    @include alert-outline-variant($cyan, $cyan);
+  }
+
+  &.alert-light {
+    @include alert-outline-variant($gray-500, $gray-300);
+  }
+
+  &.alert-dark {
+    @include alert-outline-variant($gray-700, $gray-600);
+  }
 }
 
 // Solid style
@@ -46,14 +76,39 @@
   border-width: 0;
 
   &:not(.alert-secondary),
-  &:not(.alert-light) { color: #fff; }
+  &:not(.alert-light) {
+    color: #fff;
+  }
 
-  &.alert-primary { background-color: $blue; }
-  &.alert-secondary { background-color: $gray-600; }
-  &.alert-success { background-color: $green; }
-  &.alert-danger { background-color: $red; }
-  &.alert-warning { background-color: $yellow; }
-  &.alert-info { background-color: $cyan; }
-  &.alert-light { background-color: $gray-400; }
-  &.alert-dark { background-color: $gray-700; }
+  &.alert-primary {
+    background-color: $blue;
+  }
+
+  &.alert-secondary {
+    background-color: $gray-600;
+  }
+
+  &.alert-success {
+    background-color: $green;
+  }
+
+  &.alert-danger {
+    background-color: $red;
+  }
+
+  &.alert-warning {
+    background-color: $yellow;
+  }
+
+  &.alert-info {
+    background-color: $cyan;
+  }
+
+  &.alert-light {
+    background-color: $gray-400;
+  }
+
+  &.alert-dark {
+    background-color: $gray-700;
+  }
 }

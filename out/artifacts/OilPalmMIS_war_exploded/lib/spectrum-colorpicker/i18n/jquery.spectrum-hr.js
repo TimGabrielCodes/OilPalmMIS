@@ -2,7 +2,7 @@
 // Croatian (hr) localization
 // https://github.com/bgrins/spectrum
 
-(function ( $ ) {
+(function ($) {
 
     var localization = $.spectrum.localization["hr"] = {
         cancelText: "Odustani",
@@ -15,4 +15,4 @@
 
     $.extend($.fn.spectrum.defaults, localization);
 
-})( jQuery );
+})(jQuery);

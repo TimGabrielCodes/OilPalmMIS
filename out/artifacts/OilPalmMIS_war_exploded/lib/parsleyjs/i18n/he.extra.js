@@ -2,5 +2,5 @@
 // Load this after Parsley
 
 Parsley.addMessages('he', {
-  dateiso: "ערך זה צריך להיות תאריך בפורמט (YYYY-MM-DD)."
+    dateiso: "ערך זה צריך להיות תאריך בפורמט (YYYY-MM-DD)."
 });

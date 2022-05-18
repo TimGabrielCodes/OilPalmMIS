@@ -18,6 +18,8 @@ public class Harvest {
 
     private Double otherCosts;
 
+    private Double honorarium;
+
     private boolean milled;
 
 
@@ -99,8 +101,17 @@ public class Harvest {
                 ", costPerBunch=" + costPerBunch +
                 ", dateAdded=" + dateAdded +
                 ", otherCosts=" + otherCosts +
+                ", honorarium=" + honorarium +
                 ", milled=" + milled +
                 '}';
+    }
+
+    public Double getHonorarium() {
+        return honorarium;
+    }
+
+    public void setHonorarium(Double honorarium) {
+        this.honorarium = honorarium;
     }
 
     public boolean isMilled() {

@@ -53,6 +53,7 @@ public class HarvestDAOImpl implements HarvestDAO {
         harvest.setMilled(resultSet.getBoolean("milled"));
         harvest.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
         harvest.setOtherCosts(resultSet.getDouble("otherCosts"));
+        harvest.setHonorarium(resultSet.getDouble("honorarium"));
     }
 
 
@@ -62,8 +63,8 @@ public class HarvestDAOImpl implements HarvestDAO {
         try {
 
 
-            String sql = "insert into harvest(batch, stockInBunches, costPerBunch, dateAdded, logger, milled, otherCosts) "
-                    + "values(" + harvest.getBatch().getId() + ", " + harvest.getStockInBunches() + "," + harvest.getCostPerBunch() + ",'" + harvest.getDateAdded() + "', " + harvest.getLogger().getId() + ", " + harvest.isMilled() + ", " + harvest.getOtherCosts() + ")";
+            String sql = "insert into harvest(batch, stockInBunches, costPerBunch, dateAdded, logger, milled, otherCosts, honorarium) "
+                    + "values(" + harvest.getBatch().getId() + ", " + harvest.getStockInBunches() + "," + harvest.getCostPerBunch() + ",'" + harvest.getDateAdded() + "', " + harvest.getLogger().getId() + ", " + harvest.isMilled() + ", " + harvest.getOtherCosts() + ", " + harvest.getHonorarium()+")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -109,7 +110,7 @@ public class HarvestDAOImpl implements HarvestDAO {
         boolean flag = false;
 
         try {
-            String sql = "update harvest set batch=" + harvest.getBatch().getId() + " , stockInBunches=" + harvest.getStockInBunches() + ",costPerBunch=" + harvest.getCostPerBunch() + ", milled =" + harvest.isMilled() + ", dateAdded ='" + harvest.getDateAdded() + "', logger=" + harvest.getLogger().getId() + ", otherCosts=" + harvest.getOtherCosts() + " where id=" + harvest.getId();
+            String sql = "update harvest set batch=" + harvest.getBatch().getId() + " , stockInBunches=" + harvest.getStockInBunches() + ",costPerBunch=" + harvest.getCostPerBunch() + ", milled =" + harvest.isMilled() + ", dateAdded ='" + harvest.getDateAdded() + "', logger=" + harvest.getLogger().getId() + ", otherCosts=" + harvest.getOtherCosts() + ", honorarium=" + harvest.getHonorarium()+ " where id=" + harvest.getId();
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();

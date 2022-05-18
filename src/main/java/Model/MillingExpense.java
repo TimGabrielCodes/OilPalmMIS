@@ -12,25 +12,12 @@ public class MillingExpense {
     private Double plantParts;
     private User logger;
     private Mill mill;
+    private Double honorarium;
 
     public MillingExpense() {
     }
 
-    @Override
-    public String toString() {
-        return "MillingExpense{" +
-                "id=" + id +
-                ", fuel=" + fuel +
-                ", storage=" + storage +
-                ", harvestStockCost=" + harvestStockCost +
-                ", adhocLabour=" + adhocLabour +
-                ", firewood=" + firewood +
-                ", fruitPurchase=" + fruitPurchase +
-                ", plantParts=" + plantParts +
-                ", logger=" + logger +
-                ", mill=" + mill +
-                '}';
-    }
+
 
     public int getId() {
         return id;
@@ -110,5 +97,30 @@ public class MillingExpense {
 
     public void setMill(Mill mill) {
         this.mill = mill;
+    }
+
+    public Double getHonorarium() {
+        return honorarium;
+    }
+
+    public void setHonorarium(Double honorarium) {
+        this.honorarium = honorarium;
+    }
+
+    @Override
+    public String toString() {
+        return "MillingExpense{" +
+                "id=" + id +
+                ", fuel=" + fuel +
+                ", storage=" + storage +
+                ", harvestStockCost=" + harvestStockCost +
+                ", adhocLabour=" + adhocLabour +
+                ", firewood=" + firewood +
+                ", fruitPurchase=" + fruitPurchase +
+                ", plantParts=" + plantParts +
+                ", logger=" + logger +
+                ", mill=" + mill +
+                ", honorarium=" + honorarium +
+                '}';
     }
 }

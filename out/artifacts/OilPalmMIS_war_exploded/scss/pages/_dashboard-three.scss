@@ -4,9 +4,11 @@
   .card-header {
     padding: 15px;
     border-bottom-width: 0;
-   }
+  }
 
-  .media { margin-bottom: 15px; }
+  .media {
+    margin-bottom: 15px;
+  }
 
   .profile-info {
     display: flex;
@@ -32,7 +34,9 @@
       color: $color-text-01;
       margin-bottom: 2px;
 
-      @include media-breakpoint-only(xl) { font-size: 14px; }
+      @include media-breakpoint-only(xl) {
+        font-size: 14px;
+      }
     }
 
     p {
@@ -46,8 +50,12 @@
 .card-social-one {
   .card-body {
     padding-top: 10px;
-    @include media-breakpoint-up(sm) { padding: 12px 15px 15px; }
-    @include media-breakpoint-up(md) { padding: 15px; }
+    @include media-breakpoint-up(sm) {
+      padding: 12px 15px 15px;
+    }
+    @include media-breakpoint-up(md) {
+      padding: 15px;
+    }
   }
 
   .card-info {
@@ -56,7 +64,9 @@
     right: 10px;
     color: $gray-400;
 
-    @include hover-focus() { color: $gray-700; }
+    @include hover-focus() {
+      color: $gray-700;
+    }
   }
 
   .card-value {
@@ -66,7 +76,9 @@
     margin-bottom: 0;
     letter-spacing: -1px;
 
-    span { font-weight: 300; }
+    span {
+      font-weight: 300;
+    }
   }
 
   .chart-wrapper {
@@ -140,7 +152,7 @@
     .overlay-body {
       bottom: auto;
       z-index: 5;
-      @include gradient-y(#fff, rgba(#fff,.0));
+      @include gradient-y(#fff, rgba(#fff, .0));
     }
   }
 
@@ -167,7 +179,9 @@
       margin-left: -30px;
     }
 
-    @include media-breakpoint-up(xl) { height: 160px; }
+    @include media-breakpoint-up(xl) {
+      height: 160px;
+    }
 
     .flot-x-axis {
       .flot-tick-label {
@@ -180,11 +194,15 @@
     }
 
     &.chart-tick-blue {
-      .flot-x-axis .flot-tick-label { color: darken($color-ui-blue, 15%); }
+      .flot-x-axis .flot-tick-label {
+        color: darken($color-ui-blue, 15%);
+      }
     }
 
     &.chart-tick-green {
-      .flot-x-axis .flot-tick-label { color: darken($color-ui-green, 15%); }
+      .flot-x-axis .flot-tick-label {
+        color: darken($color-ui-green, 15%);
+      }
     }
   }
 }
@@ -198,7 +216,9 @@
     justify-content: space-between;
   }
 
-  .card-body { padding: 0; }
+  .card-body {
+    padding: 0;
+  }
 
   .card-title span {
     font-size: 13px;
@@ -229,7 +249,9 @@
 
     a {
       color: $color-text-01;
-      @include hover-focus() { color: $color-text-03; }
+      @include hover-focus() {
+        color: $color-text-03;
+      }
     }
   }
 
@@ -243,7 +265,9 @@
     align-self: center;
     margin-right: -5px;
     color: $gray-400;
-    @include hover-focus() { color: $color-text-02; }
+    @include hover-focus() {
+      color: $color-text-02;
+    }
   }
 }
 
@@ -270,7 +294,9 @@
 
   .card-body {
     padding: 15px;
-    @include media-breakpoint-up(sm) { padding: 20px; }
+    @include media-breakpoint-up(sm) {
+      padding: 20px;
+    }
   }
 
   .badge {
@@ -290,7 +316,9 @@
 
     a {
       color: $color-text-01;
-      @include hover-focus() { color: $color-text-02; }
+      @include hover-focus() {
+        color: $color-text-02;
+      }
     }
   }
 
@@ -308,7 +336,9 @@
     padding: 12px 15px;
     font-size: 11px;
 
-    @include media-breakpoint-up(sm) { padding: 12px 20px; }
+    @include media-breakpoint-up(sm) {
+      padding: 12px 20px;
+    }
 
     a {
       font-family: $font-family-numeric-2;
@@ -316,12 +346,18 @@
       display: flex;
       align-items: center;
 
-      @include hover-focus() { color: $color-brand-01; }
+      @include hover-focus() {
+        color: $color-brand-01;
+      }
 
-      + a { margin-left: 20px; }
+      + a {
+        margin-left: 20px;
+      }
     }
 
-    svg { margin-right: 5px; }
+    svg {
+      margin-right: 5px;
+    }
   }
 }
 
@@ -378,13 +414,19 @@
 
       @include hover-focus() {
         color: $color-brand-01;
-        svg { fill: rgba($color-brand-01, .2); }
+        svg {
+          fill: rgba($color-brand-01, .2);
+        }
       }
 
-      + a { margin-left: 20px; }
+      + a {
+        margin-left: 20px;
+      }
     }
 
-    svg { margin-right: 5px; }
+    svg {
+      margin-right: 5px;
+    }
   }
 }
 
@@ -435,13 +477,19 @@
 
       @include hover-focus() {
         color: $color-brand-01;
-        svg { fill: rgba($color-brand-01, .2); }
+        svg {
+          fill: rgba($color-brand-01, .2);
+        }
       }
 
-      + a { margin-left: 20px; }
+      + a {
+        margin-left: 20px;
+      }
     }
 
-    svg { margin-right: 5px; }
+    svg {
+      margin-right: 5px;
+    }
   }
 }
 
@@ -449,10 +497,17 @@
 .card-profile-one {
   .card-body {
     padding: 15px;
-    @include media-breakpoint-up(sm) { padding: 20px; }
-    @include media-breakpoint-up(xl) { padding: 25px; }
+    @include media-breakpoint-up(sm) {
+      padding: 20px;
+    }
+    @include media-breakpoint-up(xl) {
+      padding: 25px;
+    }
   }
-  .avatar { flex-shrink: 0; }
+
+  .avatar {
+    flex-shrink: 0;
+  }
 
   .media {
     display: block;
@@ -523,11 +578,18 @@
 
   .card-body {
     padding: 15px;
-    @include media-breakpoint-up(sm) { padding: 20px; }
+    @include media-breakpoint-up(sm) {
+      padding: 20px;
+    }
   }
 
-  .avatar { margin-bottom: 15px; }
-  .card-title { font-size: 16px; }
+  .avatar {
+    margin-bottom: 15px;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
 
   .card-desc {
     font-size: 13px;
@@ -552,19 +614,29 @@
       color: $color-text-04;
       @include hover-focus() {
         color: $color-brand-01;
-        svg { fill: rgba($color-brand-01, .2); }
+        svg {
+          fill: rgba($color-brand-01, .2);
+        }
       }
 
-      + a { margin-left: 6px; }
+      + a {
+        margin-left: 6px;
+      }
     }
   }
 
   &.card-dark {
     @include gradient-y(transparent, rgba(#000, .2));
-    .card-title { font-weight: 400; }
+
+    .card-title {
+      font-weight: 400;
+    }
+
     .card-footer a {
       color: inherit;
-      @include hover-focus() { color: #fff; }
+      @include hover-focus() {
+        color: #fff;
+      }
     }
   }
 }
@@ -577,8 +649,12 @@
     align-items: center;
     justify-content: center;
 
-    @include media-breakpoint-up(sm) { padding: 20px; }
-    @include media-breakpoint-up(xl) { padding: 25px; }
+    @include media-breakpoint-up(sm) {
+      padding: 20px;
+    }
+    @include media-breakpoint-up(xl) {
+      padding: 25px;
+    }
   }
 
   .profile-name {
@@ -587,7 +663,9 @@
 
     a {
       color: $color-text-01;
-      @include hover-focus() { color: $color-text-02; }
+      @include hover-focus() {
+        color: $color-text-02;
+      }
     }
   }
 
@@ -604,7 +682,9 @@
     margin-bottom: 0;
   }
 
-  .nav { justify-content: center; }
+  .nav {
+    justify-content: center;
+  }
 
   .badge {
     padding: 5px 8px;
@@ -615,11 +695,13 @@
     margin-bottom: 4px;
     @include border-radius(10px);
 
-    + .badge { margin-left: 4px; }
+    + .badge {
+      margin-left: 4px;
+    }
   }
 
   .badge-warning {
-    @include hover-focus(){
+    @include hover-focus() {
       color: #fff;
       background-color: $orange;
     }
@@ -645,7 +727,9 @@
 
       @include hover-focus() {
         color: $color-brand-01;
-        svg { fill: rgba($color-brand-01, .4); }
+        svg {
+          fill: rgba($color-brand-01, .4);
+        }
       }
     }
 

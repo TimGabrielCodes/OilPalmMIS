@@ -16,7 +16,9 @@
   cursor: pointer;
   @include transition($transition-base);
 
-  ~ .ui-accordion-header { margin-top: -1px; }
+  ~ .ui-accordion-header {
+    margin-top: -1px;
+  }
 
   @include hover-focus() {
     color: $color-text-01;
@@ -42,7 +44,9 @@
     border-bottom-width: 0;
     color: $color-text-01;
 
-    .ui-accordion-header-icon::before { content: '\f3d0'; }
+    .ui-accordion-header-icon::before {
+      content: '\f3d0';
+    }
   }
 }
 

@@ -1,60 +1,46 @@
 package Util;
 
 public class DashboardUtil {
-    private int managers;
-    private int users;
-    private int admin;
-    private int warehouse;
-    private int clerk;
+    private int unmilledBatches;
+    
+    private int milledBatches;
 
-    public DashboardUtil() {
+    private String month;
 
+    public int getUnmilledBatches() {
+        return unmilledBatches;
     }
 
-    public int getManagers() {
-        return managers;
+
+    public int getMilledBatches() {
+        return milledBatches;
     }
 
-    public void setManagers(int managers) {
-        this.managers = managers;
-    }
-
-    public int getUsers() {
-        return users;
-    }
-
-    public void setUsers(int users) {
-        this.users = users;
-    }
-
-    public int getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(int admin) {
-        this.admin = admin;
-    }
-
-    public int getWarehouse() {
-        return warehouse;
-    }
-
-    public void setWarehouse(int warehouse) {
-        this.warehouse = warehouse;
-    }
-
-    public int getClerk() {
-        return clerk;
-    }
-
-    public void setClerk(int clerk) {
-        this.clerk = clerk;
+    public void setMilledBatches(int milledBatches) {
+        this.milledBatches = milledBatches;
     }
 
     @Override
     public String toString() {
-        return "DashboardUtil{" + "managers=" + managers + ", users=" + users + ", admin=" + admin + ", warehouse=" + warehouse + ", clerk=" + clerk + '}';
+        return "DashboardUtil{" +
+                "unmilledBatches=" + unmilledBatches +
+                ", milledBatches=" + milledBatches +
+                '}';
     }
 
+    public void setUnmilledBatches(int unmilledBatches) {
+        this.unmilledBatches = unmilledBatches;
+    }
 
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public void setUnMilledBatches(int unmilledBatches) {
+        this.unmilledBatches = unmilledBatches;
+    }
 }

@@ -8,7 +8,9 @@
       display: block;
     }
 
-    .profile-body { margin-left: 20px; }
+    .profile-body {
+      margin-left: 20px;
+    }
   }
 }
 
@@ -18,8 +20,12 @@
   height: 100%;
   padding: 0 15px 10px;
 
-  @include media-breakpoint-up(sm) { padding: 0 20px 10px; }
-  @include media-breakpoint-up(xl) { padding: 0 20px 20px; }
+  @include media-breakpoint-up(sm) {
+    padding: 0 20px 10px;
+  }
+  @include media-breakpoint-up(xl) {
+    padding: 0 20px 20px;
+  }
 }
 
 .profile-sidebar {
@@ -28,8 +34,12 @@
   flex-shrink: 0;
   display: none;
 
-  @include media-breakpoint-up(md) { padding-left: 0; }
-  @include media-breakpoint-up(lg) { display: block; }
+  @include media-breakpoint-up(md) {
+    padding-left: 0;
+  }
+  @include media-breakpoint-up(lg) {
+    display: block;
+  }
 }
 
 .profile-sidebar-header {
@@ -72,14 +82,18 @@
     display: flex;
     align-items: center;
 
-    + li { margin-top: 10px; }
+    + li {
+      margin-top: 10px;
+    }
   }
 
   a {
     color: $color-text-02;
     @include transition($transition-base);
 
-    @include hover-focus() { color: $color-brand-01; }
+    @include hover-focus() {
+      color: $color-brand-01;
+    }
   }
 
   svg {
@@ -130,7 +144,9 @@
     padding: 0 15px;
     border-bottom-width: 1px;
 
-    @include media-breakpoint-up(sm) { padding: 0 20px; }
+    @include media-breakpoint-up(sm) {
+      padding: 0 20px;
+    }
   }
 
   .nav-link {
@@ -139,9 +155,13 @@
     color: $color-text-03;
     white-space: nowrap;
 
-    @include media-breakpoint-up(lg) { padding: 20px 0; }
+    @include media-breakpoint-up(lg) {
+      padding: 20px 0;
+    }
 
-    @include hover-focus() { color: $color-text-02; }
+    @include hover-focus() {
+      color: $color-text-02;
+    }
 
     &.active {
       color: $color-brand-01;
@@ -182,6 +202,8 @@
   .media-body {
     margin-left: 20px;
 
-    p:last-of-type { margin-bottom: 0; }
+    p:last-of-type {
+      margin-bottom: 0;
+    }
   }
 }

@@ -1,9 +1,12 @@
 package Controller;
 
+import DAO.ChartsDAO;
+import DAO.ChartsDAOImpl;
 import DAO.UserDAO;
 import DAO.UserDAOImpl;
 import Model.User;
 import Util.DashboardUtil;
+import com.google.gson.Gson;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,7 +16,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.TextStyle;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,9 +29,11 @@ import java.util.logging.Logger;
 public class UserController extends HttpServlet {
     UserDAO userDAO = null;
     RequestDispatcher dispatcher = null;
+    private ChartsDAO chartsDAO;
 
     public UserController() {
         userDAO = new UserDAOImpl();
+        chartsDAO = new ChartsDAOImpl();
     }
 
     @Override
@@ -39,13 +49,6 @@ public class UserController extends HttpServlet {
             case "VIEWPROFILE":
                 viewProfile(request, response);
                 break;
-
-
-            case "EDIT":
-                getSingleUser(request, response);
-                break;
-
-
             default:
                 dashboard(request, response);
                 break;
@@ -106,8 +109,16 @@ public class UserController extends HttpServlet {
         try {
             List<User> list = userDAO.get();
             DashboardUtil util = new DashboardUtil();
+            util.setUnMilledBatches(chartsDAO.getUnmilledBatches());
+            util.setMilledBatches(chartsDAO.getMilledBatches());
+            LocalDate today = LocalDate.now(ZoneId.systemDefault());
+            util.setMonth(today.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH));
+
+            String dataPoints = chartsDAO.getIncomeCostPlot();;
+            System.out.println("Json to Pass" + dataPoints);
             request.setAttribute("list", list);
             request.setAttribute("util", util);
+           request.setAttribute("dataPoints", dataPoints);
             request.setAttribute("title", "Admin Dashboard");
             dispatcher = request.getRequestDispatcher("/Views/Admin/dashboard.jsp");
             dispatcher.forward(request, response);
@@ -115,103 +126,6 @@ public class UserController extends HttpServlet {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-    }
-
-    public void getSingleUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-
-        DashboardUtil util = new DashboardUtil();
-        util.setAdmin(userDAO.getAdminCount());
-        util.setManagers(userDAO.getManagerCount());
-        util.setUsers(userDAO.getUserCount());
-        util.setClerk(userDAO.getClerkCount());
-        util.setWarehouse(userDAO.getWarehouseManagerCount());
-        request.setAttribute("util", util);
-        String id = request.getParameter("id");
-        User user = userDAO.get(Integer.parseInt(id));
-        request.setAttribute("title", "Edit User");
-        request.setAttribute("user", user);
-        dispatcher = request.getRequestDispatcher("/Views/Admin/add_user.jsp");
-        dispatcher.forward(request, response);
-
-    }
-
-    public void deleteUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-
-        String id = request.getParameter("id");
-
-        User user = userDAO.get(Integer.parseInt(id));
-        if (userDAO.delete(Integer.parseInt(id))) {
-            request.setAttribute("title", "Delete User");
-            request.setAttribute("message", "User Deleted!");
-
-        }
-        dashboard(request, response);
-
-    }
-
-
-    private void listWarehouseManagers(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        try {
-            List<User> list = userDAO.getWarehouseManagers();
-            DashboardUtil util = new DashboardUtil();
-            util.setAdmin(userDAO.getAdminCount());
-            util.setManagers(userDAO.getManagerCount());
-            util.setUsers(userDAO.getUserCount());
-            util.setClerk(userDAO.getClerkCount());
-            util.setWarehouse(userDAO.getWarehouseManagerCount());
-
-            request.setAttribute("list", list);
-            request.setAttribute("util", util);
-            request.setAttribute("title", "Users");
-            dispatcher = request.getRequestDispatcher("/Views/Admin/user_list.jsp");
-            dispatcher.forward(request, response);
-        } catch (IOException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-
-    private void listClerks(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        try {
-            List<User> list = userDAO.getClerks();
-            DashboardUtil util = new DashboardUtil();
-            util.setAdmin(userDAO.getAdminCount());
-            util.setManagers(userDAO.getManagerCount());
-            util.setUsers(userDAO.getUserCount());
-            util.setClerk(userDAO.getClerkCount());
-            util.setWarehouse(userDAO.getWarehouseManagerCount());
-
-            request.setAttribute("list", list);
-            request.setAttribute("util", util);
-            request.setAttribute("title", "Users");
-            dispatcher = request.getRequestDispatcher("/Views/Admin/user_list.jsp");
-            dispatcher.forward(request, response);
-        } catch (IOException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    private void listManagers(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        try {
-            List<User> list = userDAO.getManagers();
-            DashboardUtil util = new DashboardUtil();
-            util.setAdmin(userDAO.getAdminCount());
-            util.setManagers(userDAO.getManagerCount());
-            util.setUsers(userDAO.getUserCount());
-            util.setClerk(userDAO.getClerkCount());
-            util.setWarehouse(userDAO.getWarehouseManagerCount());
-
-            request.setAttribute("list", list);
-            request.setAttribute("util", util);
-            request.setAttribute("title", "Users");
-            dispatcher = request.getRequestDispatcher("/Views/Admin/user_list.jsp");
-            dispatcher.forward(request, response);
-        } catch (IOException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -233,15 +147,5 @@ public class UserController extends HttpServlet {
         }
     }
 
-    public void listUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        try {
-            User user = userDAO.getLogger((String) request.getSession().getAttribute("email"));
-            UserDAO us = new UserDAOImpl();
-            request.setAttribute("title", "Dashboard");
-            dispatcher = request.getRequestDispatcher("/Views/Clerk/dashboard.jsp");
-            dispatcher.forward(request, response);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
+
 }

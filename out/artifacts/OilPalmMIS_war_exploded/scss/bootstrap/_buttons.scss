@@ -1,11 +1,12 @@
 
-
 .btn {
   font-size: inherit;
   @include transition(all 0.2s);
 
   &:focus,
-  &:active { box-shadow: none; }
+  &:active {
+    box-shadow: none;
+  }
 
   svg {
     width: 16px;

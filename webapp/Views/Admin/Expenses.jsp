@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@include file="AdminHeader.jsp" %>
 
 <div class="content-header">
@@ -32,11 +33,13 @@
         </tr>
         </thead>
         <tbody>
+        <fmt:setLocale value="en_NG"/>
         <c:forEach items="${list}" var="expense" varStatus="loop">
             <tr>
                 <td>${loop.index+1}</td>
                 <td>${expense.expenseCategory}</td>
-                <td>${expense.amount}</td>
+                <td><fmt:formatNumber value = "${expense.amount}" type = "currency"/>
+                </td>
                 <td>${expense.remark}</td>
                 <td>${expense.date}</td>
                 <td>${expense.logger.fullName}</td>

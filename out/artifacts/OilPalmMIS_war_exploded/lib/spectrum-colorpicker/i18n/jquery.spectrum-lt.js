@@ -2,7 +2,7 @@
 // Lithuanian (lt) localization
 // https://github.com/liesislukas
 
-(function ( $ ) {
+(function ($) {
 
     var localization = $.spectrum.localization["lt"] = {
         cancelText: "Atšaukti",
@@ -15,4 +15,4 @@
 
     $.extend($.fn.spectrum.defaults, localization);
 
-})( jQuery );
+})(jQuery);

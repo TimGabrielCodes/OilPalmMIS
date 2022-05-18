@@ -47,7 +47,9 @@
 .pagination-space,
 .pagination-outline {
   .page-item {
-    + .page-item { margin-left: 5px; }
+    + .page-item {
+      margin-left: 5px;
+    }
   }
 }
 
@@ -66,7 +68,9 @@
 
 .pagination-filled {
   .page-item {
-    + .page-item { margin-left: 2px; }
+    + .page-item {
+      margin-left: 2px;
+    }
 
     &.disabled {
       .page-link {
@@ -97,11 +101,15 @@
 
 .pagination-circle {
   .page-item {
-    + .page-item { margin-left: 3px; }
+    + .page-item {
+      margin-left: 3px;
+    }
 
     &:first-child,
     &:last-child {
-      .page-link { @include border-radius(100%); }
+      .page-link {
+        @include border-radius(100%);
+      }
     }
   }
 

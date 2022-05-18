@@ -1,5 +1,13 @@
 package DAO;
 
-public class ChartsDAO {
+public interface ChartsDAO {
+    String getCurrentMonth();
+
+    int getUnmilledBatches();
+    int getMilledBatches();
+
+    String getIncomeCostPlot();
+
+
 
 }

@@ -18,14 +18,26 @@
     box-shadow: $shadow-01, $shadow-base;
   }
 
-  @include media-breakpoint-up(lg) { width: 52%; }
-  @include media-breakpoint-up(xl) { width: 45%; }
+  @include media-breakpoint-up(lg) {
+    width: 52%;
+  }
+  @include media-breakpoint-up(xl) {
+    width: 45%;
+  }
 }
 
 .signup-sidebar-body {
   @extend .signin-sidebar-body;
 }
 
-.signup-title { @extend .signin-title; }
-.signup-subtitle { @extend .signin-subtitle; }
-.signup-form { @extend .signin-form; }
+.signup-title {
+  @extend .signin-title;
+}
+
+.signup-subtitle {
+  @extend .signin-subtitle;
+}
+
+.signup-form {
+  @extend .signin-form;
+}

@@ -1,8 +1,9 @@
 
-
 .ql-snow {
   &.ql-toolbar,
-  &.ql-container { border-color: $border-color; }
+  &.ql-container {
+    border-color: $border-color;
+  }
 
   &.ql-toolbar {
     @include border-top-radius($border-radius);
@@ -26,7 +27,9 @@
         color: $color-brand-01;
       }
 
-      + button { margin-left: 1px; }
+      + button {
+        margin-left: 1px;
+      }
     }
 
     .ql-picker {
@@ -84,7 +87,9 @@
       .ql-picker {
         float: none;
 
-        ~ .ql-picker { margin-left: 1px; }
+        ~ .ql-picker {
+          margin-left: 1px;
+        }
       }
     }
   }
@@ -130,7 +135,9 @@
         background-color: $color-brand-01;
       }
 
-      + button { margin-left: 1px; }
+      + button {
+        margin-left: 1px;
+      }
     }
   }
 }

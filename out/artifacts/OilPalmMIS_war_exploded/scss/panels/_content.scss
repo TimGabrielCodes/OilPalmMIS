@@ -7,18 +7,24 @@
     margin-left: $sidebar-width - 10px;
   }
 
-  @include media-breakpoint-up(xl) { margin-left: $sidebar-width; }
+  @include media-breakpoint-up(xl) {
+    margin-left: $sidebar-width;
+  }
 
   &.content-page .content-header {
     padding-bottom: 15px;
-    @include media-breakpoint-up(sm) { padding-bottom: 20px; }
+    @include media-breakpoint-up(sm) {
+      padding-bottom: 20px;
+    }
 
     .btn {
       padding-left: 12px;
       padding-right: 12px;
     }
 
-    svg { margin-right: 5px; }
+    svg {
+      margin-right: 5px;
+    }
   }
 }
 
@@ -28,8 +34,12 @@
   padding: 20px 15px 10px;
   position: relative;
 
-  @include media-breakpoint-up(sm) { padding: 20px 20px 15px; }
-  @include media-breakpoint-up(lg) { padding-bottom: 23px; }
+  @include media-breakpoint-up(sm) {
+    padding: 20px 20px 15px;
+  }
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 23px;
+  }
 
   .breadcrumb {
     margin-bottom: 2px;
@@ -48,7 +58,9 @@
       position: relative;
       margin-left: 10px;
 
-      @include media-breakpoint-up(lg) { margin-left: 15px; }
+      @include media-breakpoint-up(lg) {
+        margin-left: 15px;
+      }
 
       &::before {
         content: '';
@@ -64,13 +76,17 @@
         border-right: 1.5px solid $color-ui-04;
         transform: rotate(45deg);
 
-        @include media-breakpoint-up(lg) { left: -9px; }
+        @include media-breakpoint-up(lg) {
+          left: -9px;
+        }
       }
     }
 
     a {
       color: $color-text-02;
-      @include hover-focus() { color: $color-text-01; }
+      @include hover-focus() {
+        color: $color-text-01;
+      }
     }
 
     &.active {
@@ -86,25 +102,35 @@
   margin-bottom: 5px;
   text-indent: -1px;
 
-  @include media-breakpoint-up(sm) { margin-bottom: 0; }
-  @include media-breakpoint-up(lg) { font-size: 28px; }
+  @include media-breakpoint-up(sm) {
+    margin-bottom: 0;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 28px;
+  }
 }
 
 .content-title-sm {
   font-size: 20px;
-  @include media-breakpoint-up(lg) { font-size: 28px; }
+  @include media-breakpoint-up(lg) {
+    font-size: 28px;
+  }
 }
 
 .content-title-xs {
   font-size: 20px;
-  @include media-breakpoint-up(lg) { font-size: 22px; }
+  @include media-breakpoint-up(lg) {
+    font-size: 22px;
+  }
 }
 
 .content-body {
   padding: 0 15px 15px;
   position: relative;
 
-  @include media-breakpoint-up(sm) { padding: 0 20px 20px; }
+  @include media-breakpoint-up(sm) {
+    padding: 0 20px 20px;
+  }
   //@include media-breakpoint-up(lg) { padding: 0 30px 30px; }
 }
 
@@ -113,12 +139,16 @@
   font-size: 12px;
   color: $color-text-04;
 
-  @include media-breakpoint-up(sm) { padding: 20px; }
+  @include media-breakpoint-up(sm) {
+    padding: 20px;
+  }
 
   a {
     color: $color-text-02;
     text-decoration: underline;
-    @include hover-focus() { color: $color-text-01; }
+    @include hover-focus() {
+      color: $color-text-01;
+    }
   }
 }
 
@@ -129,13 +159,19 @@
   line-height: 1.5;
   margin-bottom: 0;
 
-  @include media-breakpoint-up(sm) { font-size: 16px; }
-  @include media-breakpoint-up(lg) { font-size: 18px; }
+  @include media-breakpoint-up(sm) {
+    font-size: 16px;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 18px;
+  }
 
   a {
     color: $color-text-02;
     text-decoration: underline;
-    @include hover-focus() { color: $color-text-01; }
+    @include hover-focus() {
+      color: $color-text-01;
+    }
   }
 }
 

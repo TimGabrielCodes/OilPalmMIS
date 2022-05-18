@@ -29,9 +29,22 @@
   height: 10px;
 }
 
-.fill-teal { fill: rgba($teal, .15); }
-.fill-pink { fill: rgba($pink, .15); }
+.fill-teal {
+  fill: rgba($teal, .15);
+}
 
-.stroke-base  { stroke-width: 2px; }
-.stroke-25    { stroke-width: 2.5px; }
-.stroke-30    { stroke-width: 3px; }
+.fill-pink {
+  fill: rgba($pink, .15);
+}
+
+.stroke-base {
+  stroke-width: 2px;
+}
+
+.stroke-25 {
+  stroke-width: 2.5px;
+}
+
+.stroke-30 {
+  stroke-width: 3px;
+}

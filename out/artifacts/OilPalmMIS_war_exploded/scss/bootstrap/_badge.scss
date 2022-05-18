@@ -8,7 +8,9 @@
   border: 1px solid transparent;
 }
 
-.badge-light { background-color: $gray-300; }
+.badge-light {
+  background-color: $gray-300;
+}
 
 .badge-pill {
   padding-left: 10px;

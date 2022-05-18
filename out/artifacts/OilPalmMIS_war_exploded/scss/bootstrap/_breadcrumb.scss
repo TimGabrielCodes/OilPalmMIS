@@ -1,5 +1,4 @@
 
-
 .breadcrumb {
   background-color: $color-ui-02;
 
@@ -8,10 +7,14 @@
 
     a {
       color: $color-text-04;
-      @include hover-focus() { color: $color-text-02; }
+      @include hover-focus() {
+        color: $color-text-02;
+      }
     }
 
-    + .breadcrumb-item::before { opacity: .5; }
+    + .breadcrumb-item::before {
+      opacity: .5;
+    }
   }
 }
 
@@ -26,12 +29,18 @@
 
     a {
       color: $color-text-03;
-      @include hover-focus() { color: $color-text-02; }
+      @include hover-focus() {
+        color: $color-text-02;
+      }
     }
 
-    &.active { color: $color-text-02; }
+    &.active {
+      color: $color-text-02;
+    }
 
-    + .breadcrumb-item::before { color: $gray-500; }
+    + .breadcrumb-item::before {
+      color: $gray-500;
+    }
   }
 }
 
@@ -48,9 +57,13 @@
 }
 
 .breadcrumb-style2 {
-  .breadcrumb-item + .breadcrumb-item::before { content: '\f3d3'; }
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: '\f3d3';
+  }
 }
 
 .breadcrumb-style3 {
-  .breadcrumb-item + .breadcrumb-item::before { content: '\f30f'; }
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: '\f30f';
+  }
 }

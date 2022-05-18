@@ -1,5 +1,4 @@
-
-<%@include file="AdminHeader.jsp"%>
+<%@include file="AdminHeader.jsp" %>
 
 <div class="content-header">
     <div>
@@ -18,22 +17,20 @@
     </div>
 
 
-</div><!-- content-header -->
+</div>
+<!-- content-header -->
 <div class="content-body">
 
 
-
-
-    <table  class="" id="datatable">
+    <table class="" id="datatable">
         <thead>
         <tr class="thead-light">
             <th>SN</th>
             <th>Batch Name</th>
             <th>Batch Date</th>
-            <th>  Batch Month</th>
+            <th> Batch Month</th>
             <th>Logger</th>
             <th>Action</th>
-
 
 
         </tr>
@@ -45,7 +42,8 @@
         <tbody>
 
         <c:forEach items="${list}" var="batch" varStatus="loop">
-            <tr>  <td>${loop.index+1}</td>
+            <tr>
+                <td>${loop.index+1}</td>
                 <td>${batch.batchName}</td>
                 <td>${batch.batchDate}</td>
                 <td>${batch.batchMonth}</td>
@@ -63,12 +61,16 @@
 
 
     </table>
-    <button class="btn btn-primary pull-right" onclick="window.location.href = 'batches?action=ADDBATCH'">View Batches</button>
-    <button class="btn btn-primary pull-left " onclick="window.location.href = 'batches?action=ADDBATCH'">Add new Batch</button>
+    <button class="btn btn-primary pull-right" onclick="window.location.href = 'batches?action=ADDBATCH'">View Batches
+    </button>
+    <button class="btn btn-primary pull-left " onclick="window.location.href = 'batches?action=ADDBATCH'">Add new
+        Batch
+    </button>
     <div>
         <p> ${message} </p>
     </div>
 
-</div><!-- content-body -->
+</div>
+<!-- content-body -->
 </div><!-- content -->
-<%@include file="AdminFooter.jsp"%>
+<%@include file="AdminFooter.jsp" %>

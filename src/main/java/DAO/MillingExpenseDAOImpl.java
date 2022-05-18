@@ -55,6 +55,7 @@ public class MillingExpenseDAOImpl implements MillingExpenseDAO {
         millingExpense.setPlantParts(resultSet.getDouble("plantParts"));
         millingExpense.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
         millingExpense.setMill(new MillDAOImpl().get(resultSet.getInt("mill")));
+        millingExpense.setHonorarium(resultSet.getDouble("honorarium"));
 
 
     }
@@ -66,9 +67,9 @@ public class MillingExpenseDAOImpl implements MillingExpenseDAO {
         try {
 
 
-            String sql = "insert into millingExpense(fuel, storage, harvestStockCost, adhocLabour, firewood, fruitPurchase, plantParts, logger, mill) "
+            String sql = "insert into millingExpense(fuel, storage, harvestStockCost, adhocLabour, firewood, fruitPurchase, plantParts, logger, mill, honorarium) "
                     + "values(" + millingExpense.getFuel() + ", " + millingExpense.getStorage() + "," + millingExpense.getHarvestStockCost() + "," + millingExpense.getAdhocLabour() + "," + millingExpense.getFirewood()
-                    + "," + millingExpense.getFruitPurchase() + ", " + millingExpense.getPlantParts() + "," + millingExpense.getLogger().getId() + "," + millingExpense.getMill().getId() + ")";
+                    + "," + millingExpense.getFruitPurchase() + ", " + millingExpense.getPlantParts() + "," + millingExpense.getLogger().getId() + "," + millingExpense.getMill().getId() + ", "+ millingExpense.getHonorarium()+")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -140,7 +141,7 @@ public class MillingExpenseDAOImpl implements MillingExpenseDAO {
             String sql = "update millingExpense set fuel=" + millingExpense.getFuel() + " ,storage=" + millingExpense.getStorage() + ",harvestStockCost="
                     + millingExpense.getHarvestStockCost() + ",adhocLabour =" + millingExpense.getAdhocLabour()
                     + ", firewood =" + millingExpense.getFirewood() + ", fruitPurchase=" + millingExpense.getFruitPurchase()
-                    + ", plantParts=" + millingExpense.getPlantParts() + ", logger=" + millingExpense.getLogger() + " where id=" + millingExpense.getId();
+                    + ", plantParts=" + millingExpense.getPlantParts() + ", logger=" + millingExpense.getLogger() +", honorarium="+ millingExpense.getHonorarium() +" where id=" + millingExpense.getId();
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();

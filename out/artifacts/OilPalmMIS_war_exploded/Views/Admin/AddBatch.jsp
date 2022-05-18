@@ -1,5 +1,4 @@
-
-<%@include file="AdminHeader.jsp"%>
+<%@include file="AdminHeader.jsp" %>
 
 <div class="content-header">
     <div>
@@ -18,12 +17,14 @@
     </div>
 
 
-</div><!-- content-header -->
+</div>
+<!-- content-header -->
 <div class="content-body">
-    <form method="POST"  action="${pageContext.request.contextPath}/batches">
+    <form method="POST" action="${pageContext.request.contextPath}/batches">
         <div class="row">
             <div class="col">
-                <input type ="text" name="batchName" value="${batch.batchName}" placeholder="Batch Name" class="form-control" required="true"><br>
+                <input type="text" name="batchName" value="${batch.batchName}" placeholder="Batch Name"
+                       class="form-control" required="true"><br>
             </div>
 
         </div>
@@ -31,11 +32,13 @@
 
             <div class="col">
                 <label for="batchDate">Batch Date</label>
-                <input id="batchDate" type ="Date" name="batchDate" value="${batch.batchDate}" placeholder="First Name" class="form-control" required="true"><br>
+                <input id="batchDate" type="Date" name="batchDate" value="${batch.batchDate}" placeholder="First Name"
+                       class="form-control" required="true"><br>
             </div>
             <div class="col"><label for="logger">Batch Logged By:</label>
-            <input type ="text"  id="logger" name="logger" value="<%out.print(getUserName());%>" placeholder="logger name" class="form-control" disabled/>
-        </div>
+                <input type="text" id="logger" name="logger" value="<%out.print(getUserName());%>"
+                       placeholder="logger name" class="form-control" disabled/>
+            </div>
 
         </div>
 
@@ -43,7 +46,6 @@
 
         </div>
         </br>
-
 
 
         </br>
@@ -56,7 +58,7 @@
         </br>
 
         <div class="form-group">
-            <button class="btn btn-primary" type="submit"> Log Batch </button>
+            <button class="btn btn-primary" type="submit"> Log Batch</button>
         </div>
 
 
@@ -65,4 +67,4 @@
 <!-- content-body -->
 </div>
 <!-- content -->
-<%@include file="AdminFooter.jsp"%>
+<%@include file="AdminFooter.jsp" %>

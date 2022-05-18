@@ -1,8 +1,11 @@
 package Controller;
 
+import DAO.ChartsDAO;
+import DAO.ChartsDAOImpl;
 import DAO.UserDAO;
 import DAO.UserDAOImpl;
 import Model.User;
+import Util.DashboardUtil;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,6 +25,7 @@ public class Dashboard extends HttpServlet {
 
     public Dashboard() {
         userDAO = new UserDAOImpl();
+
 
     }
 
@@ -53,6 +57,9 @@ public class Dashboard extends HttpServlet {
 
     private void adminDashboard(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("The Admin dashboard");
+
+
+        request.setAttribute("title", "Dashboard");
 
         dispatcher = getServletContext().getRequestDispatcher("/admin");
         dispatcher.forward(request, response);

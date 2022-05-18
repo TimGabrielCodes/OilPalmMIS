@@ -68,6 +68,7 @@ public class HarvestController extends HttpServlet {
         String stockInBunches = request.getParameter("stockInBunches");
         String costPerBunch = request.getParameter("costPerBunch");
         String otherCosts = request.getParameter("otherCosts");
+        String honorarium = request.getParameter("honorarium");
         Harvest harvest = new Harvest();
         harvest.setLogger(logger);
         harvest.setBatch(batchObject);
@@ -76,7 +77,11 @@ public class HarvestController extends HttpServlet {
         harvest.setStockInBunches(Integer.parseInt(stockInBunches));
         harvest.setCostPerBunch(Double.valueOf(costPerBunch));
         harvest.setOtherCosts(Double.valueOf(otherCosts));
-
+        if(honorarium.isEmpty()){
+            harvest.setHonorarium(0.0);
+        }else{
+            harvest.setHonorarium(Double.valueOf(honorarium));
+        }
 
         if (harvestId.isEmpty()) {
             if (harvestDAO.saveHarvest(harvest)) {

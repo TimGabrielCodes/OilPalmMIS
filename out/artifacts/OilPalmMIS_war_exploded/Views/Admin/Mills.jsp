@@ -1,5 +1,4 @@
-
-<%@include file="AdminHeader.jsp"%>
+<%@include file="AdminHeader.jsp" %>
 
 <div class="content-header">
     <div>
@@ -18,13 +17,12 @@
     </div>
 
 
-</div><!-- content-header -->
+</div>
+<!-- content-header -->
 <div class="content-body">
 
 
-
-
-    <table  class="" id="datatable">
+    <table class="" id="datatable">
         <thead>
         <tr class="thead-light">
             <th>SN</th>
@@ -36,17 +34,13 @@
             <th>Action</th>
 
 
-
         </tr>
         </thead>
-        <%--<%@page import="javax.xml.bind.DatatypeConverter"%>
-        <%@page import="javax.imageio.ImageIO"%>
-        <%@page import="java.awt.image.*"%>
-        <%@page import="java.io.*"%>--%>
         <tbody>
 
         <c:forEach items="${list}" var="mill" varStatus="loop">
-            <tr>  <td>${loop.index+1}</td>
+            <tr>
+                <td>${loop.index+1}</td>
                 <td>${mill.batch.batchName}</td>
                 <td>${mill.harvestStock}</td>
                 <td>${mill.numberOfPresses}</td>
@@ -72,6 +66,7 @@
         <p> ${message} </p>
     </div>
 
-</div><!-- content-body -->
+</div>
+<!-- content-body -->
 </div><!-- content -->
-<%@include file="AdminFooter.jsp"%>
+<%@include file="AdminFooter.jsp" %>

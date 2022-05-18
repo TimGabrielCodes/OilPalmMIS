@@ -13,7 +13,9 @@
     background-color: $color-brand-01;
     @include border-radius();
 
-    &::before { border-top-color: $color-brand-01; }
+    &::before {
+      border-top-color: $color-brand-01;
+    }
   }
 
   .irs-line {
@@ -21,30 +23,45 @@
     @include border-radius();
   }
 
-  .irs-bar { background-color: $color-brand-01; }
+  .irs-bar {
+    background-color: $color-brand-01;
+  }
+
   .irs-bar--single {
     @include border-left-radius($border-radius);
   }
 
   .irs-handle {
-    > i:first-child { background-color: darken($color-brand-01, 5%); }
+    > i:first-child {
+      background-color: darken($color-brand-01, 5%);
+    }
 
     &:hover,
     &:focus,
     &:active {
       cursor: w-resize;
-      > i:first-child { background-color: darken($color-brand-01, 7%); }
+
+      > i:first-child {
+        background-color: darken($color-brand-01, 7%);
+      }
     }
 
     &.state_hover {
-      &,&:hover,&:focus,&:active {
-        > i:first-child { background-color: darken($color-brand-01, 7%); }
+      &, &:hover, &:focus, &:active {
+        > i:first-child {
+          background-color: darken($color-brand-01, 7%);
+        }
       }
     }
   }
 
-  .irs-grid-text { color: $color-text-03; }
-  .irs-grid-pol { background-color: $border-color; }
+  .irs-grid-text {
+    color: $color-text-03;
+  }
+
+  .irs-grid-pol {
+    background-color: $border-color;
+  }
 }
 
 // round skin
@@ -68,13 +85,17 @@
     color: $color-text-03;
   }
 
-  .irs-grid-pol { background-color: $border-color; }
+  .irs-grid-pol {
+    background-color: $border-color;
+  }
 }
 
 // square skin
 .irs--square {
   .irs-line,
-  .irs-grid-pol { background-color: $color-ui-02; }
+  .irs-grid-pol {
+    background-color: $color-ui-02;
+  }
 
   .irs-min,
   .irs-max {
@@ -94,6 +115,11 @@
     font-size: 10px;
   }
 
-  .irs-handle { border-color: $color-brand-04; }
-  .irs-bar { background-color: $color-brand-04; }
+  .irs-handle {
+    border-color: $color-brand-04;
+  }
+
+  .irs-bar {
+    background-color: $color-brand-04;
+  }
 }

@@ -5,7 +5,9 @@
   align-items: center;
   text-align: center;
 
-  @include media-breakpoint-up(xl) { max-width: 70%; }
+  @include media-breakpoint-up(xl) {
+    max-width: 70%;
+  }
 }
 
 .pricing-wrapper {
@@ -26,7 +28,9 @@
 
   &:not([class*="bg-"]) {
     .card-header,
-    .card-footer { background-color: transparent; }
+    .card-footer {
+      background-color: transparent;
+    }
   }
 
   .card-header {
@@ -73,7 +77,9 @@
       display: flex;
       align-items: center;
 
-      + li { margin-top: 5px; }
+      + li {
+        margin-top: 5px;
+      }
     }
   }
 
@@ -87,7 +93,7 @@
   background-color: lighten($color-brand-01, 31.5%);
   @include gradient-y(#fff, lighten($color-brand-01, 31.5%));
 
-  &,&:hover,&:focus {
+  &, &:hover, &:focus {
     border-color: $color-brand-01;
     box-shadow: $shadow-01, $shadow-base;
   }

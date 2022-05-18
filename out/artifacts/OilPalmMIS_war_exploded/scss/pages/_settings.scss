@@ -34,12 +34,16 @@
     align-items: flex-start;
     justify-content: center;
 
-    @include media-breakpoint-up(md) { justify-content: flex-start; }
+    @include media-breakpoint-up(md) {
+      justify-content: flex-start;
+    }
 
     &.active {
       position: relative;
 
-      .media-body h6 { color: $color-brand-01; }
+      .media-body h6 {
+        color: $color-brand-01;
+      }
 
       svg {
         color: $color-brand-01;
@@ -52,7 +56,9 @@
     margin-left: 15px;
     display: none;
 
-    @include media-breakpoint-up(md) { display: block; }
+    @include media-breakpoint-up(md) {
+      display: block;
+    }
 
     h6 {
       margin-bottom: 2px;
@@ -64,7 +70,9 @@
       color: $color-text-04;
       display: none;
 
-      @include media-breakpoint-up(xl) { display: block; }
+      @include media-breakpoint-up(xl) {
+        display: block;
+      }
     }
   }
 
@@ -76,7 +84,9 @@
 }
 
 .form-settings {
-  @include media-breakpoint-up(xl) { max-width: 80%; }
+  @include media-breakpoint-up(xl) {
+    max-width: 80%;
+  }
 
   .form-label {
     display: block;
@@ -94,7 +104,9 @@
     box-shadow: none;
   }
 
-  h6 { margin-bottom: 0; }
+  h6 {
+    margin-bottom: 0;
+  }
 
   span {
     color: $color-text-04;

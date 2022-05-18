@@ -1,6 +1,9 @@
 
 .card-task-one {
-  .card-body { padding: 20px; }
+  .card-body {
+    padding: 20px;
+  }
+
   .card-title {
     font-size: 13px;
     font-weight: 500;
@@ -124,7 +127,9 @@
   background-color: lighten($pink, 41%);
   border-color: rgba($pink, .5);
 
-  @include media-breakpoint-up(xl) { height: 100%; }
+  @include media-breakpoint-up(xl) {
+    height: 100%;
+  }
 
   &.card-hover {
     @include hover-focus() {
@@ -139,10 +144,14 @@
 
   .card-title a {
     color: $color-text-01;
-    @include hover-focus() { color: $pink; }
+    @include hover-focus() {
+      color: $pink;
+    }
   }
 
-  .progress { background-color: rgba($pink, .1); }
+  .progress {
+    background-color: rgba($pink, .1);
+  }
 
   .avatar img,
   .avatar-initial {
@@ -195,7 +204,9 @@
       width: 15px;
       height: 3px;
 
-      + span { margin-left: 3px; }
+      + span {
+        margin-left: 3px;
+      }
     }
 
     a {
@@ -211,7 +222,9 @@
     margin-bottom: 15px;
   }
 
-  .progress { background-color: darken($color-ui-02, 3%); }
+  .progress {
+    background-color: darken($color-ui-02, 3%);
+  }
 
   .badge {
     font-size: 9px;
@@ -249,7 +262,9 @@
     padding: 18px 20px 20px;
     position: relative;
 
-    .media { margin-bottom: 10px; }
+    .media {
+      margin-bottom: 10px;
+    }
 
     .project-desc {
       color: $color-text-03;
@@ -263,7 +278,9 @@
       right: 12px;
     }
 
-    h5 { font-size: 16px; }
+    h5 {
+      font-size: 16px;
+    }
   }
 
   .project-deadline {
@@ -289,9 +306,13 @@
 
     a {
       color: $color-text-03;
-      @include hover-focus() { color: $color-text-02; }
+      @include hover-focus() {
+        color: $color-text-02;
+      }
 
-      strong { font-weight: $font-weight-medium; }
+      strong {
+        font-weight: $font-weight-medium;
+      }
     }
   }
 
@@ -311,8 +332,12 @@
       flex-basis: 50%;
       max-width: 50%;
 
-      &:nth-child(2) { border-top-color: transparent; }
-      &:nth-child(odd) { border-right: 1px solid $border-color; }
+      &:nth-child(2) {
+        border-top-color: transparent;
+      }
+      &:nth-child(odd) {
+        border-right: 1px solid $border-color;
+      }
     }
 
     @include media-breakpoint-up(md) {
@@ -325,7 +350,9 @@
 
     > div {
       + div {
-        @include media-breakpoint-up(md) { margin-left: 20px; }
+        @include media-breakpoint-up(md) {
+          margin-left: 20px;
+        }
       }
 
       &:last-child {
@@ -386,7 +413,9 @@
 
     a {
       color: $color-text-01;
-      @include hover-focus() { color: $color-text-01; }
+      @include hover-focus() {
+        color: $color-text-01;
+      }
     }
   }
 
@@ -420,7 +449,9 @@
     }
   }
 
-  .card-progress { margin-bottom: 18px; }
+  .card-progress {
+    margin-bottom: 18px;
+  }
 
   .progress {
     height: 5px;
@@ -446,7 +477,9 @@
 
   .project-date-end {
     order: 3;
-    @include media-breakpoint-up(md) { order: 0; }
+    @include media-breakpoint-up(md) {
+      order: 0;
+    }
   }
 }
 
@@ -458,7 +491,9 @@
     padding: 20px 20px 0;
     border-bottom: 0;
 
-    h6 { color: $color-text-01; }
+    h6 {
+      color: $color-text-01;
+    }
 
     span {
       font-size: 12px;
@@ -478,7 +513,9 @@
         display: flex;
         align-items: center;
 
-        + a { margin-left: 10px; }
+        + a {
+          margin-left: 10px;
+        }
       }
 
       svg {
@@ -539,7 +576,9 @@
 
     a {
       color: $color-text-01;
-      @include hover-focus() { color: $color-text-02; }
+      @include hover-focus() {
+        color: $color-text-02;
+      }
     }
   }
 }
@@ -581,8 +620,13 @@
     font-family: $font-family-numeric;
     letter-spacing: .5px;
 
-    .ui-datepicker-month { font-weight: normal; }
-    .ui-datepicker-year { font-weight: 500; }
+    .ui-datepicker-month {
+      font-weight: normal;
+    }
+
+    .ui-datepicker-year {
+      font-weight: 500;
+    }
   }
 
   .ui-datepicker .ui-datepicker-calendar {
@@ -618,16 +662,25 @@
     li {
       padding: 15px 0 17px;
 
-      + li { border-top: 1px dashed $border-color; }
+      + li {
+        border-top: 1px dashed $border-color;
+      }
 
-      &:first-child { padding-top: 0; }
-      &:last-child { padding-bottom: 0; }
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
     }
 
     h6 {
       a {
         color: $color-text-02;
-        @include hover-focus() { color: $color-text-01; }
+        @include hover-focus() {
+          color: $color-text-01;
+        }
       }
 
       span {
@@ -643,8 +696,10 @@
 }
 
 .card-event-one {
-  @include media-breakpoint-only(sm) { height: 100%; }
-  
+  @include media-breakpoint-only(sm) {
+    height: 100%;
+  }
+
   .card-body {
     display: flex;
     flex-direction: column;
@@ -668,7 +723,9 @@
 
     a {
       color: $color-text-01;
-      @include hover-focus() { color: $color-text-02; }
+      @include hover-focus() {
+        color: $color-text-02;
+      }
     }
   }
 
@@ -687,7 +744,9 @@
     justify-content: space-between;
   }
 
-  .card-body { padding: 15px 10px 15px 15px; }
+  .card-body {
+    padding: 15px 10px 15px 15px;
+  }
 
   .list-group-item {
     margin-right: 3px;
@@ -695,8 +754,13 @@
     box-shadow: none;
     display: flex;
 
-    &:first-child { padding-top: 0; }
-    &:last-child { padding-bottom: 0; }
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
 
     .nav {
       align-items: center;
@@ -705,10 +769,17 @@
       a {
         color: $gray-500;
         margin-left: 5px;
-        @include hover-focus() { color: $color-text-01; }
+        @include hover-focus() {
+          color: $color-text-01;
+        }
 
-        &:first-child { margin-left: 0; }
-        &:last-child { margin-left: 2px; }
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-left: 2px;
+        }
       }
     }
 
@@ -752,9 +823,13 @@
     justify-content: space-between;
   }
 
-  .card-body { padding: 16px 15px; }
+  .card-body {
+    padding: 16px 15px;
+  }
 
-  .media + .media { margin-top: 10px; }
+  .media + .media {
+    margin-top: 10px;
+  }
 
   .media-left {
     font-family: $font-family-numeric;
@@ -810,32 +885,52 @@
     border-left-color: $color-ui-green;
     background-color: rgba($color-ui-green, .1);
 
-    .event-time { color: rgba(darken($color-ui-green, 30%), .7); }
-    .event-title { color: darken($color-ui-green, 10%); }
+    .event-time {
+      color: rgba(darken($color-ui-green, 30%), .7);
+    }
+
+    .event-title {
+      color: darken($color-ui-green, 10%);
+    }
   }
 
   .event-panel-pink {
     border-left-color: $pink;
     background-color: rgba($pink, .1);
 
-    .event-time { color: rgba(darken($pink, 30%), .7); }
-    .event-title { color: darken($pink, 10%); }
+    .event-time {
+      color: rgba(darken($pink, 30%), .7);
+    }
+
+    .event-title {
+      color: darken($pink, 10%);
+    }
   }
 
   .event-panel-primary {
     border-left-color: $blue;
     background-color: rgba($blue, .1);
 
-    .event-time { color: rgba(darken($blue, 50%), .7); }
-    .event-title { color: $blue; }
+    .event-time {
+      color: rgba(darken($blue, 50%), .7);
+    }
+
+    .event-title {
+      color: $blue;
+    }
   }
 
   .event-panel-orange {
     border-left-color: $orange;
     background-color: rgba($orange, .1);
 
-    .event-time { color: rgba(darken($orange, 50%), .7); }
-    .event-title { color: $orange; }
+    .event-time {
+      color: rgba(darken($orange, 50%), .7);
+    }
+
+    .event-title {
+      color: $orange;
+    }
   }
 
   .card-footer {
@@ -852,19 +947,28 @@
     justify-content: space-between;
   }
 
-  .card-body { padding: 0; }
+  .card-body {
+    padding: 0;
+  }
 
   .list-group-item {
     padding: 15px 15px 16px;
     box-shadow: none;
     display: flex;
 
-    .nav { margin-right: -3px; }
+    .nav {
+      margin-right: -3px;
+    }
+
     .nav a {
       color: $color-text-04;
-      @include hover-focus() { color: $color-text-02; }
+      @include hover-focus() {
+        color: $color-text-02;
+      }
 
-      + a { margin-left: 2px; }
+      + a {
+        margin-left: 2px;
+      }
 
       svg {
         width: 14px;
@@ -881,7 +985,10 @@
     margin-right: 10px;
     color: $color-text-03;
 
-    strong { color: $color-text-01; }
+    strong {
+      color: $color-text-01;
+    }
+
     span {
       color: $color-text-04;
       font-size: 11px;

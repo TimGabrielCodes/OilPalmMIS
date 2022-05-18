@@ -2,7 +2,7 @@
 // Polish (pl) localization
 // https://github.com/bgrins/spectrum
 
-(function ( $ ) {
+(function ($) {
 
     var localization = $.spectrum.localization["pl"] = {
         cancelText: "Anuluj",
@@ -15,4 +15,4 @@
 
     $.extend($.fn.spectrum.defaults, localization);
 
-})( jQuery );
+})(jQuery);

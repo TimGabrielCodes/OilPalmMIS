@@ -2,7 +2,7 @@
 // Japanese (ja) localization
 // https://github.com/bgrins/spectrum
 
-(function ( $ ) {
+(function ($) {
 
     var localization = $.spectrum.localization["ja"] = {
         cancelText: "中止",
@@ -11,4 +11,4 @@
 
     $.extend($.fn.spectrum.defaults, localization);
 
-})( jQuery );
+})(jQuery);

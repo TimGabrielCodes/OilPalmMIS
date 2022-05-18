@@ -24,7 +24,8 @@
         <div class="row">
             <div class="col">
                 <label class="col-form-label col-form-label-lg" for="incomeType">Select Income Type</label>
-                <select id="incomeType" class=" form-control col-form-select-lg" name="incomeType" placeholder="Select Income Type"
+                <select id="incomeType" class=" form-control col-form-select-lg" name="incomeType"
+                        placeholder="Select Income Type"
                         data-value="${income.incomeType}" required>
                     <option value="CRUDE_PALM_OIL">Crude Palm Oil</option>
                     <option value="FIBRE_PALM_OIL">Fibre Palm Oil</option>
@@ -40,7 +41,8 @@
             </div>
             <div class="col">
                 <label class="col-form-label col-form-label-lg" for="productUnit">Select Product Unit</label>
-                <select id="productUnit" class=" form-control col-form-select-lg" name="productUnit" placeholder="Select  product unit"
+                <select id="productUnit" class=" form-control col-form-select-lg" name="productUnit"
+                        placeholder="Select  product unit"
                         data-value="${income.productUnit}" required>
                     <option value="CANS">Cans</option>
                     <option value="DRUMS">Drums</option>
@@ -60,41 +62,42 @@
                        required="true"><br>
             </div>
             <div class="col">
-                <label  class="col-form-label-lg" for="logger">Payment Logged By:</label>
+                <label class="col-form-label-lg" for="logger">Payment Logged By:</label>
                 <input type="text" id="logger" name="logger" value="<%out.print(getUserName());%>"
                        placeholder="logger name" class="form-control" disabled/>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label class="col-form-label col-form-label-lg" for="amount">Amount Received <span>(&#8358;)</span></label>
+                <label class="col-form-label col-form-label-lg" for="amount">Amount Received
+                    <span>(&#8358;)</span></label>
                 <input id="amount" type="number" name="amount" value="${income.amount}"
                        class="form-control" required="true" min="0" step=".01"><br>
             </div>
             <div class="col">
                 <label class="col-form-label col-form-label-lg" for="receivedFrom">Payment Received From</label>
                 <input id="receivedFrom" type="text" name="receivedFrom" value="${income.receivedFrom}"
-                       class="form-control" required="true" ><br>
+                       class="form-control" required="true"><br>
             </div>
 
         </div>
         <div class="row">
             <div class="col">
                 <label class="col-form-label col-form-label-lg" for="remark">Remark </label>
-                <textarea id="remark"  name="remark" value="${income.remark}"
+                <textarea id="remark" name="remark" value="${income.remark}"
                           class="form-control" required="true" rows="3"></textarea>
-                    </div>
+            </div>
         </div>
-            <div class="row">
-                <div class="col">
-                    <input type="hidden" value="${income.id}" name="id"/>
-                </div>
+        <div class="row">
+            <div class="col">
+                <input type="hidden" value="${income.id}" name="id"/>
             </div>
-            </br>
+        </div>
+        </br>
 
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit">Save!</button>
-            </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Save!</button>
+        </div>
 
 
     </form>

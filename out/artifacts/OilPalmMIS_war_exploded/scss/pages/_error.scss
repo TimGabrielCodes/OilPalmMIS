@@ -15,9 +15,14 @@
 
   .svg-wrapper {
     width: 200px;
-    object { width: 100%; }
 
-    @include media-breakpoint-up(sm) { width: 300px; }
+    object {
+      width: 100%;
+    }
+
+    @include media-breakpoint-up(sm) {
+      width: 300px;
+    }
   }
 
   .svg-wrapper-503 {

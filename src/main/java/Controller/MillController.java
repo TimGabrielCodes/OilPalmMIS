@@ -74,11 +74,11 @@ public class MillController extends HttpServlet {
         String millingDate = request.getParameter("millingDate");
         String fuel = request.getParameter("fuel");
         String storage = request.getParameter("storage");
-        String harvestStockCost = request.getParameter("harvestStockCost");
         String adhocLabour = request.getParameter("adhocLabour");
         String firewood = request.getParameter("firewood");
         String fruitPurchase = request.getParameter("fruitPurchase");
         String plantParts = request.getParameter("plantParts");
+        String honorarium = request.getParameter("honorarium");
 
 
         Mill mill = new Mill();
@@ -101,6 +101,11 @@ public class MillController extends HttpServlet {
         millingExpense.setFruitPurchase(Double.valueOf(fruitPurchase));
         millingExpense.setPlantParts(Double.valueOf(plantParts));
         millingExpense.setLogger(logger);
+        if(honorarium.isEmpty()){
+            millingExpense.setHonorarium(0.0);
+        }else{
+            millingExpense.setHonorarium(Double.valueOf(honorarium));
+        }
         mill.setMillingExpense(millingExpense);
 
 

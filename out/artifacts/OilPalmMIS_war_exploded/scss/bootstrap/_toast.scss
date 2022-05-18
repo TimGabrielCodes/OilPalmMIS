@@ -9,7 +9,9 @@
 .toast-header {
   border-bottom-color: rgba($gray-300, .4);
 
-  h6 { color: $color-text-02; }
+  h6 {
+    color: $color-text-02;
+  }
 
   .close {
     font-weight: $font-weight-light;

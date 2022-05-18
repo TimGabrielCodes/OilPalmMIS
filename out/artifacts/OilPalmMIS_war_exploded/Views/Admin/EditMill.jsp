@@ -102,58 +102,58 @@
                        class="form-control" required="true" min="0" step=".01"><br>
             </div>
             <div class="col">
-            <label class="col-form-label col-form-label-lg" for="harvestStockCost">Harvest Stock Cost
-                <span>(&#8358;)</span></label>
-            <input id="harvestStockCost" type="number" name="harvestStockCost"
-                   value="${mill.millingExpense.harvestStockCost}"
+                <label class="col-form-label col-form-label-lg" for="harvestStockCost">Harvest Stock Cost
+                    <span>(&#8358;)</span></label>
+                <input id="harvestStockCost" type="number" name="harvestStockCost"
+                       value="${mill.millingExpense.harvestStockCost}"
+                       class="form-control" required="true" min="0" step=".01"><br>
+            </div>
+        </div>
+
+
+        <div class="col">
+            <label for="adHoc" class="col-form-label-lg">Adhoc Costs</label>
+            <input type="number" class="form-control" required="true" min="0" step=".01" id="adHoc" name="adhocLabour"
+                   value="${mill.millingExpense.adhocLabour}">
+        </div>
+
+
+        <div class="col">
+
+            <label class="col-form-label col-form-label-lg" for="firewood">Firewood Cost <span>(&#8358;)</span></label>
+            <input id="firewood" type="number" name="firewood" value="${mill.millingExpense.firewood}"
                    class="form-control" required="true" min="0" step=".01"><br>
         </div>
+        <div class="col">
+            <label class="col-form-label col-form-label-lg" for="fruitPurchase">Fruit Purchase Cost
+                <span>(&#8358;)</span></label>
+            <input id="fruitPurchase" type="number" name="fruitPurchase" value="${mill.millingExpense.fruitPurchase}"
+                   class="form-control" required="true" min="0" step=".01"><br>
+        </div>
+        <div class="col">
+            <label class="col-form-label-lg" for="plantParts">Plant Parts Cost <span>(&#8358;)</span></label>
+            <input id="plantParts" type="number" name="plantParts" value="${mill.millingExpense.plantParts}"
+                   class="form-control" required="true" min="0" step=".01"><br>
         </div>
 
 
-<div class="col">
-    <label for="adHoc" class="col-form-label-lg">Adhoc Costs</label>
-    <input type="number" class="form-control" required="true" min="0" step=".01" id="adHoc" name="adhocLabour" value="${mill.millingExpense.adhocLabour}">
-</div>
+        </br>
+
+        <div class="row">
+            <div class="col">
+                <input type="hidden" value="${mill.id}" name="millId"/>
+
+            </div>
+        </div>
+        </br>
 
 
-
-<div class="col">
-
-    <label class="col-form-label col-form-label-lg" for="firewood">Firewood Cost <span>(&#8358;)</span></label>
-    <input id="firewood" type="number" name="firewood" value="${mill.millingExpense.firewood}"
-           class="form-control" required="true" min="0" step=".01"><br>
-</div>
-<div class="col">
-    <label class="col-form-label col-form-label-lg" for="fruitPurchase">Fruit Purchase Cost
-        <span>(&#8358;)</span></label>
-    <input id="fruitPurchase" type="number" name="fruitPurchase" value="${mill.millingExpense.fruitPurchase}"
-           class="form-control" required="true" min="0" step=".01"><br>
-</div>
-<div class="col">
-    <label class="col-form-label-lg" for="plantParts">Plant Parts Cost <span>(&#8358;)</span></label>
-    <input id="plantParts" type="number" name="plantParts" value="${mill.millingExpense.plantParts}"
-           class="form-control" required="true" min="0" step=".01"><br>
-</div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit"> Log Mill</button>
+        </div>
 
 
-</br>
-
-<div class="row">
-    <div class="col">
-        <input type="hidden" value="${mill.id}" name="millId"/>
-
-    </div>
-</div>
-</br>
-
-
-<div class="form-group">
-    <button class="btn btn-primary" type="submit"> Log Mill</button>
-</div>
-
-
-</form>
+    </form>
 </div>
 <!-- content-body -->
 </div><!-- content -->

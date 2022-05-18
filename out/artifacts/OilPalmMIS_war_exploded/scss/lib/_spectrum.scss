@@ -52,7 +52,9 @@
     border-color: $gray-400;
   }
 
-  &.sp-active { border-color: $gray-400; }
+  &.sp-active {
+    border-color: $gray-400;
+  }
 }
 
 .sp-dd {
@@ -72,8 +74,13 @@
   }
 }
 
-.sp-preview { border: 0; }
-.sp-dragger { background-color: transparent; }
+.sp-preview {
+  border: 0;
+}
+
+.sp-dragger {
+  background-color: transparent;
+}
 
 .sp-choose {
   background-color: $gray-300;

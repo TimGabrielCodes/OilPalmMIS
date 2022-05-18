@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@include file="AdminHeader.jsp" %>
 
 <div class="content-header">
@@ -30,6 +31,7 @@
             <th>Stock In Bunches</th>
             <th>Cost Per Bunch</th>
             <th>Other Costs</th>
+            <th>Honorarium</th>
             <th>Date Added</th>
             <th>Milled</th>
             <th>Logger</th>
@@ -38,14 +40,21 @@
         </tr>
         </thead>
         <tbody>
-
+        <fmt:setLocale value = "en_NG"/>
         <c:forEach items="${list}" var="harvest" varStatus="loop">
             <tr>
+
                 <td>${loop.index+1}</td>
                 <td>${harvest.batch.batchName}</td>
                 <td>${harvest.stockInBunches}</td>
-                <td>${harvest.costPerBunch}</td>
-                <td>${harvest.otherCosts}</td>
+                <td>
+                    <fmt:formatNumber value = "${harvest.costPerBunch}" type = "currency"/>
+                </td>
+                <td>
+                    <fmt:formatNumber value = "${harvest.otherCosts}" type = "currency"/></td>
+                <td>
+                    <fmt:formatNumber value = "${harvest.honorarium}" type = "currency"/>
+                </td>
                 <td>${harvest.dateAdded}</td>
                 <td>${harvest.milled}</td>
                 <td>${harvest.logger.fullName}</td>

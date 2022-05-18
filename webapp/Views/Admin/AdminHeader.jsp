@@ -68,6 +68,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <!-- template css -->
     <link rel="stylesheet" href="assets/css/cassie.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 </head>
 <body>
 
@@ -82,9 +83,9 @@
         <ul class="nav nav-sidebar">
             <li class="nav-label"><label class="content-label">Actions</label></li>
             <li class="nav-item show">
-                <a href="" class="nav-link with-sub active"><i data-feather="box"></i> Dashboard</a>
+                <a href="${pageContext.request.contextPath}/dashboard" class="nav-link with-sub active"><i data-feather="box"></i> Dashboard</a>
                 <nav class="nav nav-sub">
-                    <a href="#" class="nav-sub-link active">Analytics &amp; Monitoring</a>
+                    <a href="${pageContext.request.contextPath}/dashboard" class="nav-sub-link active">Analytics &amp; Monitoring</a>
                 </nav>
             </li>
             <li class="nav-item">

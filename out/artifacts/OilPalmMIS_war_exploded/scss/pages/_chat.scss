@@ -1,8 +1,12 @@
 
 .chat-body-show {
   @include media-breakpoint-down(md) {
-    .chat-sidebar { display: none; }
-    .chat-body { display: block; }
+    .chat-sidebar {
+      display: none;
+    }
+    .chat-body {
+      display: block;
+    }
   }
 }
 
@@ -15,7 +19,9 @@
     padding: 20px;
   }
 
-  @include media-breakpoint-up(lg) { height: calc(100vh - 80px); }
+  @include media-breakpoint-up(lg) {
+    height: calc(100vh - 80px);
+  }
 }
 
 .chat-header {
@@ -37,8 +43,12 @@
   box-shadow: $shadow-01, $shadow-base;
   border: 1px solid darken($border-color, 2%);
 
-  @include media-breakpoint-up(md) { width: 260px; }
-  @include media-breakpoint-up(xl) { width: 280px; }
+  @include media-breakpoint-up(md) {
+    width: 260px;
+  }
+  @include media-breakpoint-up(xl) {
+    width: 280px;
+  }
 }
 
 .chat-sidebar-header,
@@ -55,7 +65,9 @@
 
   a {
     color: $color-text-04;
-    @include hover-focus() { color: $color-text-02; }
+    @include hover-focus() {
+      color: $color-text-02;
+    }
   }
 }
 
@@ -80,7 +92,9 @@
     }
   }
 
-  > div:last-child { margin-left: auto; }
+  > div:last-child {
+    margin-left: auto;
+  }
 }
 
 .chat-sidebar-body {
@@ -121,13 +135,17 @@
       font-weight: $font-weight-medium;
     }
 
-    .chat-msg-count { display: flex; }
+    .chat-msg-count {
+      display: flex;
+    }
   }
 
   &.selected {
     background-color: darken($color-ui-01, 2.5%);
 
-    .avatar::after { box-shadow: 0 0 0 1.5px $color-ui-02; }
+    .avatar::after {
+      box-shadow: 0 0 0 1.5px $color-ui-02;
+    }
   }
 }
 
@@ -144,7 +162,10 @@
     line-height: 1.2;
     margin-bottom: 4px;
 
-    span:first-child { color: $color-text-03; }
+    span:first-child {
+      color: $color-text-03;
+    }
+
     span:last-child {
       font-size: 11px;
       color: $gray-600;
@@ -215,9 +236,13 @@
 
   a {
     color: $color-text-04;
-    @include hover-focus() { color: $color-text-02; }
+    @include hover-focus() {
+      color: $color-text-02;
+    }
 
-    + a { margin-left: 10px; }
+    + a {
+      margin-left: 10px;
+    }
   }
 
   svg {
@@ -243,7 +268,9 @@
   display: flex;
   margin-bottom: 25px;
 
-  .avatar { flex-shrink: 0; }
+  .avatar {
+    flex-shrink: 0;
+  }
 
   &.reverse {
     flex-direction: row-reverse;
@@ -275,10 +302,14 @@
       background-color: $color-ui-02;
       padding: 7px 10px;
 
-      @include media-breakpoint-up(xl) { max-width: 80%; }
+      @include media-breakpoint-up(xl) {
+        max-width: 80%;
+      }
     }
 
-    &:last-child { margin-bottom: 0; }
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -318,6 +349,8 @@
     font-size: $font-size-sm;
     color: $color-text-01;
 
-    &:focus { box-shadow: none; }
+    &:focus {
+      box-shadow: none;
+    }
   }
 }
