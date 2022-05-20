@@ -72,11 +72,10 @@ public class BatchController extends HttpServlet {
 
         Batch batch = new Batch();
         batch.setBatchName(batchName);
-        batch.setBatchMonth(localDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH));
+        batch.setBatchMonth(localDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH) +"-"+localDate.getYear());
         batch.setLogger(logger);
         batch.setBatchDate(Date.valueOf(localDate));
-        System.out.println("Date Value" + batchDate);
-        System.out.println("Batch to save" + batch);
+
         if (batchId.isEmpty()) {
             //save if
             if (batchDAO.saveBatch(batch)) {

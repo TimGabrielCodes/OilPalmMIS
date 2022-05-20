@@ -7,6 +7,9 @@ public interface ChartsDAO {
     int getMilledBatches();
 
     String getIncomeCostPlot();
+    String getIncomeDatePlot();
+    String getExpenseCategoryCost();
+    String getHarvestandStockPlot();
 
 
 

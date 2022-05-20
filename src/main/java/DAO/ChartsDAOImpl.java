@@ -16,6 +16,12 @@ public class ChartsDAOImpl implements  ChartsDAO {
     private Statement statement;
     private ResultSet resultSet;
 
+    private BatchDAO batchDAO;
+
+    public ChartsDAOImpl() {
+        batchDAO = new BatchDAOImpl();
+    }
+
     @Override
     public String getCurrentMonth() {
 
@@ -84,6 +90,107 @@ public class ChartsDAOImpl implements  ChartsDAO {
 
             while(resultSet.next()){
                 xVal = resultSet.getString("incomeType");
+                yVal = (resultSet.getDouble("sum"));
+                map = new HashMap<Object, Object>();
+                map.put("x", xVal );
+                map.put("y", yVal);
+                list.add(map);
+                dataPoints = gson.toJson(list);
+                   }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return dataPoints;
+    }
+
+    @Override
+    public String getIncomeDatePlot() {
+        Map<Object, Object> map = null;
+        List<Map<Object,Object>> list = new ArrayList<Map<Object,Object>>();
+        String dataPoints = null;
+        String sql = "SELECT incomeDate, sum(amount) as sum " +
+                "FROM income " +
+                "GROUP BY incomeDate";
+        String xVal;
+        Double yVal;
+        Gson gson = new Gson();
+        try {
+            connection = DBConnectionUtil.openConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+
+            while(resultSet.next()){
+                xVal = resultSet.getString("incomeDate");
+                yVal = (resultSet.getDouble("sum"));
+                map = new HashMap<Object, Object>();
+                map.put("x", xVal );
+                map.put("y", yVal);
+                list.add(map);
+                dataPoints = gson.toJson(list);
+                   }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return dataPoints;
+    }
+    @Override
+    public String getExpenseCategoryCost() {
+        Map<Object, Object> map = null;
+        List<Map<Object,Object>> list = new ArrayList<Map<Object,Object>>();
+        String dataPoints = null;
+        String sql = "SELECT expenseCategory, SUM(amount) as sum " +
+                "FROM expense " +
+                "GROUP BY expenseCategory";
+        String xVal;
+        Double yVal;
+        Gson gson = new Gson();
+        try {
+            connection = DBConnectionUtil.openConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+
+            while(resultSet.next()){
+                xVal = resultSet.getString("expenseCategory");
+                yVal = (resultSet.getDouble("sum"));
+                map = new HashMap<Object, Object>();
+                map.put("x", xVal );
+                map.put("y", yVal);
+                list.add(map);
+                dataPoints = gson.toJson(list);
+                   }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return dataPoints;
+    }
+    @Override
+    public String getHarvestandStockPlot() {
+        Map<Object, Object> map = null;
+        List<Map<Object,Object>> list = new ArrayList<Map<Object,Object>>();
+        String dataPoints = null;
+        String sql = "SELECT batch, SUM(stockInBunches) as sum " +
+                "FROM harvest " +
+                "GROUP BY batch";
+        String xVal;
+        Double yVal;
+        Gson gson = new Gson();
+        try {
+            connection = DBConnectionUtil.openConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+
+            while(resultSet.next()){
+                xVal = batchDAO.get(Integer.parseInt(resultSet.getString("batch"))).getBatchMonth();
+                System.out.println("xVal is" + xVal);
                 yVal = (resultSet.getDouble("sum"));
                 map = new HashMap<Object, Object>();
                 map.put("x", xVal );

@@ -114,11 +114,18 @@ public class UserController extends HttpServlet {
             LocalDate today = LocalDate.now(ZoneId.systemDefault());
             util.setMonth(today.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH));
 
-            String dataPoints = chartsDAO.getIncomeCostPlot();;
-            System.out.println("Json to Pass" + dataPoints);
+            String incomeCostPlot = chartsDAO.getIncomeCostPlot();
+            String incomeDatePlot = chartsDAO.getIncomeDatePlot();
+            String expenseCategoryPlot = chartsDAO.getExpenseCategoryCost();
+            String harvestandStockPlot = chartsDAO.getHarvestandStockPlot();
+            System.out.println("DP is "+ harvestandStockPlot);
+
             request.setAttribute("list", list);
             request.setAttribute("util", util);
-           request.setAttribute("dataPoints", dataPoints);
+           request.setAttribute("incomeCostPlot", incomeCostPlot);
+           request.setAttribute("incomeDatePlot", incomeDatePlot);
+           request.setAttribute("expenseCategoryPlot", expenseCategoryPlot);
+           request.setAttribute("harvestAndStock", harvestandStockPlot);
             request.setAttribute("title", "Admin Dashboard");
             dispatcher = request.getRequestDispatcher("/Views/Admin/dashboard.jsp");
             dispatcher.forward(request, response);

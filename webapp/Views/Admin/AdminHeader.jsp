@@ -89,6 +89,12 @@
                 </nav>
             </li>
             <li class="nav-item">
+                <a href="" class="nav-link with-sub"><i data-feather="lock"></i> Batches</a>
+                <nav class="nav nav-sub">
+                    <a href="${pageContext.request.contextPath}/batches?action=ADDBATCH" class="nav-sub-link">Add Batch</a>
+                    <a href="${pageContext.request.contextPath}/batches" class="nav-sub-link">View Batches</a>
+                </nav>
+            </li>    <li class="nav-item">
                 <a href="" class="nav-link with-sub"><i data-feather="lock"></i> Harvests</a>
                 <nav class="nav nav-sub">
                     <a href="${pageContext.request.contextPath}/harvests?action=ADD" class="nav-sub-link">Document
