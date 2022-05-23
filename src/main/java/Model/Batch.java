@@ -8,19 +8,9 @@ public class Batch {
     private String batchMonth;
     private Date batchDate;
     private User logger;
+    private boolean harvested;
 
     public Batch() {
-    }
-
-    @Override
-    public String toString() {
-        return "Batch{" +
-                "id=" + id +
-                ", batchName='" + batchName + '\'' +
-                ", batchMonth=" + batchMonth +
-                ", batchDate=" + batchDate +
-                ", logger=" + logger +
-                '}';
     }
 
     public int getId() {
@@ -63,5 +53,25 @@ public class Batch {
         this.logger = logger;
     }
 
+    public boolean isHarvested() {
+        return harvested;
+    }
 
+    public void setHarvested(boolean harvested) {
+        this.harvested = harvested;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "Batch{" +
+                "id=" + id +
+                ", batchName='" + batchName + '\'' +
+                ", batchMonth='" + batchMonth + '\'' +
+                ", batchDate=" + batchDate +
+                ", logger=" + logger +
+                ", harvested=" + harvested +
+                '}';
+    }
 }

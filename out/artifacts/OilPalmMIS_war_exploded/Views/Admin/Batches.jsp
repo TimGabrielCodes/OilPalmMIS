@@ -30,6 +30,7 @@
             <th>Batch Date</th>
             <th> Batch Month</th>
             <th>Logger</th>
+            <th>Harvested</th>
             <th>Action</th>
 
 
@@ -48,6 +49,7 @@
                 <td>${batch.batchDate}</td>
                 <td>${batch.batchMonth}</td>
                 <td>${batch.logger.fullName}</td>
+                <td>${batch.harvested}</td>
                 <td>
                     <a href="${pageContext.request.contextPath}/batches?action=EDIT&id=${batch.id}">Edit</a>
                     |

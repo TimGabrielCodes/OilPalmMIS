@@ -62,15 +62,10 @@ public class UserController extends HttpServlet {
         String otherNames = request.getParameter("otherNames");
         String email = request.getParameter("email");
         String password1 = request.getParameter("pass1");
-        String password2 = request.getParameter("pass2");
         String userID = request.getParameter("user_id");
         String surname = request.getParameter("surname");
         boolean admin = Boolean.parseBoolean(request.getParameter("admin"));
-
-
         User user = new User();
-
-
         user.setFirstName(firstName);
         user.setOtherNames(otherNames);
         user.setSurname(surname);
@@ -85,7 +80,6 @@ public class UserController extends HttpServlet {
         } else {
             //update
             user.setId(Integer.parseInt(userID));
-
             if (userDAO.updateUser(user)) {
                 request.setAttribute("message", "User updated Successfully");
             }
@@ -113,19 +107,17 @@ public class UserController extends HttpServlet {
             util.setMilledBatches(chartsDAO.getMilledBatches());
             LocalDate today = LocalDate.now(ZoneId.systemDefault());
             util.setMonth(today.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH));
-
             String incomeCostPlot = chartsDAO.getIncomeCostPlot();
             String incomeDatePlot = chartsDAO.getIncomeDatePlot();
             String expenseCategoryPlot = chartsDAO.getExpenseCategoryCost();
-            String harvestandStockPlot = chartsDAO.getHarvestandStockPlot();
-            System.out.println("DP is "+ harvestandStockPlot);
-
+            String harvestAndStockPlot = chartsDAO.getHarvestandStockPlot();
+            System.out.println("DP is "+ harvestAndStockPlot);
             request.setAttribute("list", list);
             request.setAttribute("util", util);
            request.setAttribute("incomeCostPlot", incomeCostPlot);
            request.setAttribute("incomeDatePlot", incomeDatePlot);
            request.setAttribute("expenseCategoryPlot", expenseCategoryPlot);
-           request.setAttribute("harvestAndStock", harvestandStockPlot);
+           request.setAttribute("harvestAndStock", harvestAndStockPlot);
             request.setAttribute("title", "Admin Dashboard");
             dispatcher = request.getRequestDispatcher("/Views/Admin/dashboard.jsp");
             dispatcher.forward(request, response);
@@ -138,15 +130,12 @@ public class UserController extends HttpServlet {
 
     public void viewProfile(HttpServletRequest request, HttpServletResponse response) {
         try {
-            //System.out.println("the page");
             User user = userDAO.getLogger((String) request.getSession().getAttribute("email"));
             user.setFullName();
             request.setAttribute("title", "Profile Settings");
             request.setAttribute("user", user);
             dispatcher = request.getRequestDispatcher("/Views/Admin/page-settings.jsp");
-
             dispatcher.forward(request, response);
-            //System.out.println("done");
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

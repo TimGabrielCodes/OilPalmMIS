@@ -75,6 +75,7 @@ public class BatchController extends HttpServlet {
         batch.setBatchMonth(localDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH) +"-"+localDate.getYear());
         batch.setLogger(logger);
         batch.setBatchDate(Date.valueOf(localDate));
+        batch.setHarvested(false);
 
         if (batchId.isEmpty()) {
             //save if

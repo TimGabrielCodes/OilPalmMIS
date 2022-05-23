@@ -37,7 +37,7 @@ public class BatchDAOImpl implements BatchDAO {
                 batch.setBatchMonth(resultSet.getString("batchMonth"));
                 batch.setBatchDate(resultSet.getDate("batchDate"));
                 batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
-
+                batch.setHarvested(resultSet.getBoolean("harvested"));
 
                 list.add(batch);
             }
@@ -58,8 +58,8 @@ public class BatchDAOImpl implements BatchDAO {
         try {
 
 
-            String sql = "insert into batch(batchName, batchMonth, batchDate, logger) "
-                    + "values('" + batch.getBatchName() + "', '" + batch.getBatchMonth() + "','" + batch.getBatchDate() + "'," + batch.getLogger().getId() + ")";
+            String sql = "insert into batch(batchName, batchMonth, batchDate, logger, harvested) "
+                    + "values('" + batch.getBatchName() + "', '" + batch.getBatchMonth() + "','" + batch.getBatchDate() + "'," + batch.getLogger().getId() +","+  batch.isHarvested() +")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -120,6 +120,8 @@ public class BatchDAOImpl implements BatchDAO {
             batch.setBatchMonth(resultSet.getString("batchMonth"));
             batch.setBatchDate(resultSet.getDate("batchDate"));
             batch.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
+            batch.setHarvested(resultSet.getBoolean("harvested"));
+
 
 
         }

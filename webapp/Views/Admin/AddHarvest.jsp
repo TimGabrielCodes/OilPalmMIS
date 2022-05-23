@@ -37,7 +37,7 @@
                         data-value="${harvest.batch}" required>
                     <option value="${harvest.batch}" selected="selected">-- Select Batch --</option>
                     <% try {
-                        String query = "select * from batch order by batchName";
+                        String query = "select * from batch where harvested = 0  order by batchName";
                         Connection conn = DBConnectionUtil.openConnection();
                         Statement stm = conn.createStatement();
                         ResultSet rs = stm.executeQuery(query);

@@ -46,14 +46,6 @@
             </div><!-- row -->
         </div><!-- stat-profile-body -->
     </div><!-- stat-profile -->
-    <%--    <div class="component-section no-code">--%>
-    <%--        <h5 id="section7" class="tx-semibold">Income Generated from Sources</h5>--%>
-
-    <%--            <div class="ht-250 ht-lg-300">--%>
-    <%--                <canvas id="incomeVSsource"></canvas>--%>
-    <%--            </div>--%>
-
-    <%--    </div><!-- component-section -->--%>
     <div class="row">
         <div class="col">
             <canvas class="col" id="incomeVsSource"></canvas>
@@ -92,7 +84,7 @@
                 datasets: [{
                     label: 'Income vs Source',
                     data: data,
-                    backgroundColor: 'rgba(0, 119, 204, 0.3)'
+                    backgroundColor: 'rgba(29,152,213,0.3)'
                 }]
             }
         };
@@ -158,7 +150,7 @@
                     backgroundColor: coloR,
 
                     borderColor: 'rgba(200, 200, 200, 0.75)',
-                    //hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                    hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
                     hoverBorderColor: 'rgba(200, 200, 200, 1)',
                 }]
             }
@@ -197,14 +189,12 @@
                     label: 'Expense Categories',
                     data: data4,
                     backgroundColor: coloR,
-
                     borderColor: 'rgba(200, 200, 200, 0.75)',
-                    //hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                    hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
                     hoverBorderColor: 'rgba(200, 200, 200, 1)',
                 }]
             }
         };
-
         const chart4 = new Chart(ctx4, config4);
     </script>
 
