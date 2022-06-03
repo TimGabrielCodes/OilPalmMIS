@@ -4,7 +4,6 @@ import DAO.*;
 import Model.Batch;
 import Model.Harvest;
 import Model.User;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

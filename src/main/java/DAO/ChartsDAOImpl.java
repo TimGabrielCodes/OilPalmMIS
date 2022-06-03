@@ -190,7 +190,6 @@ public class ChartsDAOImpl implements  ChartsDAO {
 
             while(resultSet.next()){
                 xVal = batchDAO.get(Integer.parseInt(resultSet.getString("batch"))).getBatchMonth();
-                System.out.println("xVal is" + xVal);
                 yVal = (resultSet.getDouble("sum"));
                 map = new HashMap<Object, Object>();
                 map.put("x", xVal );

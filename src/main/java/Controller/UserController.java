@@ -6,8 +6,6 @@ import DAO.UserDAO;
 import DAO.UserDAOImpl;
 import Model.User;
 import Util.DashboardUtil;
-import com.google.gson.Gson;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -111,7 +109,6 @@ public class UserController extends HttpServlet {
             String incomeDatePlot = chartsDAO.getIncomeDatePlot();
             String expenseCategoryPlot = chartsDAO.getExpenseCategoryCost();
             String harvestAndStockPlot = chartsDAO.getHarvestandStockPlot();
-            System.out.println("DP is "+ harvestAndStockPlot);
             request.setAttribute("list", list);
             request.setAttribute("util", util);
            request.setAttribute("incomeCostPlot", incomeCostPlot);

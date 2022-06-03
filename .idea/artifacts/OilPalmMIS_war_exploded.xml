@@ -2,12 +2,20 @@
   <artifact type="exploded-war" name="OilPalmMIS:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/OilPalmMIS_war_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="OilPalmMIS/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="OilPalmMIS" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.9.0" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-annotations-api:8.5.58" />
+          <element id="library" level="project" name="mysql-connector-java-8.0.15" />
+          <element id="library" level="project" name="jstl-1.2" />
+        </element>
       </element>
+      <element id="library" level="project" name="jakarta.servlet.jsp.jstl-2.0.0" />
+      <element id="javaee-facet-resources" facet="OilPalmMIS/web/Web" />
+      <element id="javaee-facet-resources" facet="OilPalmMIS/javaeeApplication/javaEEApplication" />
     </root>
   </artifact>
 </component>

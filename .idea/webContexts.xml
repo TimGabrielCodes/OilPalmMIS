@@ -17,6 +17,7 @@
         <entry key="file://$PROJECT_DIR$/webapp/Views/Admin/AdminHeader.jsp" value="file://$PROJECT_DIR$/webapp/Views/Admin" />
         <entry key="file://$PROJECT_DIR$/webapp/Views/Admin/Expenses.jsp" value="file://$PROJECT_DIR$/webapp/Views/Admin" />
         <entry key="file://$PROJECT_DIR$/webapp/Views/Admin/dashboard.jsp" value="file://$PROJECT_DIR$/webapp/Views/Admin" />
+        <entry key="file://$PROJECT_DIR$/webapp/index.jsp" value="file://$PROJECT_DIR$/webapp" />
       </map>
     </option>
   </component>

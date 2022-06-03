@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="OilPalmMIS:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/OilPalmMIS_war</output-path>
+    <root id="archive" name="OilPalmMIS_war.war">
+      <element id="artifact" artifact-name="OilPalmMIS:war exploded" />
+    </root>
+  </artifact>
+</component>

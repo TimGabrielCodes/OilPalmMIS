@@ -15,9 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Meta -->
-    <meta name="description" content="Responsive Bootstrap 4 Dashboard and Admin Template">
-    <meta name="author" content="ThemePixels">
-
+    <meta name="description" content="Oil Palm MIS">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
@@ -68,7 +66,7 @@
 
 
                 </form>
-
+                <h3 class="alert-danger">${message}</h3>
 
                 <p class="mg-t-auto mg-b-0 tx-sm tx-color-03">By signing in, you agree to our <a href="">Terms of
                     Use</a> and <a href="">Privacy Policy</a></p>

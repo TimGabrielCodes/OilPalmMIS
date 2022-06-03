@@ -129,14 +129,16 @@
                         <hr>
                         <div class="form-settings">
                             <div class="form-group">
-                                <form name="changePasswordForm" method="post" action="/changePassword"
+                                <form name="changePasswordForm" method="post" action="${pageContext.request.contextPath}/changePassword"
                                       onsubmit="return validateForm()">
                                     <label class="form-label">Change Old Password</label>
-                                    <input type="hidden" name="oldPw" id="oldPw" value="${user.password}">
+
                                     <input type="password" class="form-control" id="oldPassword"
                                            placeholder="Enter your old password" name="oldPassword">
+
                                     <input type="password" class="form-control mg-t-5" id="newPassword1"
                                            placeholder="New password" name="newPassword1">
+
                                     <input type="password" class="form-control mg-t-5" id="newPassword2"
                                            placeholder="Confirm new password" name="newPassword2">
                                     <%--                     form-group -->--%>
@@ -170,7 +172,7 @@
         function validateForm() {
             console.log("Funcetion called");
             //collect form data in JavaScript variables
-            const oldPw = document.getElementById("oldPw").value;
+            const oldPw = document.getElementById("password").value;
             const pw1 = document.getElementById("newPassword1").value;
             const pw2 = document.getElementById("newPassword2").value;
 
