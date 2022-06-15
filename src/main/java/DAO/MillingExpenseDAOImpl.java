@@ -51,11 +51,11 @@ public class MillingExpenseDAOImpl implements MillingExpenseDAO {
         millingExpense.setHarvestStockCost(resultSet.getDouble("harvestStockCost"));
         millingExpense.setAdhocLabour(resultSet.getDouble("adhocLabour"));
         millingExpense.setFirewood(resultSet.getDouble("firewood"));
-        millingExpense.setFruitPurchase(resultSet.getDouble("fruitPurchase"));
+//        millingExpense.setFruitPurchase(resultSet.getDouble("fruitPurchase"));
         millingExpense.setPlantParts(resultSet.getDouble("plantParts"));
         millingExpense.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
         millingExpense.setMill(new MillDAOImpl().get(resultSet.getInt("mill")));
-        millingExpense.setHonorarium(resultSet.getDouble("honorarium"));
+//        millingExpense.setHonorarium(resultSet.getDouble("honorarium"));
 
 
     }
@@ -67,9 +67,9 @@ public class MillingExpenseDAOImpl implements MillingExpenseDAO {
         try {
 
 
-            String sql = "insert into millingExpense(fuel, storage, harvestStockCost, adhocLabour, firewood, fruitPurchase, plantParts, logger, mill, honorarium) "
+            String sql = "insert into millingExpense(fuel, storage, harvestStockCost, adhocLabour, firewood,  plantParts, logger, mill) "
                     + "values(" + millingExpense.getFuel() + ", " + millingExpense.getStorage() + "," + millingExpense.getHarvestStockCost() + "," + millingExpense.getAdhocLabour() + "," + millingExpense.getFirewood()
-                    + "," + millingExpense.getFruitPurchase() + ", " + millingExpense.getPlantParts() + "," + millingExpense.getLogger().getId() + "," + millingExpense.getMill().getId() + ", "+ millingExpense.getHonorarium()+")";
+                    + ", " + millingExpense.getPlantParts() + "," + millingExpense.getLogger().getId() + "," + millingExpense.getMill().getId() + ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -140,8 +140,7 @@ public class MillingExpenseDAOImpl implements MillingExpenseDAO {
         try {
             String sql = "update millingExpense set fuel=" + millingExpense.getFuel() + " ,storage=" + millingExpense.getStorage() + ",harvestStockCost="
                     + millingExpense.getHarvestStockCost() + ",adhocLabour =" + millingExpense.getAdhocLabour()
-                    + ", firewood =" + millingExpense.getFirewood() + ", fruitPurchase=" + millingExpense.getFruitPurchase()
-                    + ", plantParts=" + millingExpense.getPlantParts() + ", logger=" + millingExpense.getLogger() +", honorarium="+ millingExpense.getHonorarium() +" where id=" + millingExpense.getId();
+                    + ", firewood =" + millingExpense.getFirewood() +", plantParts=" + millingExpense.getPlantParts() + ", logger=" + millingExpense.getLogger() +" where id=" + millingExpense.getId();
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();

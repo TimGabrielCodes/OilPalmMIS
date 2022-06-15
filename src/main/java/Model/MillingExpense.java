@@ -8,11 +8,11 @@ public class MillingExpense {
     private Double harvestStockCost;
     private Double adhocLabour;
     private Double firewood;
-    private Double fruitPurchase;
+
     private Double plantParts;
     private User logger;
     private Mill mill;
-    private Double honorarium;
+
 
     public MillingExpense() {
     }
@@ -67,14 +67,6 @@ public class MillingExpense {
         this.firewood = firewood;
     }
 
-    public Double getFruitPurchase() {
-        return fruitPurchase;
-    }
-
-    public void setFruitPurchase(Double fruitPurchase) {
-        this.fruitPurchase = fruitPurchase;
-    }
-
     public Double getPlantParts() {
         return plantParts;
     }
@@ -99,13 +91,6 @@ public class MillingExpense {
         this.mill = mill;
     }
 
-    public Double getHonorarium() {
-        return honorarium;
-    }
-
-    public void setHonorarium(Double honorarium) {
-        this.honorarium = honorarium;
-    }
 
     @Override
     public String toString() {
@@ -116,11 +101,9 @@ public class MillingExpense {
                 ", harvestStockCost=" + harvestStockCost +
                 ", adhocLabour=" + adhocLabour +
                 ", firewood=" + firewood +
-                ", fruitPurchase=" + fruitPurchase +
                 ", plantParts=" + plantParts +
                 ", logger=" + logger +
                 ", mill=" + mill +
-                ", honorarium=" + honorarium +
                 '}';
     }
 }

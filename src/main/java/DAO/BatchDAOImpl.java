@@ -146,6 +146,24 @@ public class BatchDAOImpl implements BatchDAO {
         return flag;
 
     }
+    @Override
+    public void harvestBatch(Batch batch) {
+
+
+        try {
+            String sql = "update batch set harvested= 1  where id=" + batch.getId();
+            connection = DBConnectionUtil.openConnection();
+            preparedStmt = connection.prepareStatement(sql);
+            preparedStmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(BatchDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }
 
     @Override
     public boolean delete(int id) {

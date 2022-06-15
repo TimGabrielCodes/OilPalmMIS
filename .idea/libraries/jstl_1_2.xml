@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="jstl-1.2">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/Downloads/apache-tomcat-8.5.78/lib/jstl-1.2.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>

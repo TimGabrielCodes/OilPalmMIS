@@ -44,6 +44,26 @@
                     </div>
                 </div>
             </div><!-- row -->
+            <div class="row row-xs">
+                <div class="col">
+                    <div class="card card-body pd-10 pd-md-15 bd-0 shadow-none bg-primary-light">
+                        <h1 class="tx-light tx-sans tx-spacing--4 tx-primary mg-b-5">${millingProduct.palmOilCan}</h1>
+                        <p class="tx-13 tx-lg-14 tx-color-02 mg-b-0">Palm Oil (Cans)</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card card-body pd-10 pd-md-15 bd-0 shadow-none bg-teal-light">
+                        <h1 class="mg-b-5 tx-sans tx-spacing--2 tx-light tx-teal">${millingProduct.fibreOilCan}</h1>
+                        <p class="tx-13 tx-lg-14 tx-color-03 mg-b-0">Fibre Oil (Cans)</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card card-body pd-10 pd-md-15 bd-0 shadow-none bg-pink-light">
+                        <h1 class="mg-b-5 tx-sans tx-spacing--2 tx-light tx-pink">${millingProduct.palmOilDrum}</h1>
+                        <p class="tx-13 tx-lg-14 tx-color-03 mg-b-0">Palm Oil Drum</p>
+                    </div>
+                </div>
+            </div><!-- row -->
         </div><!-- stat-profile-body -->
     </div><!-- stat-profile -->
     <div class="row">

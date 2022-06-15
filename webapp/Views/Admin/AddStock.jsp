@@ -162,28 +162,6 @@
             </br>
         </div>
 
-        <h3>Milling Output</h3>
-
-        <div class="row">
-            <div class="col">
-                <label class="col-form-label col-form-label-lg" for="palm_oil_drum">Palm Oil  (Drum)</label>
-                <input id="palm_oil_drum" type="number" name="palm_oil_drum" value=""
-                       class="form-control"  min="0" step="1"><br>
-            </div>
-            <div class="col">
-                <label class="col-form-label col-form-label-lg" for="palm_oil_can">Palm Oil  (Can)</label>
-                <input id="palm_oil_can" type="number" name="palm_oil_can" value=""
-                       class="form-control"  min="0" step="1"><br>
-            </div>
-
-            <div class="col">
-                <label class="col-form-label col-form-label-lg" for="palm_oil_can">Fiber Oil (Can)</label>
-                <input id="fibre_oil_can" type="number" name="fibre_oil_can" value=""
-                       class="form-control"  min="0" step="1"><br>
-            </div>
-
-        </div>Strin
-
         <div class="form-group">
             <button class="btn btn-primary" type="submit"> Log Mill</button>
         </div>

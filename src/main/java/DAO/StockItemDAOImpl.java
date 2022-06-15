@@ -36,8 +36,9 @@ public class StockItemDAOImpl implements StockItemDAO {
                 stockItem.setId(resultSet.getInt("id"));
                 stockItem.setName(resultSet.getString("name"));
                 stockItem.setSellingPrice(resultSet.getDouble("sellingPrice"));
-                stockItem.setStorageUnit(ProductUnit.valueOf(resultSet.getString("storageUnit")));
+                stockItem.setStorageUnit(ProductUnit.valueOf(resultSet.getString("productUnit")));
                 stockItem.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
+                stockItem.setQuantity(resultSet.getInt("quantity"));
 
 
                 list.add(stockItem);
@@ -59,8 +60,8 @@ public class StockItemDAOImpl implements StockItemDAO {
         try {
 
 
-            String sql = "insert into stockItem(name, sellingPrice, storageUnit, logger) "
-                    + "values('" + stockItem.getName() + "', " + stockItem.getSellingPrice() + ",'" + stockItem.getStorageUnit() + "'," + stockItem.getLogger().getId() + ")";
+            String sql = "insert into stockItem(name, sellingPrice, storageUnit, logger, quantity) "
+                    + "values('" + stockItem.getName() + "', " + stockItem.getSellingPrice() + ",'" + stockItem.getProductUnit() + "'," + stockItem.getLogger().getId() + "," + stockItem.getQuantity() + ")";
             try {
                 connection = DBConnectionUtil.openConnection();
             } catch (ClassNotFoundException ex) {
@@ -93,6 +94,7 @@ public class StockItemDAOImpl implements StockItemDAO {
                 stockItem.setSellingPrice(resultSet.getDouble("sellingPrice"));
                 stockItem.setStorageUnit(ProductUnit.valueOf(resultSet.getString("storageUnit")));
                 stockItem.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
+                stockItem.setQuantity(resultSet.getInt("quantity"));
 
 
             }
@@ -123,6 +125,7 @@ public class StockItemDAOImpl implements StockItemDAO {
                 stockItem.setSellingPrice(resultSet.getDouble("sellingPrice"));
                 stockItem.setStorageUnit(ProductUnit.valueOf(resultSet.getString("storageUnit")));
                 stockItem.setLogger(new UserDAOImpl().get(resultSet.getInt("logger")));
+                stockItem.setQuantity(resultSet.getInt("quantity"));
 
 
             }
@@ -142,7 +145,7 @@ public class StockItemDAOImpl implements StockItemDAO {
         boolean flag = false;
 
         try {
-            String sql = "update stockItem set name='" + stockItem.getName() + "',sellingPrice=" + stockItem.getSellingPrice() + ",storageUnit='" + stockItem.getStorageUnit() + "',logger =" + stockItem.getLogger().getId() + " where id=" + stockItem.getId();
+            String sql = "update stockItem set name='" + stockItem.getName() + "',sellingPrice=" + stockItem.getSellingPrice() + ",storageUnit='" + stockItem.getProductUnit() + "',logger =" + stockItem.getLogger().getId() + " where id=" + stockItem.getId();
             connection = DBConnectionUtil.openConnection();
             preparedStmt = connection.prepareStatement(sql);
             preparedStmt.executeUpdate();

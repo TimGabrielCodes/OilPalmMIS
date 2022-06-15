@@ -1,10 +1,8 @@
 package Controller;
 
 import DAO.*;
-import Model.Harvest;
-import Model.Mill;
-import Model.MillingExpense;
-import Model.User;
+import Model.*;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -75,12 +73,18 @@ public class MillController extends HttpServlet {
         String storage = request.getParameter("storage");
         String adhocLabour = request.getParameter("adhocLabour");
         String firewood = request.getParameter("firewood");
-        String fruitPurchase = request.getParameter("fruitPurchase");
         String plantParts = request.getParameter("plantParts");
-        String honorarium = request.getParameter("honorarium");
+        Integer palmOilDrum = Integer.valueOf(request.getParameter("palm_oil_drum"));
+        Integer palmOilCan = Integer.valueOf(request.getParameter("palm_oil_can"));
+        Integer fibreOilCan = Integer.valueOf(request.getParameter("fibre_oil_can"));
 
 
         Mill mill = new Mill();
+        MillingProduct millingProduct = new MillingProduct();
+        millingProduct.setPalmOilCan(palmOilCan);
+        millingProduct.setPalmOilDrum(palmOilDrum);
+        millingProduct.setFibreOilCan(fibreOilCan);
+
         Harvest harvest = new HarvestDAOImpl().get(Integer.parseInt(harvestID));
 
         mill.setLogger(logger);
@@ -97,14 +101,9 @@ public class MillController extends HttpServlet {
         millingExpense.setHarvestStockCost(harvest.getHarvestStockCost());
         millingExpense.setAdhocLabour(Double.valueOf(adhocLabour));
         millingExpense.setFirewood(Double.valueOf(firewood));
-        millingExpense.setFruitPurchase(Double.valueOf(fruitPurchase));
+//        millingExpense.setFruitPurchase(Double.valueOf(fruitPurchase));
         millingExpense.setPlantParts(Double.valueOf(plantParts));
         millingExpense.setLogger(logger);
-        if(honorarium.isEmpty()){
-            millingExpense.setHonorarium(0.0);
-        }else{
-            millingExpense.setHonorarium(Double.valueOf(honorarium));
-        }
         mill.setMillingExpense(millingExpense);
 
 

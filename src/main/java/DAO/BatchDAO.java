@@ -14,6 +14,8 @@ public interface BatchDAO {
 
     boolean updateBatch(Batch batch);
 
+    void harvestBatch(Batch batch);
+
     boolean delete(int id);
 
     Batch get(String name);

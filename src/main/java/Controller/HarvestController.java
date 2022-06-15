@@ -23,11 +23,14 @@ import java.util.logging.Logger;
 public class HarvestController extends HttpServlet {
     private final UserDAO userDAO;
     HarvestDAO harvestDAO;
+
+    BatchDAO batchDAO;
     private RequestDispatcher dispatcher;
 
     public HarvestController() {
         harvestDAO = new HarvestDAOImpl();
         userDAO = new UserDAOImpl();
+        batchDAO = new BatchDAOImpl();
     }
 
     @Override
@@ -84,6 +87,7 @@ public class HarvestController extends HttpServlet {
 
         if (harvestId.isEmpty()) {
             if (harvestDAO.saveHarvest(harvest)) {
+                batchDAO.harvestBatch(batchObject);
 
                 request.setAttribute("message", "harvest saved Successfully");
             }

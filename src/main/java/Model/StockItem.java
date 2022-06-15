@@ -7,6 +7,32 @@ public class StockItem {
     private Double sellingPrice;
     private ProductUnit productUnit;
 
+    private Batch batch;
+
+    public void setProductUnit(ProductUnit productUnit) {
+        this.productUnit = productUnit;
+    }
+
+    public Batch getBatch() {
+        return batch;
+    }
+
+    public void setBatch(Batch batch) {
+        this.batch = batch;
+    }
+
+    private Integer quantity;
+
+
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
     private User logger;
 
     public StockItem() {
@@ -36,7 +62,7 @@ public class StockItem {
         this.sellingPrice = sellingPrice;
     }
 
-    public ProductUnit getStorageUnit() {
+    public ProductUnit getProductUnit() {
         return productUnit;
     }
 
@@ -51,6 +77,8 @@ public class StockItem {
                 ", name='" + name + '\'' +
                 ", sellingPrice=" + sellingPrice +
                 ", productUnit=" + productUnit +
+                ", batch=" + batch +
+                ", quantity=" + quantity +
                 ", logger=" + logger +
                 '}';
     }

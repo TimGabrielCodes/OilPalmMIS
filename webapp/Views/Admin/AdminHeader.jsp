@@ -118,6 +118,13 @@
                     <a href="${pageContext.request.contextPath}/sales?action=NEW" class="nav-sub-link">Make Sales</a>
                     <a href="#" class="nav-sub-link">Reports</a>
                 </nav>
+            </li>   <li class="nav-item">
+                <a href="" class="nav-link with-sub"><i data-feather="printer"></i> Stock</a>
+                <nav class="nav nav-sub">
+                    <a href="${pageContext.request.contextPath}/stocks" class="nav-sub-link">Stocks</a>
+                    <a href="${pageContext.request.contextPath}/stocks?action=NEW" class="nav-sub-link">Add Stock</a>
+                    <a href="#" class="nav-sub-link">Reports</a>
+                </nav>
             </li>
             <li class="nav-item">
                 <a href="" class="nav-link with-sub"><i data-feather="send"></i> Expenses</a>

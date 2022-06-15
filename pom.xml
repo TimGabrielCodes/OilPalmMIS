@@ -30,8 +30,18 @@
             <artifactId>tomcat-embed-core</artifactId>
             <version>8.5.58</version>
         </dependency>
-<!--        /usr/lib/jvm/java-1.11.0-openjdk-amd64-->
 
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.39</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
     </dependencies>
     <properties>
         <maven.compiler.source>18</maven.compiler.source>

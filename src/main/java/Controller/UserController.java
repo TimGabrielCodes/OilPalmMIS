@@ -1,9 +1,8 @@
 package Controller;
 
-import DAO.ChartsDAO;
-import DAO.ChartsDAOImpl;
-import DAO.UserDAO;
-import DAO.UserDAOImpl;
+import DAO.*;
+import Model.MillingProduct;
+import Model.StockItem;
 import Model.User;
 import Util.DashboardUtil;
 import javax.servlet.RequestDispatcher;
@@ -29,9 +28,13 @@ public class UserController extends HttpServlet {
     RequestDispatcher dispatcher = null;
     private ChartsDAO chartsDAO;
 
+    private MillingProductDAO millingProductDAO;
+
     public UserController() {
         userDAO = new UserDAOImpl();
         chartsDAO = new ChartsDAOImpl();
+        millingProductDAO = new MillingProductDAOImpl() {
+        };
     }
 
     @Override
@@ -109,12 +112,16 @@ public class UserController extends HttpServlet {
             String incomeDatePlot = chartsDAO.getIncomeDatePlot();
             String expenseCategoryPlot = chartsDAO.getExpenseCategoryCost();
             String harvestAndStockPlot = chartsDAO.getHarvestandStockPlot();
+            MillingProduct millingProduct = millingProductDAO.get();
+            System.out.println("Milling Product = " + millingProduct.toString());
             request.setAttribute("list", list);
             request.setAttribute("util", util);
            request.setAttribute("incomeCostPlot", incomeCostPlot);
            request.setAttribute("incomeDatePlot", incomeDatePlot);
            request.setAttribute("expenseCategoryPlot", expenseCategoryPlot);
            request.setAttribute("harvestAndStock", harvestAndStockPlot);
+           request.setAttribute("millingProduct", millingProduct);
+
             request.setAttribute("title", "Admin Dashboard");
             dispatcher = request.getRequestDispatcher("/Views/Admin/dashboard.jsp");
             dispatcher.forward(request, response);
